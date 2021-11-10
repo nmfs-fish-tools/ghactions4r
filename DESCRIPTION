@@ -1,0 +1,20 @@
+Package: workflows
+Title: Use Workflows Related to Stock Synthesis
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Kathryn",
+           family = "Doering",
+           role = c("aut", "cre"),
+           email = "kathryn.doering@noaa.gov",
+           comment = c(ORCID = "0000-0002-0396-7044"))
+    person(given = "Kelli",
+           family = "Johnson",
+           role = "aut",
+           email = "kelli.johnson@noaa.gov")
+Description: workflows provides functions to allow users to set up workflows
+  related to stock synthesis easily
+License: `use_cc0_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
