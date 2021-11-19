@@ -13,6 +13,7 @@ First, install the workflows R package:
 install.packages("remotes")
 remotes::install_github(nmfs-stock-synthesis/workflows)
 ```
+`use_*()` functions in the `workflows` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
 Open the R package to include the workflow in and run the function of choice:
 
