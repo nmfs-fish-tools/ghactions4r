@@ -14,6 +14,8 @@ Authors@R:
 Description: workflows provides functions to allow users to set up workflows
   related to stock synthesis easily
 License: `use_cc0_license()`
+Imports:
+  usethis
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
