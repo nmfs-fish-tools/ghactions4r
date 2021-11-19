@@ -1,5 +1,7 @@
 # workflows
 
+[![call-r-cmd-check](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml)
+
 ## What is in workflows?
 
 This repo contains a [collection of reusable workflows](https://github.com/nmfs-stock-synthesis/workflows/tree/main/.github/workflows) found helpful for the SS3 project in addition to helper function in an R package to allow users to more easiliy set them up for their repo.
@@ -38,7 +40,7 @@ workflows::use_style_r_code()
 workflows::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```
 
--To automatically update package down that has already been set up:
+- To automatically update package down that has already been set up:
 ```r
 workflows::use_pkgdown()
 ```
