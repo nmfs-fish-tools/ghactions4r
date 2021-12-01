@@ -1,0 +1,8 @@
+# Run r cmd check
+on: [push, pull_request]
+
+name: call-calc_coverage
+
+jobs:
+  call-workflow:
+  uses: nmfs-stock-synthesis/workflows/.github/workflows/calc-coverage.yml@main
