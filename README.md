@@ -37,7 +37,7 @@ workflows::use_style_r_code()
 ```
 
 - To update documentation and code styling (with the option of running `r4ss:::rm_dollar_sign()`)
-```
+```r
 workflows::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```
 
@@ -45,6 +45,8 @@ workflows::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```r
 workflows::use_pkgdown()
 ```
+
+The templates these functions generate can also be [viewed](https://github.com/nmfs-stock-synthesis/workflows/tree/main/inst/templates) for reference.
 
 ## Disclaimer
 
