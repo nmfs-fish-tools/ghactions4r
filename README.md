@@ -15,7 +15,7 @@ remotes::install_github(nmfs-stock-synthesis/workflows)
 ```
 `use_*()` functions in the `workflows` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
-Open the R package to include the workflow in and run the function of choice:
+Open the cloned repository of the R package to include the workflow in and run the function of choice:
 
 - To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):
 ```r
@@ -46,7 +46,13 @@ workflows::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 workflows::use_pkgdown()
 ```
 
+Commit an push the files up to github, making the github actions available on the repository of the R package.
+
 The templates these functions generate can also be [viewed](https://github.com/nmfs-stock-synthesis/workflows/tree/main/inst/templates) for reference.
+
+## The Github action I added to my repository failed. What should I do?
+
+Please submit an [issue](https://github.com/nmfs-stock-synthesis/workflows/issues) or email nmfs.stock.synthesis@noaa.gov. Bugs are always possible, as this repository is still new and experimental.
 
 ## Disclaimer
 
