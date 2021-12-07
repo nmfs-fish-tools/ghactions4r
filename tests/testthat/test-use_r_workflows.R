@@ -5,6 +5,7 @@ old_wd <- getwd()
 setwd(temp_path)
 on.exit(setwd(old_wd), add = TRUE)
 on.exit(unlink(temp_path, recursive = TRUE), add = TRUE)
+on.exit(usethis::proj_set(), add = TRUE)
 pkg <- usethis::create_package(".")
 usethis::proj_set(".")
 
