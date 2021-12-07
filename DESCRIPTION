@@ -1,6 +1,6 @@
 Package: workflows
 Title: Use Github Action Workflows for R Packages
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     c(person(given = "Kathryn",
            family = "Doering",
