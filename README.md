@@ -1,6 +1,6 @@
 # workflows
 
-[![call-r-cmd-check](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml)
+[![call-r-cmd-check](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml) ![Lifecycle badge indicating this repository is experimental](man/figures/lifecycle-experimental.svg)
 
 ## What is in workflows?
 

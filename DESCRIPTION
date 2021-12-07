@@ -15,7 +15,8 @@ Description: workflows provides functions to allow users to set up workflows
   related to R packages.
 License: CC0
 Imports:
-  usethis
+    lifecycle,
+    usethis
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
