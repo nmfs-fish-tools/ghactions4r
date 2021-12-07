@@ -9,4 +9,4 @@ name: call-r-cmd-check
 
 jobs:
   call-workflow:
-  uses: nmfs-stock-synthesis/workflows/.github/workflows/r-cmd-check.yml@main
+    uses: nmfs-stock-synthesis/workflows/.github/workflows/r-cmd-check.yml@main
