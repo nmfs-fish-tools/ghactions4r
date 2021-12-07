@@ -48,7 +48,7 @@ use_pkgdown <- function() {
 #' @export
 use_update_roxgyen_docs <- function() {
   usethis::use_github_action("call-update-docs.yml",
-    url = "hhttps://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-update-docs.yml",
+    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-update-docs.yml",
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
