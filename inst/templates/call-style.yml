@@ -9,4 +9,4 @@ on:
     branches: [main, master]
 jobs:
   call-workflow:
-    uses: nmfs-stock-synthesis/workflows/.github/workflows/style-r-code.yml@main
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/style-r-code.yml@main

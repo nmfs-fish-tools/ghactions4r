@@ -1,17 +1,17 @@
 # workflows
 
-[![call-r-cmd-check](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-stock-synthesis/workflows/actions/workflows/call-r-cmd-check.yml) ![Lifecycle badge indicating this repository is experimental](man/figures/lifecycle-experimental.svg)
+[![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml) ![Lifecycle badge indicating this repository is experimental](man/figures/lifecycle-experimental.svg)
 
 ## What is in workflows?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-stock-synthesis/workflows/tree/main/.github/workflows) found helpful for the SS3 project in addition to helper function in an R package to allow users to more easiliy set them up for their repo.
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for the SS3 project in addition to helper function in an R package to allow users to more easiliy set them up for their repo.
 
 ## How do I use these workflows in my R package?
 
 First, install the workflows R package:
 ```r
 install.packages("remotes")
-remotes::install_github(nmfs-stock-synthesis/workflows)
+remotes::install_github(nmfs-fish-tools/ghactions4r)
 ```
 `use_*()` functions in the `workflows` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
@@ -48,7 +48,7 @@ workflows::use_pkgdown()
 
 Commit an push the files up to github, making the github actions available on the repository of the R package.
 
-The templates these functions generate can also be [viewed](https://github.com/nmfs-stock-synthesis/workflows/tree/main/inst/templates) for reference.
+The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.
 
 ## The Github action I added to my repository failed. What should I do?
 

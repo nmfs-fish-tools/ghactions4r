@@ -1,4 +1,4 @@
-Package: workflows
+Package: ghactions4r
 Title: Use Github Action Workflows for R Packages
 Version: 0.0.1
 Authors@R: 

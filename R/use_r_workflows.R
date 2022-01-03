@@ -2,7 +2,7 @@
 #' @export
 use_r_cmd_check <- function() {
   usethis::use_github_action("call-r-cmd-check.yml",
-    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-r-cmd-check.yml",
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check.yml",
   )
 }
 
@@ -10,7 +10,7 @@ use_r_cmd_check <- function() {
 #' @export
 use_calc_coverage <- function() {
   usethis::use_github_action("call-calc-coverage.yml",
-    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-calc-coverage.yml",
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-coverage.yml",
   )
 }
 
@@ -21,11 +21,11 @@ use_calc_coverage <- function() {
 use_doc_and_style_r <- function(use_rm_dollar_sign = FALSE) {
   if (use_rm_dollar_sign == FALSE) {
     usethis::use_github_action("call-doc-and-style-r.yml",
-      url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-doc-and-style-r.yml",
+      url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-doc-and-style-r.yml",
     )
   } else {
     usethis::use_github_action("call-doc-and-style-r-rm-dol.yml",
-      url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-doc-and-style-r-rm-dol.yml",
+      url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-doc-and-style-r-rm-dol.yml",
     )
   }
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
@@ -40,7 +40,7 @@ use_doc_and_style_r <- function(use_rm_dollar_sign = FALSE) {
 #' @export
 use_pkgdown <- function() {
   usethis::use_github_action("call-update-pkgdown.yml",
-    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-update-pkgdown.yml",
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-pkgdown.yml",
   )
 }
 
@@ -48,7 +48,7 @@ use_pkgdown <- function() {
 #' @export
 use_update_roxgyen_docs <- function() {
   usethis::use_github_action("call-update-docs.yml",
-    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-update-docs.yml",
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-docs.yml",
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
@@ -57,7 +57,7 @@ use_update_roxgyen_docs <- function() {
 #' @export
 use_style_r_code <- function() {
   usethis::use_github_action("call-style.yml",
-    url = "https://raw.githubusercontent.com/nmfs-stock-synthesis/workflows/main/inst/templates/call-style.yml",
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-style.yml",
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
