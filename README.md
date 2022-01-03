@@ -1,49 +1,49 @@
-# workflows
+# ghactions4r
 
 [![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml) ![Lifecycle badge indicating this repository is experimental](man/figures/lifecycle-experimental.svg)
 
-## What is in workflows?
+## What is in ghactions4r?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for the SS3 project in addition to helper function in an R package to allow users to more easiliy set them up for their repo.
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages in addition to helper functions in an R package to allow users to more easily set up the workflows for their repo.
 
 ## How do I use these workflows in my R package?
 
-First, install the workflows R package:
+First, install the ghactions4r R package:
 ```r
 install.packages("remotes")
 remotes::install_github(nmfs-fish-tools/ghactions4r)
 ```
-`use_*()` functions in the `workflows` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
+`use_*()` functions in the `ghactions4r` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
 Open the cloned repository of the R package to include the workflow in and run the function of choice:
 
 - To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):
 ```r
-workflows::use_r_cmd_check()
+ghactions4r::use_r_cmd_check()
 ```
 - To calculate code coverage using `covr::codecov()` :
 ```r
-workflows::use_calc_coverage()
+ghactions4r::use_calc_coverage()
 ```
 
 - To update documentation using `devtools::document()`:
 ```r
-workflows::user_update_roxygen_docs()
+ghactions4r::user_update_roxygen_docs()
 ```
 
 - To update code styling using `styler::style_pkg()`:
 ```r
-workflows::use_style_r_code()
+ghactions4r::use_style_r_code()
 ```
 
 - To update documentation and code styling (with the option of running `r4ss:::rm_dollar_sign()`)
 ```r
-workflows::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
+ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```
 
 - To automatically update package down that has already been set up:
 ```r
-workflows::use_pkgdown()
+ghactions4r::use_pkgdown()
 ```
 
 Commit an push the files up to github, making the github actions available on the repository of the R package.
@@ -52,7 +52,7 @@ The templates these functions generate can also be [viewed](https://github.com/n
 
 ## The Github action I added to my repository failed. What should I do?
 
-Please submit an [issue](https://github.com/nmfs-stock-synthesis/workflows/issues) or email nmfs.stock.synthesis@noaa.gov. Bugs are always possible, as this repository is still new and experimental.
+Please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email fisheries.toolbox@noaa.gov. Bugs are always possible, as this repository is still new and experimental.
 
 ## Disclaimer
 

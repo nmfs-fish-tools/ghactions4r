@@ -1,4 +1,4 @@
 library(testthat)
-library(workflows)
+library(ghactions4r)
 
-test_check("workflows")
+test_check("ghactions4r")
