@@ -1,6 +1,7 @@
 # ghactions4r
 
-[![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml) ![Lifecycle badge indicating this repository is experimental](man/figures/lifecycle-experimental.svg)
+[![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml)
+[![Lifecycle badge indicating this repository is experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## What is in ghactions4r?
 
