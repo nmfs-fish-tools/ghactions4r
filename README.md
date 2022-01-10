@@ -11,7 +11,7 @@ This repo contains a [collection of reusable workflows](https://github.com/nmfs-
 First, install the ghactions4r R package:
 ```r
 install.packages("remotes")
-remotes::install_github(nmfs-fish-tools/ghactions4r)
+remotes::install_github("nmfs-fish-tools/ghactions4r")
 ```
 `use_*()` functions in the `ghactions4r` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
@@ -28,7 +28,7 @@ ghactions4r::use_calc_coverage()
 
 - To update documentation using `devtools::document()`:
 ```r
-ghactions4r::user_update_roxygen_docs()
+ghactions4r::use_update_roxygen_docs()
 ```
 
 - To update code styling using `styler::style_pkg()`:
