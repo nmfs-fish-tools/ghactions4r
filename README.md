@@ -28,7 +28,7 @@ ghactions4r::use_calc_coverage()
 
 - To update documentation using `devtools::document()`:
 ```r
-ghactions4r::user_update_roxygen_docs()
+ghactions4r::use_update_roxygen_docs()
 ```
 
 - To update code styling using `styler::style_pkg()`:
