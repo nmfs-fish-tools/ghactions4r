@@ -4,13 +4,6 @@
 
 on:
   workflow_call:
-    inputs:  #note: these inputs were added for the r4ss tests. They should be set as true for that workflow, otherwise not set or set as false.
-      copy-ss-test-models:
-        required: false
-        type: boolean
-      copy-ss3-bins:
-        required: false
-        type: boolean
 
 name: R-CMD-check
 
@@ -42,36 +35,6 @@ jobs:
           r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-pandoc@master
-
-      - name: Get repository of SS models on Linux
-        if: inputs.copy-ss-test-models == true && runner.os == 'Linux'
-        uses: actions/checkout@v2
-        with:
-          repository: 'nmfs-stock-synthesis/ss-test-models'
-          path: ss-test-models-repo
-
-      - name: move the models to the desired location
-        if: inputs.copy-ss-test-models == true && runner.os == 'Linux'
-        run: |
-          mv ss-test-models-repo/models inst/extdata
-          rm  -rf ss-test-models-repo
-          ls inst/extdata
-
-      - name: Get the 3.30.17 SS3 executable and move to expected location if using linux
-        if: inputs.copy-ss3-bins == true && runner.os == 'Linux'
-        run: |
-          wget -O ss https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/download/v3.30.17/ss_linux
-          sudo chmod a+x ss
-          cp ss inst/extdata/simple_3.30.12/ss
-          cp ss inst/extdata/simple_3.30.13/ss
-          rm ss
-
-      - name: Get a 3.24 SS executable if using linux
-        if: inputs.copy-ss3-bins == true &&runner.os == 'Linux'
-        run: |
-          wget -O ss https://vlab.noaa.gov/documents/259399/2000201/ss_3.24Z/037e3921-1f00-611a-1c30-d7a5c1063835?version=1.1&t=1608655599519&download=true
-          sudo chmod a+x ss
-          mv ss inst/extdata/simple_3.24/ss
 
       - name: Query dependencies
         run: |
