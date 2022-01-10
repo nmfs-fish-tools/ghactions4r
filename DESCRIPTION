@@ -10,7 +10,10 @@ Authors@R:
     person(given = "Kelli",
            family = "Johnson",
            role = "aut",
-           email = "kelli.johnson@noaa.gov"))
+           email = "kelli.johnson@noaa.gov"), 
+    person(given = "Bai", 
+           family = "Li", 
+           role = "aut"))
 Description: ghactions4r provides functions to allow users to set up workflows 
   related to R packages.
 License: CC0
