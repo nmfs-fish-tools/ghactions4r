@@ -46,7 +46,7 @@ use_pkgdown <- function() {
 
 #' use workflow in curent pkg to run devtools::document() and submit results as a PR
 #' @export
-use_update_roxgyen_docs <- function() {
+use_update_roxygen_docs <- function() {
   usethis::use_github_action("call-update-docs.yml",
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-docs.yml",
   )
