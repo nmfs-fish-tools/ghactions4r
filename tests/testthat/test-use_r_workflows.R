@@ -30,7 +30,7 @@ test_that("use_pkgdown()) works", {
   expect_true(file.exists(".github/workflows/call-update-pkgdown.yml"))
 })
 
-test_that("use_update_roxgyen_docs() works", {
+test_that("use_update_roxygen_docs() works", {
   use_update_roxgyen_docs()
   expect_true(file.exists(".github/workflows/call-update-docs.yml"))
 })
