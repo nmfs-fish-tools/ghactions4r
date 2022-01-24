@@ -4,11 +4,43 @@
 
 on:
   workflow_call:
+    inputs:
+      use_full_build_matrix:
+        required: false
+        type: boolean
 
 name: R-CMD-check
-
 jobs:
+  matrix_prep:
+  # Determine the build matrix (OS and versions of R)
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: 'nmfs-fish-tools/ghactions4r'
+        ref: 'r-cmd-check'
+    - name: check path
+      run: |
+        ls -r
+        pwd
+    - id: set-matrix
+      run: |
+        if ${{ inputs.use_full_build_matrix }} == 'true';
+        then
+          JSON=$(cat ./github/matrix_includes_full.json)
+        else
+          JSON=$(cat ./github/matrix_includes_standard.json)
+        fi
+        # the following lines are only required for multi line json
+        JSON="${JSON//'%'/'%25'}"
+        JSON="${JSON//$'\n'/'%0A'}"
+        JSON="${JSON//$'\r'/'%0D'}"
+        echo "::set-output name=matrix::$JSON"
+
   R-CMD-check:
+    needs: matrix_prep
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
@@ -16,13 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        config:
-          - {os: windows-latest, r: 'release'}
-          - {os: macOS-latest, r: 'release'}
-          - {os: ubuntu-latest, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: windows-latest, r: 'oldrel-1'}
-          - {os: windows-latest, r: 'oldrel-2'}
-
+        config: ${{ fromJson(needs.matrix_prep.outputs.matrix) }}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
