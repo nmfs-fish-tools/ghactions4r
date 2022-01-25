@@ -3,7 +3,7 @@
 #'   addition to the three runs that use the release version.
 #' @export
 use_r_cmd_check <- function(use_full_build_matrix = FALSE) {
-  if(use_full_build_matrix) {
+  if (use_full_build_matrix) {
     usethis::use_github_action("call-r-cmd-check.yml",
       url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml",
     )

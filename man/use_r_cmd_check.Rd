@@ -4,7 +4,11 @@
 \alias{use_r_cmd_check}
 \title{Use workflow to run r cmd check on linux, mac, and windows gh actions}
 \usage{
-use_r_cmd_check()
+use_r_cmd_check(use_full_build_matrix = FALSE)
+}
+\arguments{
+\item{use_full_build_matrix}{Run r cmd check with two older versions of r in
+addition to the three runs that use the release version.}
 }
 \description{
 Use workflow to run r cmd check on linux, mac, and windows gh actions
