@@ -24,7 +24,9 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: roxygen2
+          extra-packages: |
+            roxygen2
+            pkgbuild
 
       - name: get last commit msg
         id: commit-msg
