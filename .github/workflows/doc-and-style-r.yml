@@ -37,6 +37,7 @@ jobs:
             styler
             roxygen2
             remotes
+            pkgbuild
 
       - name: add r4ss, if using r4ss::rm_dollar_sign
         if: inputs.run-rm_dollar_sign == true && inputs.pkg-is-r4ss != true
