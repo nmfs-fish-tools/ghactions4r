@@ -73,8 +73,8 @@ use_style_r_code <- function() {
 #' use workflow in ghactions4r to render bookdown.
 #' Assumes the site built is on the gh-pages branch.
 #' @export
-use_update_bookdown <- function(bookdown-input = ".",
-                                bookdown-output_dir = NULL, 
+use_update_bookdown <- function(bookdown_input = ".",
+                                bookdown_output_dir = as.character(NULL), 
                                 deployment_dir = "docs") {
   usethis::use_github_action("call-update-bookdown.yml",
   url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-bookdown.yml",
