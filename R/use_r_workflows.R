@@ -70,9 +70,12 @@ use_style_r_code <- function() {
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
 
-#' use workflow in ghactions4r to
+#' use workflow in ghactions4r to render bookdown.
+#' Assumes the site built is on the gh-pages branch.
 #' @export
-use_update_bookdown <- function() {
+use_update_bookdown <- function(bookdown-input = ".",
+                                bookdown-output_dir = NULL, 
+                                deployment_dir = "docs") {
   usethis::use_github_action("call-update-bookdown.yml",
   url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-bookdown.yml",
   )
