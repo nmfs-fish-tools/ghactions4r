@@ -1,0 +1,12 @@
+
+on:
+# on specifies the build triggers. See more info at 
+#https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+  push:
+  # The default build trigger is to run the action on every push to branches
+  # main or master
+    branches: [main, master]
+name: call-update-bookdown
+jobs:
+  call-workflow:
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-bookdown.yml@main

@@ -69,3 +69,11 @@ use_style_r_code <- function() {
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
+
+#' use workflow in ghactions4r to
+#' @export
+use_update_bookdown <- function() {
+  usethis::use_github_action("call-update-bookdown.yml",
+  url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-bookdown.yml",
+  )
+}
