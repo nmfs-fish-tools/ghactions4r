@@ -8,6 +8,10 @@ on:
       use_full_build_matrix:
         required: false
         type: boolean
+      cache_pkgs:
+        required: false
+        default: true
+        type: boolean
 
 name: R-CMD-check
 jobs:
@@ -71,7 +75,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        if: runner.os != 'Windows'
+        if: runner.os != 'Windows' && steps.cache_pkgs == true
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
