@@ -5,7 +5,7 @@
 #' signs to double brackets with names in quotations instead. Note that this
 #' function will incorrectly convert text enclosed in backticks that includes a dollar sign.
 #' Note also that if a dollar sign is within a text
-#' string enclosed with quotation marks, it will also not  convert correctly and 
+#' string enclosed with quotation marks, it will also not  convert correctly and
 #' so will exit on error.
 #' (for example, "See test$name" would become
 #' "See test\[\["name"\]\]", which is not parsable R code due to 2 sets of quotation
@@ -58,9 +58,11 @@ rm_dollar_sign <- function(file,
     )
   if (length(difficult_lines) > 0) {
     difficult_txt <- lines[difficult_lines]
-      stop("The following lines may not have convert correctly because of ", 
+    stop(
+      "The following lines may not have convert correctly because of ",
       "names in back ticks containing dollar signs.\n",
-      paste0(paste0("Line ", difficult_lines, " ", difficult_txt), collapse = "\n"))
+      paste0(paste0("Line ", difficult_lines, " ", difficult_txt), collapse = "\n")
+    )
   }
   # get rid of names in back ticks first:
   mod_lines <- gsub(
