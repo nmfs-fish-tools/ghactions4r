@@ -5,11 +5,11 @@
 #' signs to double brackets with names in quotations instead. Note that this
 #' function will incorrectly convert text enclosed in backticks that includes a dollar sign.
 #' Note also that if a dollar sign is within a text
-#' string enclosed with quotation marks, it will also not  convert correctly
+#' string enclosed with quotation marks, it will also not  convert correctly and 
+#' so will exit on error.
 #' (for example, "See test$name" would become
 #' "See test\[\["name"\]\]", which is not parsable R code due to 2 sets of quotation
-#' marks.) Luckily, this last issue is easily discoverable by attempting to load or source
-#' the function because an error will be produced.
+#' marks.)
 #' @template file
 #' @param out_file The name or path of a new file to write to. This is by
 #'  default the same as the original file. Set to NULL to avoid writing a new
@@ -23,6 +23,7 @@
 #'  prevent an infinite loop in case the function does not work properly.
 #' @return A character vector of the modified text. As a side effect, produces
 #'  a text file (name specified in out_file) written out from R using writeLines().
+#' @export
 #' @author Kathryn Doering
 #' @examples
 #' test_text <- c(
@@ -34,12 +35,10 @@
 #'   "x$`$$weirdcharacters`<-222",
 #'   "x$`nameinbacktick`",
 #'   "x$mylist$my_col$YetAnotherCol",
-#'   "x$mylist$my_col$`1_somename`",
-#'   "x$`bad$name` <- 55",
-#'   "x$`other_$badname`"
+#'   "x$mylist$my_col$`1_somename`"
 #' )
 #' writeLines(test_text, "test_rm_dollar_sign.txt")
-#' new_text <- r4ss:::rm_dollar_sign(
+#' new_text <- rm_dollar_sign(
 #'   file = "test_rm_dollar_sign.txt",
 #'   out_file = NULL
 #' )
@@ -59,11 +58,9 @@ rm_dollar_sign <- function(file,
     )
   if (length(difficult_lines) > 0) {
     difficult_txt <- lines[difficult_lines]
-    warning(
-      "The following lines may not have convert correctly because of names",
-      " in back ticks containing dollar signs.\n",
-      paste0(paste0("Line ", difficult_lines, " ", difficult_txt), collapse = "\n")
-    )
+      stop("The following lines may not have convert correctly because of ", 
+      "names in back ticks containing dollar signs.\n",
+      paste0(paste0("Line ", difficult_lines, " ", difficult_txt), collapse = "\n"))
   }
   # get rid of names in back ticks first:
   mod_lines <- gsub(
@@ -101,7 +98,7 @@ rm_dollar_sign <- function(file,
   } else {
     if (length(grep(pattern_no_backtick, x = mod_lines)) > 0) {
       warning(
-        "There are lists in lists, but allow_recursive = FALE, so not all",
+        "There are lists in lists, but allow_recursive = FALSE, so not all",
         "dollar sign operators were converted."
       )
     }
