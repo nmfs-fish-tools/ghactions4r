@@ -10,7 +10,7 @@
 #' (for example, "See test$name" would become
 #' "See test\[\["name"\]\]", which is not parsable R code due to 2 sets of quotation
 #' marks.)
-#' @template file
+#' @param file Filename either with full path or relative to working directory.
 #' @param out_file The name or path of a new file to write to. This is by
 #'  default the same as the original file. Set to NULL to avoid writing a new
 #'  file.
