@@ -3,6 +3,10 @@
 # styling, the changes are commited and a pull request to the branch the Workflow
 # was started on is opened - this PR contains the commit.
 
+# Optionally, the function ghactions4r::rm_dollar_sign() can be run to convert all $ references to [[]].
+# The advantage of this is it get rids of partial matching with $. For more details, see ?ghactinos4r::rm_dollar_sign()
+# in the R console
+
 # note may want to add a .gitignore file to .github/workflows in the repository that
 # excludes *.rds files
 
@@ -14,9 +18,7 @@ on:
      run-rm_dollar_sign:
        required: false
        type: boolean
-     pkg-is-r4ss:
-       required: false
-       type: boolean
+       default: false
 
 name: style r code with styler
 
@@ -39,13 +41,9 @@ jobs:
             remotes
             pkgbuild
 
-      - name: add r4ss, if using r4ss::rm_dollar_sign
-        if: inputs.run-rm_dollar_sign == true && inputs.pkg-is-r4ss != true
-        run: Rscript -e 'remotes::install_github("r4ss/r4ss", upgrade = "always")'
-
-      - name: add r4ss, if using r4ss::rm_dollar_sign and pkg is r4ss
-        if: inputs.run-rm_dollar_sign == true && inputs.pkg-is-r4ss == true
-        run: Rscript -e 'remotes::install_local(".", upgrade = "always")'
+      - name: add ghactions4r, if using ghactions4r::rm_dollar_sign
+        if: inputs.run-rm_dollar_sign == true 
+        run: Rscript -e 'remotes::install_github("nmfs-fish-tools/ghactions4r", upgrade = "always")'
 
       - name: get last commit msg
         id: commit-msg
@@ -68,7 +66,7 @@ jobs:
           if(isTRUE(length(to_rm)>0)) {
             files_to_change <- files_to_change[-to_rm]
           }
-          out <- lapply(files_to_change, function(x) r4ss:::rm_dollar_sign(x))
+          out <- lapply(files_to_change, function(x) ghactions4r::rm_dollar_sign(x))
         shell: Rscript {0}
 
       - name: Style again, just in case
