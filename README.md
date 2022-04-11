@@ -1,9 +1,9 @@
 # ghactions4r
 
-<img src="man/figures/ghactions4r_hex.png" width="15%" height="15%" alt="arrows circling clapboard, symbol for the gh4actions package"> [![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml)
+[![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml)
 [![Lifecycle badge indicating this repository is experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html) 
 
-
+<img src="man/figures/ghactions4r_hex.png" width="15%" height="15%" alt="arrows circling clapboard, symbol for the gh4actions package">
 
 ## What is in ghactions4r?
 
