@@ -7,7 +7,7 @@
 
 ## What is in ghactions4r?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages in addition to helper functions in an R package to allow users to more easily set up the workflows for their repo.
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package Github repository.
 
 ## How do I use these workflows in my R package?
 
@@ -18,7 +18,7 @@ remotes::install_github("nmfs-fish-tools/ghactions4r")
 ```
 `use_*()` functions in the `ghactions4r` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
-Open the cloned repository of the R package to include the workflow in and run the function of choice:
+Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.
 
 - To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):
 ```r
@@ -28,34 +28,35 @@ ghactions4r::use_r_cmd_check()
 ```r
 ghactions4r::use_calc_coverage()
 ```
+(a codecov.io account is also necessary to view the coverage results)
 
 - To update documentation using `devtools::document()`:
 ```r
 ghactions4r::use_update_roxygen_docs()
 ```
 
-- To update code styling using `styler::style_pkg()`:
+- To update R code styling using `styler::style_pkg()`:
 ```r
 ghactions4r::use_style_r_code()
 ```
 
-- To update documentation and code styling (with the option of running `r4ss:::rm_dollar_sign()`)
+- To update documentation and code styling (with the option of running `ghactions4r::rm_dollar_sign()`):
 ```r
 ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```
 
-- To automatically update package down that has already been set up:
+- To automatically update pkgdown that has already been set up:
 ```r
 ghactions4r::use_pkgdown()
 ```
 
-Commit an push the files up to github, making the github actions available on the repository of the R package.
+Commit and push the files generated up to github, making the github actions available for the repository of the R package.
 
 The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.
 
 ## The Github action I added to my repository failed. What should I do?
 
-Please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email fisheries.toolbox@noaa.gov. Bugs are always possible, as this repository is still new and experimental.
+Please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!
 
 ## Disclaimer
 
