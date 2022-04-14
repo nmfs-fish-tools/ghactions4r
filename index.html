@@ -90,7 +90,7 @@
 <div class="section level2">
 <h2 id="what-is-in-ghactions4r">What is in ghactions4r?<a class="anchor" aria-label="anchor" href="#what-is-in-ghactions4r"></a>
 </h2>
-<p>This repo contains a <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows" class="external-link">collection of reusable workflows</a> found helpful for R packages in addition to helper functions in an R package to allow users to more easily set up the workflows for their repo.</p>
+<p>This repo contains a <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows" class="external-link">collection of reusable workflows</a> found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package Github repository.</p>
 </div>
 <div class="section level2">
 <h2 id="how-do-i-use-these-workflows-in-my-r-package">How do I use these workflows in my R package?<a class="anchor" aria-label="anchor" href="#how-do-i-use-these-workflows-in-my-r-package"></a>
@@ -100,7 +100,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"nmfs-fish-tools/ghactions4r"</span><span class="op">)</span></code></pre></div>
 <p><code>use_*()</code> functions in the <code>ghactions4r</code> package work like <a href="https://github.com/r-lib/usethis#usage" class="external-link"><code>use_*()</code> functions in the <code>usethis</code> package</a>.</p>
-<p>Open the cloned repository of the R package to include the workflow in and run the function of choice:</p>
+<p>Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.</p>
 <ul>
 <li>To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):</li>
 </ul>
@@ -111,33 +111,34 @@
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>(a codecov.io account is also necessary to view the coverage results)</p>
 <ul>
 <li>To update documentation using <code>devtools::document()</code>:</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_roxygen_docs.html">use_update_roxygen_docs</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>To update code styling using <code><a href="https://styler.r-lib.org/reference/style_pkg.html" class="external-link">styler::style_pkg()</a></code>:</li>
+<li>To update R code styling using <code><a href="https://styler.r-lib.org/reference/style_pkg.html" class="external-link">styler::style_pkg()</a></code>:</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_r_code.html">use_style_r_code</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>To update documentation and code styling (with the option of running <code>r4ss:::rm_dollar_sign()</code>)</li>
+<li>To update documentation and code styling (with the option of running <code><a href="reference/rm_dollar_sign.html">ghactions4r::rm_dollar_sign()</a></code>):</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_doc_and_style_r.html">use_doc_and_style_r</a></span><span class="op">(</span>use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>To automatically update package down that has already been set up:</li>
+<li>To automatically update pkgdown that has already been set up:</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_pkgdown.html">use_pkgdown</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>Commit an push the files up to github, making the github actions available on the repository of the R package.</p>
+<p>Commit and push the files generated up to github, making the github actions available for the repository of the R package.</p>
 <p>The templates these functions generate can also be <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates" class="external-link">viewed</a> for reference.</p>
 </div>
 <div class="section level2">
 <h2 id="the-github-action-i-added-to-my-repository-failed-what-should-i-do">The Github action I added to my repository failed. What should I do?<a class="anchor" aria-label="anchor" href="#the-github-action-i-added-to-my-repository-failed-what-should-i-do"></a>
 </h2>
-<p>Please submit an <a href="https://github.com/nmfs-fish-tools/ghactions4r/issues" class="external-link">issue</a> or email <a href="mailto:fisheries.toolbox@noaa.gov" class="email">fisheries.toolbox@noaa.gov</a>. Bugs are always possible, as this repository is still new and experimental.</p>
+<p>Please submit an <a href="https://github.com/nmfs-fish-tools/ghactions4r/issues" class="external-link">issue</a> or email <a href="mailto:kathryn.doering@noaa.gov" class="email">kathryn.doering@noaa.gov</a>. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!</p>
 </div>
 <div class="section level2">
 <h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
