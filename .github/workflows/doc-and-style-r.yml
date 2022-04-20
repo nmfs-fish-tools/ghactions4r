@@ -5,8 +5,6 @@
 # pushed directly to branch that the workflow was started on. Note that the job will fail if force pushing
 # is required.
 
-# If
-
 # Optionally, the function ghactions4r::rm_dollar_sign() can be run to convert all $ references to [[]].
 # The advantage of this is it get rids of partial matching with $. For more details, see ?ghactinos4r::rm_dollar_sign()
 # in the R console
