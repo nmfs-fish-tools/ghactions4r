@@ -77,7 +77,12 @@ jobs:
           echo "::set-output name=msg::${last_commit_msg}"
 
       - name: Style
-        run: Rscript -e 'styler::style_pkg()'
+        run: | 
+          results <- styler::style_pkg()
+          if(any(is.na(results[["changed"]])) {
+            stop("styler threw an error")
+          }
+        shell: Rscript {0}
 
       - name: Document
         run: Rscript -e 'roxygen2::roxygenise()'
@@ -94,7 +99,12 @@ jobs:
         shell: Rscript {0}
 
       - name: Style again, just in case
-        run: Rscript -e 'styler::style_pkg()'
+        run: | 
+          results <- styler::style_pkg()
+          if(any(is.na(results[["changed"]])) {
+            stop("styler threw an error")
+          }
+        shell: Rscript {0}
 
       - name: Document again, just in case
         run: |

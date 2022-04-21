@@ -31,7 +31,13 @@ jobs:
           echo "::set-output name=msg::${last_commit_msg}"
 
       - name: Style
-        run: Rscript -e 'styler::style_pkg()'
+        run: | 
+          results <- styler::style_pkg()
+          # error if styler failed on any files
+          if(any(is.na(results[["changed"]])) {
+            stop("styler threw an error")
+          }
+        shell: Rscript {0}
         
       - name: Create Pull Request
         if: ${{ !contains(steps.commit-msg.outputs.msg, 'style_pkg') }}
