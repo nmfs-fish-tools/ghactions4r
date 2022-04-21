@@ -68,14 +68,33 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">use_doc_and_style_r</span><span class="op">(</span>use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">use_doc_and_style_r</span><span class="op">(</span>
+  workflow_name <span class="op">=</span> <span class="st">"call-doc-and-style-r.yml"</span>,
+  use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span>,
+  how_to_commit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pull_request"</span>, <span class="st">"directly"</span><span class="op">)</span>,
+  build_trigger <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"push_to_main"</span>, <span class="st">"pull_request"</span>, <span class="st">"manually"</span>, <span class="st">"weekly"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>use_rm_dollar_sign</dt>
-<dd><p>in addition to devtools::document and styler::style_pkg,
-should r4ss:::rm_dollar_sign be run? Defaults to FALSE.</p></dd>
+    <dl><dt>workflow_name</dt>
+<dd><p>What to name the workflow locally, defaults to
+call-doc-and-style-r.yml.</p></dd>
+<dt>use_rm_dollar_sign</dt>
+<dd><p>in addition to devtools::document and
+styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.</p></dd>
+<dt>how_to_commit</dt>
+<dd><p>Where should changes made to style and documentation be
+committed? Options are 1) in a pull request to the branch ("pull_request")
+where the workflow started; or 2) directly to the branch ("directly") where
+the workflow started.</p></dd>
+<dt>build_trigger</dt>
+<dd><p>Select the build trigger. Options are to run on pushing
+commits to main ("push_to_main", the default); run when a pull request is
+opened, reopened, or updated ("pull_request"); run manually with the
+workflow_dispatch trigger ("manually"); run on the default branch (usually
+main) once a week ("weekly").</p></dd>
 </dl></div>
 
   </div>
