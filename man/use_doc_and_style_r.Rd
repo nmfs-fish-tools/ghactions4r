@@ -4,11 +4,30 @@
 \alias{use_doc_and_style_r}
 \title{Use workflow in current pkg  to automate documenting and styling}
 \usage{
-use_doc_and_style_r(use_rm_dollar_sign = FALSE)
+use_doc_and_style_r(
+  workflow_name = "call-doc-and-style-r.yml",
+  use_rm_dollar_sign = FALSE,
+  how_to_commit = c("pull_request", "directly"),
+  build_trigger = c("push_to_main", "pull_request", "manually", "weekly")
+)
 }
 \arguments{
-\item{use_rm_dollar_sign}{in addition to devtools::document and styler::style_pkg,
-should r4ss:::rm_dollar_sign be run? Defaults to FALSE.}
+\item{workflow_name}{What to name the workflow locally, defaults to
+call-doc-and-style-r.yml.}
+
+\item{use_rm_dollar_sign}{in addition to devtools::document and
+styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.}
+
+\item{how_to_commit}{Where should changes made to style and documentation be
+committed? Options are 1) in a pull request to the branch ("pull_request")
+where the workflow started; or 2) directly to the branch ("directly") where
+the workflow started.}
+
+\item{build_trigger}{Select the build trigger. Options are to run on pushing
+commits to main ("push_to_main", the default); run when a pull request is
+opened, reopened, or updated ("pull_request"); run manually with the
+workflow_dispatch trigger ("manually"); run on the default branch (usually
+main) once a week ("weekly").}
 }
 \description{
 Use workflow in current pkg  to automate documenting and styling
