@@ -70,7 +70,7 @@ test_that("use_doc_and_style_r() works with manual trigger", {
   test <- readLines(".github/workflows/doc_style_manual.yml")
   expect_length(grep("run-rm_dollar_sign: true", test, fixed = TRUE), 0)
   expect_length(grep("commit-directly: true", test, fixed = TRUE), 0)
-  expect_true(length(grep("workflow_dispatch:", test, fixed = TRUE)) > 1)
+  expect_true(length(grep("workflow_dispatch:", test, fixed = TRUE)) > 0)
 })
 
 test_that("use_pkgdown()) works", {
