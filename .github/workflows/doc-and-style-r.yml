@@ -79,7 +79,7 @@ jobs:
       - name: Style
         run: | 
           results <- styler::style_pkg()
-          if(any(is.na(results[["changed"]])) {
+          if (any(is.na(results[["changed"]]))) {
             stop("styler threw an error")
           }
         shell: Rscript {0}
@@ -101,7 +101,7 @@ jobs:
       - name: Style again, just in case
         run: | 
           results <- styler::style_pkg()
-          if(any(is.na(results[["changed"]])) {
+          if (any(is.na(results[["changed"]]))) {
             stop("styler threw an error")
           }
         shell: Rscript {0}

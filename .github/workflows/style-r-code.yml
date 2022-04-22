@@ -34,7 +34,7 @@ jobs:
         run: | 
           results <- styler::style_pkg()
           # error if styler failed on any files
-          if(any(is.na(results[["changed"]])) {
+          if(any(is.na(results[["changed"]]))) {
             stop("styler threw an error")
           }
         shell: Rscript {0}
