@@ -3,6 +3,7 @@ navbar:
     left:
     - home
     - reference
+    - articles
     right:
     - github
     - issue
@@ -26,3 +27,10 @@ navbar:
       text: Issues
       icon: fas fa-question-circle fa-lg
       href: https://github.com/nmfs-fish-tools/ghactions4r/issues/
+    
+    articles:
+      text: Vignettes
+      icon: fas fa-file-contract fa-lg
+      menu:
+      - text: Dependency graph
+        href: articles/dependency_graph.html
