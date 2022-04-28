@@ -1,20 +1,54 @@
-#devtools::install_github("datastorm-open/DependenciesGraphs")
-#install.packages("visNetwork")
+---
+title: "Dependency Graph"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Dependency Graph}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=FALSE, }
+library(ghactions4r)
+```
+
+## Dependency graph
+
+GitHub provides dependency graph to show the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows. We use `datastorm-open/DependenciesGraphs` to generate the dependents figure. The [DependenciesGraphs](https://github.com/datastorm-open/DependenciesGraphs) is an R package for dependencies visualization between packages and functions. 
+
+You can use the drop-down menu to select a node, or click the node itself in the picture to see the details. 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
+devtools::install_github("datastorm-open/DependenciesGraphs")
+install.packages("visNetwork")
+install.packages("rvest")
+install.packages("dplyr")
 
 library(visNetwork)
 library(ghactions4r)
 library(rvest)
 library(dplyr)
+```
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=10, fig.width=10}
+# Download data from GitHub dependency graph page
 webpage <- rvest::read_html(
   x = "https://github.com/nmfs-fish-tools/ghactions4r/network/dependents"
 )
 
+# Extract yml ID links
 gha_links <- webpage %>%
   html_nodes("details-menu") %>%
   html_nodes(".select-menu-item") %>%
   html_attr("href")
 
+# Extract yml name data
 gha_names <- webpage %>%
   html_nodes("details-menu") %>%
   html_nodes(".select-menu-item-text") %>%
@@ -23,6 +57,7 @@ gha_names <- webpage %>%
 gha_names <- sapply(1:length(gha_names), function(x) gsub("[\r\n]","/", gha_names[x]))
 gha_names <- sapply(1:length(gha_names), function(x) strsplit(gha_names[x],"/")[[1]][6])
 
+# Extract dependents data for each yml file
 gha_data <- list()
 for (i in 1:length(gha_names)){
   webpage <- rvest::read_html(
@@ -37,7 +72,7 @@ for (i in 1:length(gha_names)){
 }
 names(gha_data) <- gha_names
 
-# Plot dependency graph
+# Prepare data to plot dependency graph
 dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
 dep_label <- c(gha_names, unique(unlist(gha_data)))
 dep_data$Nomfun <- data.frame(
@@ -57,5 +92,8 @@ for (i in 1:length(gha_data)){
   }
 }
 
+# Plot dependency graph
 plot(dep_data)
 
+
+```
