@@ -1,10 +1,12 @@
 ---
 title: "Dependency Graph"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Dependency Graph}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: 
+  html_document: default
+  # rmarkdown::html_vignette
+# vignette: >
+#   %\VignetteIndexEntry{Dependency Graph}
+#   %\VignetteEngine{rmarkdown::render}
+#   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
