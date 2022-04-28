@@ -25,6 +25,7 @@ GitHub provides dependency graph to show the dependencies and dependents of the 
 You can use the drop-down menu to select a node, or click the node itself in the picture to see the details. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
+install.packages("devtools")
 devtools::install_github("datastorm-open/DependenciesGraphs")
 install.packages("visNetwork")
 install.packages("rvest")
