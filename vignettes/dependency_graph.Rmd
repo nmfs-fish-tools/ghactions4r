@@ -20,7 +20,7 @@ library(ghactions4r)
 
 ## Dependency graph
 
-GitHub provides dependency graph to show the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows. We use `datastorm-open/DependenciesGraphs` to generate the dependents figure. The [DependenciesGraphs](https://github.com/datastorm-open/DependenciesGraphs) is an R package for dependencies visualization between packages and functions. 
+GitHub provides a dependency graph that shows the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows. We use [DependenciesGraphs](https://github.com/datastorm-open/DependenciesGraphs), an R package for dependencies visualization between packages and functions.
 
 You can use the drop-down menu to select a node, or click the node itself in the picture to see the details. 
 
