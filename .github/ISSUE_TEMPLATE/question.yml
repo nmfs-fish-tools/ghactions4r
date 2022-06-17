@@ -10,7 +10,7 @@ body:
       value: |
         Thanks for taking the time to ask a question!
   - type: textarea
-    id: question?
+    id: question
     attributes:
       label: What is your question?
       placeholder: Please ask a clear and concise question about ghactions4r.

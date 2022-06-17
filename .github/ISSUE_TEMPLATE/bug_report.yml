@@ -71,7 +71,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: Which version of FIMS are you seeing the problem on?
+      label: Which version of ghactions4r are you seeing the problem on?
     validations:
       required: false
   - type: textarea
