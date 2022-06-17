@@ -3,7 +3,7 @@ title: "Dependency Graph"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Dependency Graph}
-  %\VignetteEngine{rmarkdown::render}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 
