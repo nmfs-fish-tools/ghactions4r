@@ -140,7 +140,8 @@
 <div class="section level2">
 <h2 id="the-github-action-i-added-to-my-repository-failed-what-should-i-do">The Github action I added to my repository failed. What should I do?<a class="anchor" aria-label="anchor" href="#the-github-action-i-added-to-my-repository-failed-what-should-i-do"></a>
 </h2>
-<p>Please submit an <a href="https://github.com/nmfs-fish-tools/ghactions4r/issues" class="external-link">issue</a> or email <a href="mailto:kathryn.doering@noaa.gov" class="email">kathryn.doering@noaa.gov</a>. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!</p>
+<p>Check that Github Actions has been given the right <code>GITHUB_TOKEN</code> permissions. Github Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions" class="external-link">these Github Documentation instructions</a>.</p>
+<p>If still running into failing actions, please submit an <a href="https://github.com/nmfs-fish-tools/ghactions4r/issues" class="external-link">issue</a> or email <a href="mailto:kathryn.doering@noaa.gov" class="email">kathryn.doering@noaa.gov</a>. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!</p>
 </div>
 <div class="section level2">
 <h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
@@ -196,7 +197,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer>

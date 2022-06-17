@@ -105,23 +105,32 @@ marks.)</p>
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>Filename either with full path or relative to working directory.</p></dd>
+
+
 <dt>out_file</dt>
 <dd><p>The name or path of a new file to write to. This is by
 default the same as the original file. Set to NULL to avoid writing a new
 file.</p></dd>
+
+
 <dt>allow_recursive</dt>
 <dd><p>Should dollar sign references of list in list be
 replaced? If this is FALSE, then only the first reference will be replaced.
 For example, <code>F$first$second</code> would become <code>F[["first"]]$second</code> when
 allow_recursive is FALSE, but would become <code>F[["first"]][["second"]]</code> if TRUE.</p></dd>
+
+
 <dt>max_loops</dt>
 <dd><p>How many times should dollar signs be looked for
 recursively, if allow_recursive is TRUE? Defaults to 5. This is meant to
 prevent an infinite loop in case the function does not work properly.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A character vector of the modified text. As a side effect, produces
+    
+
+<p>A character vector of the modified text. As a side effect, produces
 a text file (name specified in out_file) written out from R using writeLines().</p>
     </div>
     <div id="author">
@@ -173,7 +182,7 @@ a text file (name specified in out_file) written out from R using writeLines().<
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
