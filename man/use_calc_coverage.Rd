@@ -4,7 +4,11 @@
 \alias{use_calc_coverage}
 \title{workflow for calculating code coverage}
 \usage{
-use_calc_coverage()
+use_calc_coverage(workflow_name = "call-calc-coverage.yml")
+}
+\arguments{
+\item{workflow_name}{What to name the github actionworkflow locally. Must
+have the file extension \code{.yml}}
 }
 \description{
 workflow for calculating code coverage

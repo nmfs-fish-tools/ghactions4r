@@ -4,7 +4,11 @@
 \alias{use_pkgdown}
 \title{use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages}
 \usage{
-use_pkgdown()
+use_pkgdown(workflow_name = "call-update-pkgdown.yml")
+}
+\arguments{
+\item{workflow_name}{What to name the github actionworkflow locally. Must
+have the file extension \code{.yml}}
 }
 \description{
 use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages

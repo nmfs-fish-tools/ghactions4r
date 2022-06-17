@@ -4,7 +4,11 @@
 \alias{use_style_r_code}
 \title{use workflow in current pkg to run styler::style_pkg() and submit results as a PR}
 \usage{
-use_style_r_code()
+use_style_r_code(workflow_name = "call-style.yml")
+}
+\arguments{
+\item{workflow_name}{What to name the github actionworkflow locally. Must
+have the file extension \code{.yml}}
 }
 \description{
 use workflow in current pkg to run styler::style_pkg() and submit results as a PR
