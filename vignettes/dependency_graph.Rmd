@@ -26,7 +26,7 @@ You can use the drop-down menu to select a node, or click the node itself in the
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
 #install.packages("devtools", repos = "http://cran.us.r-project.org")
-# library(devtools)
+library(devtools)
 devtools::install_github("datastorm-open/DependenciesGraphs")
 # install.packages("visNetwork", repos = "http://cran.us.r-project.org")
 # install.packages("rvest", repos = "http://cran.us.r-project.org")
@@ -34,7 +34,6 @@ devtools::install_github("datastorm-open/DependenciesGraphs")
 # 
 library(DependenciesGraphs)
 library(visNetwork)
-library(ghactions4r)
 library(rvest)
 library(dplyr)
 ```
