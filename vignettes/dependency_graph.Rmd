@@ -32,9 +32,8 @@ remotes::install_github("datastorm-open/DependenciesGraphs")
 #install.packages("visNetwork", repos = "http://cran.us.r-project.org")
 #install.packages("rvest", repos = "http://cran.us.r-project.org")
 #install.packages("dplyr", repos = "http://cran.us.r-project.org")
-
+#library(visNetwork)
 library(DependenciesGraphs)
-library(visNetwork)
 library(rvest)
 library(dplyr)
 ```
