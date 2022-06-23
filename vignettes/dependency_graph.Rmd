@@ -25,12 +25,13 @@ GitHub provides a dependency graph that shows the dependencies and dependents of
 You can use the drop-down menu to select a node, or click the node itself in the picture to see the details. 
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
-install.packages("devtools", repos = "http://cran.us.r-project.org")
-library(devtools)
-devtools::install_github("datastorm-open/DependenciesGraphs")
-install.packages("visNetwork", repos = "http://cran.us.r-project.org")
-install.packages("rvest", repos = "http://cran.us.r-project.org")
-install.packages("dplyr", repos = "http://cran.us.r-project.org")
+#install.packages("devtools", repos = "http://cran.us.r-project.org")
+#library(devtools)
+library(remotes)
+remotes::install_github("datastorm-open/DependenciesGraphs")
+#install.packages("visNetwork", repos = "http://cran.us.r-project.org")
+#install.packages("rvest", repos = "http://cran.us.r-project.org")
+#install.packages("dplyr", repos = "http://cran.us.r-project.org")
 
 library(DependenciesGraphs)
 library(visNetwork)
@@ -46,15 +47,15 @@ webpage <- rvest::read_html(
 
 # Extract yml ID links
 gha_links <- webpage %>%
-  html_nodes("details-menu") %>%
-  html_nodes(".select-menu-item") %>%
-  html_attr("href")
+  rvest::html_nodes("details-menu") %>%
+  rvest::html_nodes(".select-menu-item") %>%
+  rvest::html_attr("href")
 
 # Extract yml name data
 gha_names <- webpage %>%
-  html_nodes("details-menu") %>%
-  html_nodes(".select-menu-item-text") %>%
-  html_text() 
+  rvest::html_nodes("details-menu") %>%
+  rvest::html_nodes(".select-menu-item-text") %>%
+  rvest::html_text() 
 
 gha_names <- sapply(1:length(gha_names), function(x) gsub("[\r\n]","/", gha_names[x]))
 gha_names <- sapply(1:length(gha_names), function(x) strsplit(gha_names[x],"/")[[1]][6])
@@ -67,10 +68,10 @@ for (i in 1:length(gha_names)){
   )
   
   gha_data[[i]] <- webpage %>%
-    html_nodes(".Box-row") %>%
-    html_nodes("span") %>%
-    html_nodes(".text-bold") %>%
-    html_attr("href")
+    rvest::html_nodes(".Box-row") %>%
+    rvest::html_nodes("span") %>%
+    rvest::html_nodes(".text-bold") %>%
+    rvest::html_attr("href")
 }
 names(gha_data) <- gha_names
 

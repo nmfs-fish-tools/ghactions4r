@@ -27,11 +27,8 @@ RoxygenNote: 7.2.0.9000
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0),
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
-confit/Needs/website:
-    devtools,
-    visNetwork,
-    rvest
+Config/Needs/website: remotes, visNetwork, rvest, dplyr
 VignetteBuilder: knitr
 
