@@ -3,7 +3,7 @@ title: "Dependency Graph"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Dependency Graph}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -68,7 +68,7 @@ for (i in 1:length(gha_names)){
 names(gha_data) <- gha_names
 
 # Prepare data to plot dependency graph
-dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
+dep_data <- list()
 dep_label <- c(gha_names, unique(unlist(gha_data)))
 dep_data$Nomfun <- data.frame(
   id = 1:length(dep_label),
