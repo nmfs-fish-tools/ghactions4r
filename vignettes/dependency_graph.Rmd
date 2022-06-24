@@ -33,7 +33,7 @@ remotes::install_github("datastorm-open/DependenciesGraphs")
 #install.packages("rvest", repos = "http://cran.us.r-project.org")
 #install.packages("dplyr", repos = "http://cran.us.r-project.org")
 library(visNetwork)
-library(DependenciesGraphs)
+#library(DependenciesGraphs)
 library(rvest)
 library(dplyr)
 ```
@@ -74,28 +74,28 @@ for (i in 1:length(gha_names)){
 }
 names(gha_data) <- gha_names
 
-# Prepare data to plot dependency graph
-dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
-dep_label <- c(gha_names, unique(unlist(gha_data)))
-dep_data$Nomfun <- data.frame(
-  id = 1:length(dep_label),
-  label = dep_label
-)
-
-dep_data$fromto <-data.frame(
-  from = NA,
-  to = NA
-)
-for (i in 1:length(gha_data)){
-  for (j in 1:length(gha_data[[i]])) {
-    from_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == names(gha_data)[i]]
-    to_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == gha_data[[i]][j]]
-    dep_data$fromto <- rbind(dep_data$fromto, c(from_id, to_id))
-  }
-}
-
-# Plot dependency graph
-plot(dep_data)
+# # Prepare data to plot dependency graph
+# dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
+# dep_label <- c(gha_names, unique(unlist(gha_data)))
+# dep_data$Nomfun <- data.frame(
+#   id = 1:length(dep_label),
+#   label = dep_label
+# )
+# 
+# dep_data$fromto <-data.frame(
+#   from = NA,
+#   to = NA
+# )
+# for (i in 1:length(gha_data)){
+#   for (j in 1:length(gha_data[[i]])) {
+#     from_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == names(gha_data)[i]]
+#     to_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == gha_data[[i]][j]]
+#     dep_data$fromto <- rbind(dep_data$fromto, c(from_id, to_id))
+#   }
+# }
+# 
+# # Plot dependency graph
+# plot(dep_data)
 
 
 ```
