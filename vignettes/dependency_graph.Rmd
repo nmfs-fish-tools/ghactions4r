@@ -20,23 +20,15 @@ library(ghactions4r)
 
 ## Dependency graph
 
-GitHub provides a dependency graph that shows the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows. We use [DependenciesGraphs](https://github.com/datastorm-open/DependenciesGraphs), an R package for dependencies visualization between packages and functions.
-
-You can use the drop-down menu to select a node, or click the node itself in the picture to see the details. 
+GitHub provides a dependency graph that shows the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
-#install.packages("devtools", repos = "http://cran.us.r-project.org")
-#library(devtools)
-library(remotes)
 install.packages("visNetwork", repos = "http://cran.us.r-project.org")
 install.packages("rvest", repos = "http://cran.us.r-project.org")
 install.packages("dplyr", repos = "http://cran.us.r-project.org")
 library(visNetwork)
 library(rvest)
 library(dplyr)
-
-remotes::install_github("datastorm-open/DependenciesGraphs")
-library(DependenciesGraphs)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=10, fig.width=10}
@@ -75,28 +67,26 @@ for (i in 1:length(gha_names)){
 }
 names(gha_data) <- gha_names
 
-# # Prepare data to plot dependency graph
-# dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
-# dep_label <- c(gha_names, unique(unlist(gha_data)))
-# dep_data$Nomfun <- data.frame(
-#   id = 1:length(dep_label),
-#   label = dep_label
-# )
-# 
-# dep_data$fromto <-data.frame(
-#   from = NA,
-#   to = NA
-# )
-# for (i in 1:length(gha_data)){
-#   for (j in 1:length(gha_data[[i]])) {
-#     from_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == names(gha_data)[i]]
-#     to_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == gha_data[[i]][j]]
-#     dep_data$fromto <- rbind(dep_data$fromto, c(from_id, to_id))
-#   }
-# }
-# 
-# # Plot dependency graph
-# plot(dep_data)
+# Prepare data to plot dependency graph
+dep_data <- DependenciesGraphs::envirDependencies("package:ghactions4r")
+dep_label <- c(gha_names, unique(unlist(gha_data)))
+dep_data$Nomfun <- data.frame(
+  id = 1:length(dep_label),
+  label = dep_label
+)
 
+dep_data$fromto <-data.frame(
+  from = NA,
+  to = NA
+)
+for (i in 1:length(gha_data)){
+  for (j in 1:length(gha_data[[i]])) {
+    from_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == names(gha_data)[i]]
+    to_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == gha_data[[i]][j]]
+    dep_data$fromto <- rbind(dep_data$fromto, c(from_id, to_id))
+  }
+}
+
+visNetwork::visNetwork(dep_data$Nomfun, dep_data$fromto, width = "100%")
 
 ```
