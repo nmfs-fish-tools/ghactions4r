@@ -28,14 +28,15 @@ You can use the drop-down menu to select a node, or click the node itself in the
 #install.packages("devtools", repos = "http://cran.us.r-project.org")
 #library(devtools)
 library(remotes)
-#remotes::install_github("datastorm-open/DependenciesGraphs")
 install.packages("visNetwork", repos = "http://cran.us.r-project.org")
 install.packages("rvest", repos = "http://cran.us.r-project.org")
 install.packages("dplyr", repos = "http://cran.us.r-project.org")
 library(visNetwork)
-#library(DependenciesGraphs)
 library(rvest)
 library(dplyr)
+
+remotes::install_github("datastorm-open/DependenciesGraphs")
+library(DependenciesGraphs)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=10, fig.width=10}
