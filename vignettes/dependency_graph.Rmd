@@ -23,9 +23,6 @@ library(ghactions4r)
 GitHub provides a dependency graph that shows the dependencies and dependents of the `ghactions4r` package. The figure below helps visualize the GitHub repos that are dependents of the `ghactions4r` GitHub Actions workflows.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results=FALSE}
-install.packages("visNetwork", repos = "http://cran.us.r-project.org")
-install.packages("rvest", repos = "http://cran.us.r-project.org")
-install.packages("dplyr", repos = "http://cran.us.r-project.org")
 library(visNetwork)
 library(rvest)
 library(dplyr)
