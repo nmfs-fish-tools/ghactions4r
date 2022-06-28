@@ -16,19 +16,22 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/check_workflow_name.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
     <loc>/reference/rm_dollar_sign.html</loc>
   </url>
   <url>
+    <loc>/reference/update_pkgdown.html</loc>
+  </url>
+  <url>
     <loc>/reference/use_calc_coverage.html</loc>
   </url>
   <url>
     <loc>/reference/use_doc_and_style_r.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_pkgdown.html</loc>
   </url>
   <url>
     <loc>/reference/use_r_cmd_check.html</loc>
