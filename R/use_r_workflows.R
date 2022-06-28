@@ -4,14 +4,14 @@
 #'   addition to the three runs that use the release version.
 #' @export
 use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
-  use_full_build_matrix = FALSE) {
+                            use_full_build_matrix = FALSE) {
   check_workflow_name(workflow_name)
   if (use_full_build_matrix) {
     url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml"
   } else {
     url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check.yml"
   }
-  usethis::use_github_action("call-r-cmd-check.yml", 
+  usethis::use_github_action("call-r-cmd-check.yml",
     save_as = workflow_name,
     url = url_name
   )
