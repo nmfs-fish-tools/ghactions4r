@@ -1,6 +1,6 @@
 Package: ghactions4r
 Title: Use Github Action Reusable Workflows for R Packages
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     c(person(given = "Kathryn",
            family = "Doering",
@@ -14,11 +14,10 @@ Authors@R:
     person(given = "Bai", 
            family = "Li", 
            role = "aut"))
-Description: ghactions4r provides functions to allow users to set up workflows 
-  related to R packages.
+Description: Provides functions to allow users to set up github action 
+    workflows related to R packages.
 License: CC0
 Imports:
-    lifecycle,
     usethis
 Encoding: UTF-8
 LazyData: true

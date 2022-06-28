@@ -12,8 +12,8 @@ use_doc_and_style_r(
 )
 }
 \arguments{
-\item{workflow_name}{What to name the workflow locally, defaults to
-call-doc-and-style-r.yml.}
+\item{workflow_name}{What to name the github actionworkflow locally. Must
+have the file extension \code{.yml}}
 
 \item{use_rm_dollar_sign}{in addition to devtools::document and
 styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.}

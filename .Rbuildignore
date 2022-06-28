@@ -3,4 +3,6 @@
 ^\.github$
 ^LICENSE\.md$
 ^github$
-^pkgdown$
+^man-roxygen
+^pkgdown/
+^\.vscode
