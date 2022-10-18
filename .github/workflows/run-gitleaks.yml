@@ -1,7 +1,8 @@
 # based on workflow from https://github.com/SEFSC/SEFSC-Template/blob/main/.github/workflows/secretScan.yml
 name: Run gitleaks
 
-on: [push, pull_request]
+on:
+  workflow_call:
 
 jobs:
   gitleaks:
