@@ -50,6 +50,11 @@ ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ghactions4r::update_pkgdown()
 ```
 
+- To set up [gitleaks](https://github.com/zricethezav/gitleaks), which scans a project repository for accidentally committing secrets:
+```r
+ghactions4r::use_run_gitleaks()
+```
+
 Commit and push the files generated up to github, making the github actions available for the repository of the R package.
 
 The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.

@@ -87,3 +87,8 @@ test_that("use_style_r_code() works", {
   use_style_r_code()
   expect_true(file.exists(".github/workflows/call-style.yml"))
 })
+
+test_that("use_run_gitleaks() works", {
+  use_run_gitleaks()
+  expect_true(file.exists(".github/workflows/call-run-gitleaks.yml"))
+})

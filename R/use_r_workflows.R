@@ -139,3 +139,14 @@ use_style_r_code <- function(workflow_name = "call-style.yml") {
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
+
+#' workflow for running gitleaks
+#' @template workflow_name
+#' @export
+use_run_gitleaks <- function(workflow_name = "call-run-gitleaks.yml") {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-run-gitleaks.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-run-gitleaks.yml"
+  )
+}

@@ -1,0 +1,14 @@
+# based on workflow from https://github.com/SEFSC/SEFSC-Template/blob/main/.github/workflows/secretScan.yml
+name: Run gitleaks
+
+on: [push, pull_request]
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: gitleaks-action
+        uses: gitleaks/gitleaks-action@v1.6.0
