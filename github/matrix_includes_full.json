@@ -9,8 +9,7 @@
   },
   {
     "os":"ubuntu-latest",
-    "r":"release",
-    "rspm":"https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+    "r":"release"
   },
   {
     "os":"windows-latest",
