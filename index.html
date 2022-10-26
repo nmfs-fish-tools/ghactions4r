@@ -115,23 +115,35 @@
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nmfs-fish-tools/ghactions4r"</span><span class="op">)</span></span></code></pre></div>
 <p><code>use_*()</code> functions in the <code>ghactions4r</code> package work like <a href="https://github.com/r-lib/usethis#usage" class="external-link"><code>use_*()</code> functions in the <code>usethis</code> package</a>.</p>
 <p>Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.</p>
-<ul><li>To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):</li></ul>
+<ul>
+<li>To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_r_cmd_check.html">use_r_cmd_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul><li>To calculate code coverage using <code>covr::codecov()</code> :</li></ul>
+<ul>
+<li>To calculate code coverage using <code>covr::codecov()</code> :</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>(a codecov.io account is also necessary to view the coverage results)</p>
-<ul><li>To update documentation using <code>devtools::document()</code>:</li></ul>
+<ul>
+<li>To update documentation using <code>devtools::document()</code>:</li>
+</ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_roxygen_docs.html">use_update_roxygen_docs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul><li>To update R code styling using <code>styler::style_pkg()</code>:</li></ul>
+<ul>
+<li>To update R code styling using <code>styler::style_pkg()</code>:</li>
+</ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_r_code.html">use_style_r_code</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul><li>To update documentation and code styling (with the option of running <code><a href="reference/rm_dollar_sign.html">ghactions4r::rm_dollar_sign()</a></code>):</li></ul>
+<ul>
+<li>To update documentation and code styling (with the option of running <code><a href="reference/rm_dollar_sign.html">ghactions4r::rm_dollar_sign()</a></code>):</li>
+</ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_doc_and_style_r.html">use_doc_and_style_r</a></span><span class="op">(</span>use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<ul><li>To automatically update pkgdown that has already been set up:</li></ul>
+<ul>
+<li>To automatically update pkgdown that has already been set up:</li>
+</ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/update_pkgdown.html">update_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Commit and push the files generated up to github, making the github actions available for the repository of the R package.</p>
