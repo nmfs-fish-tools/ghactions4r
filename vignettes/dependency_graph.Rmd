@@ -44,18 +44,18 @@ gha_links <- webpage %>%
 gha_names <- webpage %>%
   rvest::html_nodes("details-menu") %>%
   rvest::html_nodes(".select-menu-item-text") %>%
-  rvest::html_text() 
+  rvest::html_text()
 
-gha_names <- sapply(1:length(gha_names), function(x) gsub("[\r\n]","/", gha_names[x]))
-gha_names <- sapply(1:length(gha_names), function(x) strsplit(gha_names[x],"/")[[1]][6])
+gha_names <- sapply(1:length(gha_names), function(x) gsub("[\r\n]", "/", gha_names[x]))
+gha_names <- sapply(1:length(gha_names), function(x) strsplit(gha_names[x], "/")[[1]][6])
 
 # Extract dependents data for each yml file
 gha_data <- list()
-for (i in 1:length(gha_names)){
+for (i in 1:length(gha_names)) {
   webpage <- rvest::read_html(
     x = paste0("https://github.com", gha_links[i])
   )
-  
+
   gha_data[[i]] <- webpage %>%
     rvest::html_nodes(".Box-row") %>%
     rvest::html_nodes("span") %>%
@@ -72,11 +72,11 @@ dep_data$Nomfun <- data.frame(
   label = dep_label
 )
 
-dep_data$fromto <-data.frame(
+dep_data$fromto <- data.frame(
   from = NA,
   to = NA
 )
-for (i in 1:length(gha_data)){
+for (i in 1:length(gha_data)) {
   for (j in 1:length(gha_data[[i]])) {
     from_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == names(gha_data)[i]]
     to_id <- dep_data$Nomfun$id[dep_data$Nomfun$label == gha_data[[i]][j]]
@@ -85,5 +85,4 @@ for (i in 1:length(gha_data)){
 }
 
 visNetwork::visNetwork(dep_data$Nomfun, dep_data$fromto, width = "100%")
-
 ```
