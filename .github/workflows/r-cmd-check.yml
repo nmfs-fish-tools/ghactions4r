@@ -14,7 +14,7 @@ on:
       gha_timeout_minutes:
         required: false
         type: number
-        default: 2
+        default: 360
 
 name: R-CMD-check
 jobs:
