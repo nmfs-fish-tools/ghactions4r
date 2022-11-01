@@ -1,14 +1,17 @@
 [
   {
     "os":"windows-latest",
-    "r":"release"
+    "r":"release", 
+    "gha_timeout_minutes":  "${{gha_timeout_minutes}}"
   },
   {
     "os":"macOS-latest",
-    "r":"release"
+    "r":"release",
+    "gha_timeout_minutes":  "${{gha_timeout_minutes}}"
   },
   {
     "os":"ubuntu-latest",
-    "r":"release"
+    "r":"release", 
+    "gha_timeout_minutes":  "${{gha_timeout_minutes}}"
   }
 ]
