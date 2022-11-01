@@ -49,7 +49,7 @@ jobs:
   R-CMD-check:
     needs: matrix_prep
     runs-on: ${{ matrix.config.os }}
-    timeout-minutes: ${{ matrix.gha_timeout_minutes }}
+    timeout-minutes: ${{ inputs.gha_timeout_minutes }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
