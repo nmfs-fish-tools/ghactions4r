@@ -11,6 +11,10 @@ on:
         required: false
         default: true
         type: boolean
+      gha_timeout_minutes:
+        required: false
+        type: number
+        default: 360
 
 name: R-CMD-check
 jobs:
@@ -45,6 +49,7 @@ jobs:
   R-CMD-check:
     needs: matrix_prep
     runs-on: ${{ matrix.config.os }}
+    timeout-minutes: ${{ inputs.gha_timeout_minutes }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
