@@ -44,7 +44,7 @@ jobs:
         JSON="${JSON//'%'/'%25'}"
         JSON="${JSON//$'\n'/'%0A'}"
         JSON="${JSON//$'\r'/'%0D'}"
-        echo "matrix=$JSON" >> $GITHUB_OUTPUT
+        echo "::set-output name=matrix::$JSON"
 
   R-CMD-check:
     needs: matrix_prep
