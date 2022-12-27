@@ -74,10 +74,10 @@ jobs:
         run: |
           git tag
           last_commit_msg=$(git log -1 --pretty=%B)
-          echo "::set-output name=msg::${last_commit_msg}"
+          echo "msg=$last_commit_msg" >> $GITHUB_OUTPUT
 
       - name: Style
-        run: | 
+        run: |
           results <- styler::style_pkg()
           if (any(is.na(results[["changed"]]))) {
             stop("styler threw an error")

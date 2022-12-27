@@ -28,7 +28,7 @@ jobs:
         run: |
           git tag
           last_commit_msg=$(git log -1 --pretty=%B)
-          echo "::set-output name=msg::${last_commit_msg}"
+          echo "msg=$last_commit_msg" >> $GITHUB_OUTPUT
 
       - name: Style
         run: | 
