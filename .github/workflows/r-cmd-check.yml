@@ -48,9 +48,8 @@ jobs:
 
   R-CMD-check:
     needs: matrix_prep
-    runs-on: ${{ matrix.config.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: ${{ inputs.gha_timeout_minutes }}
-
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
     strategy:
