@@ -40,7 +40,12 @@ jobs:
         else
           JSON=$(cat ./github/matrix_includes_standard.json)
         fi
-        echo "matrix=$JSON" >> $GITHUB_OUTPUT
+        # note: if users were inputting the $JSON info, would want to 
+        # randomize the delimiter. See 
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings
+        echo 'matrix<<EOF' >> $GITHUB_OUTPUT
+        echo "$JSON">> $GITHUB_OUTPUT
+        echo 'EOF' >> $GITHUB_OUTPUT
 
   R-CMD-check:
     needs: matrix_prep
