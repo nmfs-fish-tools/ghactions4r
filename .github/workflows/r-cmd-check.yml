@@ -40,10 +40,6 @@ jobs:
         else
           JSON=$(cat ./github/matrix_includes_standard.json)
         fi
-        # the following lines are only required for multi line json
-        JSON="${JSON//'%'/'%25'}"
-        JSON="${JSON//$'\n'/'%0A'}"
-        JSON="${JSON//$'\r'/'%0D'}"
         echo "matrix=$JSON" >> $GITHUB_OUTPUT
 
   R-CMD-check:
