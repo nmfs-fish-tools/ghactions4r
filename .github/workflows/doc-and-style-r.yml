@@ -69,13 +69,6 @@ jobs:
         if: inputs.run-rm_dollar_sign == true 
         run: Rscript -e 'remotes::install_github("nmfs-fish-tools/ghactions4r", upgrade = "always")'
 
-      - name: get last commit msg
-        id: commit-msg
-        run: |
-          git tag
-          last_commit_msg=$(git log -1 --pretty=%B)
-          echo "msg=$last_commit_msg" >> $GITHUB_OUTPUT
-
       - name: Style
         run: |
           results <- styler::style_pkg()
@@ -124,7 +117,7 @@ jobs:
           commit_message: 'style and docs: run devtools::document() and styler::style_pkg()'
         
       - name: Create Pull Request
-        if: ${{ !contains(steps.commit-msg.outputs.msg, 'run')  && inputs.commit-directly == false}}
+        if: ${{inputs.commit-directly == false}}
         uses: peter-evans/create-pull-request@v4
         with:
           commit-message: 'style and docs: run devtools::document() and styler::style_pkg()'
