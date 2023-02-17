@@ -7,7 +7,7 @@
 use_style_r_code(workflow_name = "call-style.yml")
 }
 \arguments{
-\item{workflow_name}{What to name the github actionworkflow locally. Must
+\item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
 }
 \description{

@@ -7,7 +7,7 @@
 update_pkgdown(workflow_name = "call-update-pkgdown.yml")
 }
 \arguments{
-\item{workflow_name}{What to name the github actionworkflow locally. Must
+\item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
 }
 \description{

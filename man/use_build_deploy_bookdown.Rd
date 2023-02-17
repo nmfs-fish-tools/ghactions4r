@@ -14,7 +14,7 @@ use_build_deploy_bookdown(
 )
 }
 \arguments{
-\item{workflow_name}{What to name the github actionworkflow locally. Must
+\item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
 
 \item{bookdown_input}{Used as the input for \code{input} in \code{bookdown::render_book()}.}

@@ -10,7 +10,7 @@ use_r_cmd_check(
 )
 }
 \arguments{
-\item{workflow_name}{What to name the github actionworkflow locally. Must
+\item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
 
 \item{use_full_build_matrix}{Run r cmd check with two older versions of r in
