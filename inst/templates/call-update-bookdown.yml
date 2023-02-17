@@ -10,6 +10,6 @@ jobs:
   call-workflow:
     uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-bookdown.yml@main
       with:
-        bookdown-input: '.'
-        bookdown-output_dir: '_book_built' # optional. Could remove. to use output_dir in _bookdown.yml
-        deployment_dir: '_book'
+        bookdown_input: '.' # where the bookdown .Rmd files are located
+        bookdown_output_dir: '_book_built' # optional. Could remove to use output_dir in _bookdown.yml.
+        deployment_dir: '_book' # The subfolder of the gh-pages branch that the bookdown is deployed to.
