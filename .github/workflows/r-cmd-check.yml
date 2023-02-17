@@ -7,10 +7,6 @@ on:
       use_full_build_matrix:
         required: false
         type: boolean
-      cache_pkgs:
-        required: false
-        default: true
-        type: boolean
       gha_timeout_minutes:
         required: false
         type: number
