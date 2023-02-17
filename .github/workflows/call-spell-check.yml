@@ -4,7 +4,11 @@ name: call-spell-check
 on:
 # this workflow runs on pushing to main, pull requests to main, and manually.
   push:
-  pull_request: [main]
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   call-workflow:
