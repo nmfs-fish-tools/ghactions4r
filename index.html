@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Use Github Action Reusable Workflows for R Packages • ghactions4r</title>
+<title>Use GitHub Actions Reusable Workflows for R Packages • ghactions4r</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="Use Github Action Reusable Workflows for R Packages">
+<meta property="og:title" content="Use GitHub Actions Reusable Workflows for R Packages">
 <meta property="og:description" content="Provides functions to allow users to set up github action 
     workflows related to R packages.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -104,7 +104,7 @@
 <div class="section level2">
 <h2 id="what-is-in-ghactions4r">What is in ghactions4r?<a class="anchor" aria-label="anchor" href="#what-is-in-ghactions4r"></a>
 </h2>
-<p>This repo contains a <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows" class="external-link">collection of reusable workflows</a> found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package Github repository.</p>
+<p>This repo contains a <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows" class="external-link">collection of reusable workflows</a> found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository.</p>
 </div>
 <div class="section level2">
 <h2 id="how-do-i-use-these-workflows-in-my-r-package">How do I use these workflows in my R package?<a class="anchor" aria-label="anchor" href="#how-do-i-use-these-workflows-in-my-r-package"></a>
@@ -116,7 +116,7 @@
 <p><code>use_*()</code> functions in the <code>ghactions4r</code> package work like <a href="https://github.com/r-lib/usethis#usage" class="external-link"><code>use_*()</code> functions in the <code>usethis</code> package</a>.</p>
 <p>Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.</p>
 <ul>
-<li>To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):</li>
+<li>To run R CMD check using Linux (R release and R development), Mac (R release), and Windows (R release):</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_r_cmd_check.html">use_r_cmd_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -155,9 +155,9 @@
 <p>The templates these functions generate can also be <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates" class="external-link">viewed</a> for reference.</p>
 </div>
 <div class="section level2">
-<h2 id="the-github-action-i-added-to-my-repository-failed-what-should-i-do">The Github action I added to my repository failed. What should I do?<a class="anchor" aria-label="anchor" href="#the-github-action-i-added-to-my-repository-failed-what-should-i-do"></a>
+<h2 id="the-github-action-workflow-i-added-to-my-repository-failed-what-should-i-do">The GitHub Action Workflow I added to my repository failed. What should I do?<a class="anchor" aria-label="anchor" href="#the-github-action-workflow-i-added-to-my-repository-failed-what-should-i-do"></a>
 </h2>
-<p>Check that Github Actions has been given the right <code>GITHUB_TOKEN</code> permissions. Github Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions" class="external-link">these Github Documentation instructions</a>.</p>
+<p>Check that GitHub Actions has been given the right <code>GITHUB_TOKEN</code> permissions. GitHub Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions" class="external-link">these GitHub Documentation instructions</a>.</p>
 <p>If still running into failing actions, please submit an <a href="https://github.com/nmfs-fish-tools/ghactions4r/issues" class="external-link">issue</a> or email <a href="mailto:kathryn.doering@noaa.gov" class="email">kathryn.doering@noaa.gov</a>. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!</p>
 </div>
 <div class="section level2">
