@@ -139,3 +139,28 @@ use_style_r_code <- function(workflow_name = "call-style.yml") {
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
+
+
+#' use workflow in current pkg to build and deploy (update) bookdown
+#' Builds the bookdown, then deploys it to a branch in the same repository called gh-pages
+#' @template workflow_name
+#' @param bookdown_input Used as the input for `input` in `bookdown::render_book()`.If `NULL``, a field named output_dir 
+#'  in the configuration file ‘_bookdown.yml’ will be used (possibly not specified, either, in which case a directory
+#'  name ‘_book’ will be used).
+#' @param bookdown_output_dir Used as the input for `output_dir` in `bookdown::render_book()`. 
+#' @param deployment_dir The directory to deploy to on the gh-pages branch.
+#' @export
+use_update_bookdown <- function(workflow_name = "call-update-bookdown.yml",
+  bookdown_input = ".",
+  bookdown_output_dir = NULL,
+  deployment_dir = "_book") {
+  
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-update-bookdown.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-bookdown.yml"
+  )
+
+  # edit workflow based on bookdown_input, bookdown_output_dir, deployment_dir
+  # use approach as in other use_* functions.
+}
