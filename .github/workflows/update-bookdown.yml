@@ -4,11 +4,11 @@
 on:
   workflow_call:
     inputs:
-      bookdown-input:
+      bookdown_input:
         default: '.'
         required: true
         type: string
-      bookdown-output_dir:
+      bookdown_output_dir:
         required: false
         type: string
       deployment_dir:
@@ -36,19 +36,23 @@ jobs:
           extra-packages: |
             any::devtools
             any::bookdown
-            
+      - name: append the cache path
+        id: cachepathstep
+        run: |
+          echo "cachepath=${{input.bookdown_input}}/_bookdown_files" >> $GITHUB_ENV
+
       - name: Cache bookdown results
         uses: actions/cache@v2
         with:
-          path: inst/bookdown/_bookdown_files
+          path: ${{ steps.cachepathstep.outputs.cachepath }}
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book(input.bookdown-input, output_dir = input.bookdown-output_dir, quiet = TRUE)'
+        run: Rscript -e 'bookdown::render_book(${{ input.bookdown_input }}, output_dir = ${{ input.bookdown_output_dir }}, quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: input.bookdown-deployment_dir
+          folder: ${{ input.deployment_dir }}
