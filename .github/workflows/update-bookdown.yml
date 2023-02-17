@@ -42,17 +42,17 @@ jobs:
           echo "cachepath=${{inputs.bookdown_input}}/_bookdown_files" >> $GITHUB_OUTPUT
 
       - name: Cache bookdown results
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.cachepathstep.outputs.cachepath }}
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book(inputs.bookdown_input, output_dir = inputs.bookdown_output_dir, quiet = TRUE)'
+        run: Rscript -e 'bookdown::render_book(${{ inputs.bookdown_input }}, output_dir = ${{inputs.bookdown_output_dir}}, quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: ${{ inputs.deployment_dir }}
