@@ -1,4 +1,3 @@
-
 temp_path <- file.path(tempdir(), "rcmdcheck")
 dir.create(temp_path)
 old_wd <- getwd()
