@@ -55,6 +55,11 @@ ghactions4r::use_update_pkgdown()
 ghactions4r::use_build_deploy_bookdown()
 ```
 
+- To spell check an R package:
+```r
+ghactions4r::use_spell_check()
+```
+
 Commit and push the files generated up to github, making the github actions available for the repository of the R package.
 
 The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.
