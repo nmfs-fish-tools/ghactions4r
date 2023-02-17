@@ -65,6 +65,21 @@ Check that Github Actions has been given the right `GITHUB_TOKEN` permissions. G
 
 If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!
 
+## Code of Conduct
+
+{ghactions4r} uses the [NOAA FIT Code of Conduct](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/FIT-code-of-conduct/).
+
+## Contributing
+
+Contributions are welcome! Contributions can be code, but are not just code, but also includes things like:
+
+- Reporting errors or bugs
+- Suggesting enhancements
+- Correcting or adding documentation (including editing the readme)
+- Answering questions on the [discussions page](https://github.com/nmfs-fish-tools/ghactions4r/discussions)
+
+Additional details are available in the [NOAA FIT Contributing Guide](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20fit/contributing/).
+
 ## Disclaimer
 
 “The United States Department of Commerce (DOC) GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.”
