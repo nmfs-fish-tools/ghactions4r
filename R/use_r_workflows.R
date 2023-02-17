@@ -143,19 +143,19 @@ use_style_r_code <- function(workflow_name = "call-style.yml") {
 
 #' use workflow in current pkg to build and deploy (update) bookdown
 #' Builds the bookdown, then deploys it to a branch in the same repository called gh-pages.
-#' The repository must be 
+#' The repository must be
 #' @template workflow_name
 #' @param bookdown_input Used as the input for `input` in `bookdown::render_book()`.
-#' @param bookdown_output_dir Used as the input for `output_dir` in `bookdown::render_book()`. 
+#' @param bookdown_output_dir Used as the input for `output_dir` in `bookdown::render_book()`.
 #'  Note that `NULL` will currently not work.
 #' @param deployment_dir The directory to deploy to on the gh-pages branch.
 #' @returns Path to the .yml file.
 #' @export
-use_build_deploy_bookdown <- function(workflow_name = "call-build-deploy-bookdown.yml",
-  bookdown_input = ".",
-  bookdown_output_dir = "_book",
-  deployment_dir = "_book") {
-  
+use_build_deploy_bookdown <- function(
+    workflow_name = "call-build-deploy-bookdown.yml",
+    bookdown_input = ".",
+    bookdown_output_dir = "_book",
+    deployment_dir = "_book") {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-build-deploy-bookdown.yml",
     save_as = workflow_name,
