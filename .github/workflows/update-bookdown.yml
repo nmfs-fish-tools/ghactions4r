@@ -39,7 +39,7 @@ jobs:
       - name: append the cache path
         id: cachepathstep
         run: |
-          echo "cachepath=${{input.bookdown_input}}/_bookdown_files" >> $GITHUB_ENV
+          echo "cachepath=${{inputs.bookdown_input}}/_bookdown_files" >> $GITHUB_ENV
 
       - name: Cache bookdown results
         uses: actions/cache@v2
@@ -49,10 +49,10 @@ jobs:
           restore-keys: bookdown-
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book(input.bookdown_input, output_dir = input.bookdown_output_dir, quiet = TRUE)'
+        run: Rscript -e 'bookdown::render_book(inputs.bookdown_input, output_dir = inputs.bookdown_output_dir, quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: ${{ input.deployment_dir }}
+          folder: ${{ inputs.deployment_dir }}
