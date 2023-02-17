@@ -87,3 +87,12 @@ test_that("use_style_r_code() works", {
   use_style_r_code()
   expect_true(file.exists(".github/workflows/call-style.yml"))
 })
+
+test_that("use_build_deploy_bookdown() works", {
+  use_build_deploy_bookdown()
+  expect_true(file.exists(".github/workflows/call-build-deploy-bookdown.yml"))
+  txt <- readLines(".github/workflows/call-build-deploy-bookdown.yml")
+  expect_length(grep("bookdown_input:", txt), 1)
+  expect_length(grep("bookdown_output_dir:", txt), 1)
+  expect_length(grep("deployment_dir:", txt), 1)
+})

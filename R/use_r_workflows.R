@@ -139,3 +139,38 @@ use_style_r_code <- function(workflow_name = "call-style.yml") {
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
+
+
+#' use workflow in current pkg to build and deploy (update) bookdown
+#' Builds the bookdown, then deploys it to a branch in the same repository called gh-pages.
+#' The repository must be 
+#' @template workflow_name
+#' @param bookdown_input Used as the input for `input` in `bookdown::render_book()`.
+#' @param bookdown_output_dir Used as the input for `output_dir` in `bookdown::render_book()`. 
+#'  Note that `NULL` will currently not work.
+#' @param deployment_dir The directory to deploy to on the gh-pages branch.
+#' @returns Path to the .yml file.
+#' @export
+use_build_deploy_bookdown <- function(workflow_name = "call-build-deploy-bookdown.yml",
+  bookdown_input = ".",
+  bookdown_output_dir = "_book",
+  deployment_dir = "_book") {
+  
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-build-deploy-bookdown.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-build-deploy-bookdown.yml"
+  )
+  path_to_yml <- file.path(".github", "workflows", workflow_name)
+  gha <- readLines(path_to_yml)
+  # edit workflow based on bookdown_input, bookdown_output_dir, deployment_dir
+  # use approach as in other use_* functions.
+  input_line <- grep("bookdown_input:", gha, fixed = TRUE)
+  gha[input_line] <- paste0("        bookdown_input: ", bookdown_input, " # where the bookdown .Rmd files are located")
+  output_dir_line <- grep("bookdown_output_dir:", gha, fixed = TRUE)
+  gha[output_dir_line] <- paste0("        bookdown_output_dir: ", bookdown_output_dir, " # where the bookdown files are rendered to.")
+  deploy_line <- grep("deployment_dir:", gha, fixed = TRUE)
+  gha[deploy_line] <- paste0("        deployment_dir: ", deployment_dir, " # The subfolder of the gh-pages branch that the bookdown is deployed to.")
+  writeLines(gha, path_to_yml)
+  return(path_to_yml)
+}
