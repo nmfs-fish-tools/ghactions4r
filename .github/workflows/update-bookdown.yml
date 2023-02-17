@@ -49,7 +49,7 @@ jobs:
           restore-keys: bookdown-
 
       - name: Build site
-        run: Rscript -e 'bookdown::render_book(${{ inputs.bookdown_input }}, output_dir = ${{inputs.bookdown_output_dir}}, quiet = TRUE)'
+        run: Rscript -e 'bookdown::render_book("${{ inputs.bookdown_input }}", output_dir = "${{ inputs.bookdown_output_dir }}", quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
