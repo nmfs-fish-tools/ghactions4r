@@ -27,7 +27,7 @@ A character vector of the modified text. As a side effect, produces
 a text file (name specified in out_file) written out from R using writeLines().
 }
 \description{
-The dollar sign is convienent to write, but allows for partial matching,
+The dollar sign is convenient to write, but allows for partial matching,
 which we don't often want. This function takes a file and changes all dollar
 signs to double brackets with names in quotations instead. Note that this
 function will incorrectly convert text enclosed in backticks that includes a dollar sign.

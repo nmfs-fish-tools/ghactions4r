@@ -1,6 +1,6 @@
 #' Replace dollar sign operator in a file
 #'
-#' The dollar sign is convienent to write, but allows for partial matching,
+#' The dollar sign is convenient to write, but allows for partial matching,
 #' which we don't often want. This function takes a file and changes all dollar
 #' signs to double brackets with names in quotations instead. Note that this
 #' function will incorrectly convert text enclosed in backticks that includes a dollar sign.

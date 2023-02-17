@@ -117,7 +117,7 @@ update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml") {
   )
 }
 
-#' use workflow in curent pkg to run devtools::document() and submit results as a PR
+#' use workflow in current pkg to run devtools::document() and submit results as a PR
 #' @template workflow_name
 #' @export
 use_update_roxygen_docs <- function(workflow_name = "call-update-docs.yml") {
