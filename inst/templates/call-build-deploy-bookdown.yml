@@ -1,0 +1,15 @@
+# builds bookdown in a repo that is an R pkg, then deploys to a branch gh-pages
+name: call-build-deploy-bookdown
+# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+on:
+# this workflow runs on pushes to main or master or manually with the click of a button in actions.
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+jobs:
+  call-workflow:
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-deploy-bookdown.yml@main
+      with:
+        bookdown_input: '.' # where the bookdown .Rmd files are located
+        bookdown_output_dir: '_book' # where the bookdown files are rendered to.
+        deployment_dir: '_book' # The subfolder of the gh-pages branch that the bookdown is deployed to.

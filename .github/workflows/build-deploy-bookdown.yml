@@ -1,6 +1,7 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+# Build and deploy bookdown in a repo that is an R pkg.
 # all bookdown dependencies should be listed in DESCRIPTION for the pkg
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+
 on:
   workflow_call:
     inputs:
@@ -9,14 +10,15 @@ on:
         required: true
         type: string
       bookdown_output_dir:
-        required: false
+        default: '_book'
+        required: true
         type: string
       deployment_dir:
         default: '_book'
         required: true
         type: string
 
-name: update-bookdown
+name: build-deploy-bookdown
 
 jobs:
   bookdown:
@@ -49,6 +51,7 @@ jobs:
           restore-keys: bookdown-
 
       - name: Build site
+        if: ${{ inputs.bookdown_output_dir}}
         run: Rscript -e 'bookdown::render_book("${{ inputs.bookdown_input }}", output_dir = "${{ inputs.bookdown_output_dir }}", quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
