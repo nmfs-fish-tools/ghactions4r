@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_r_cmd_check}
 \alias{use_r_cmd_check}
-\title{Use workflow to run r cmd check on linux, mac, and windows gh actions}
+\title{Use workflow to run r cmd check on Linux, Mac, and Windows GitHub Actions}
 \usage{
 use_r_cmd_check(
   workflow_name = "call-r-cmd-check.yml",
@@ -10,12 +10,12 @@ use_r_cmd_check(
 )
 }
 \arguments{
-\item{workflow_name}{What to name the github actionworkflow locally. Must
+\item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
 
-\item{use_full_build_matrix}{Run r cmd check with two older versions of r in
+\item{use_full_build_matrix}{Run R cmd check with two older versions of R in
 addition to the three runs that use the release version.}
 }
 \description{
-Use workflow to run r cmd check on linux, mac, and windows gh actions
+Use workflow to run r cmd check on Linux, Mac, and Windows GitHub Actions
 }

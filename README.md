@@ -7,7 +7,7 @@
 
 ## What is in ghactions4r?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package Github repository.
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository.
 
 ## How do I use these workflows in my R package?
 
@@ -20,7 +20,7 @@ remotes::install_github("nmfs-fish-tools/ghactions4r")
 
 Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.
 
-- To run R CMD check using linux (R release and R development), mac (R release), and windows (R release):
+- To run R CMD check using Linux (R release and R development), Mac (R release), and Windows (R release):
 ```r
 ghactions4r::use_r_cmd_check()
 ```
@@ -59,9 +59,9 @@ Commit and push the files generated up to github, making the github actions avai
 
 The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.
 
-## The Github action I added to my repository failed. What should I do?
+## The GitHub Action Workflow I added to my repository failed. What should I do?
 
-Check that Github Actions has been given the right `GITHUB_TOKEN` permissions. Github Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow [these Github Documentation instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
+Check that GitHub Actions has been given the right `GITHUB_TOKEN` permissions. GitHub Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow [these GitHub Documentation instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
 
 If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!
 

@@ -1,6 +1,6 @@
-#' Use workflow to run r cmd check on linux, mac, and windows gh actions
+#' Use workflow to run r cmd check on Linux, Mac, and Windows GitHub Actions
 #' @template workflow_name
-#' @param use_full_build_matrix Run r cmd check with two older versions of r in
+#' @param use_full_build_matrix Run R cmd check with two older versions of R in
 #'   addition to the three runs that use the release version.
 #' @export
 use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
