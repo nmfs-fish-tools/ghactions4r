@@ -2,8 +2,9 @@
 name: call-spell-check
 # on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
-# this workflow runs on pushing to any branch or manually.
+# this workflow runs on pushing to main, pull requests to main, and manually.
   push:
+  pull_request: [main]
   workflow_dispatch:
 jobs:
   call-workflow:
