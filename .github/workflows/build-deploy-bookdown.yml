@@ -50,7 +50,7 @@ jobs:
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
-      - name: Build site
+      - name: Build bookdown site
         if: ${{ inputs.bookdown_output_dir}}
         run: Rscript -e 'bookdown::render_book("${{ inputs.bookdown_input }}", output_dir = "${{ inputs.bookdown_output_dir }}", quiet = TRUE)'
 
