@@ -39,7 +39,7 @@ jobs:
       - name: append the cache path
         id: cachepathstep
         run: |
-          echo "cachepath=${{inputs.bookdown_input}}/_bookdown_files" >> $GITHUB_ENV
+          echo "cachepath=${{inputs.bookdown_input}}/_bookdown_files" >> $GITHUB_OUTPUT
 
       - name: Cache bookdown results
         uses: actions/cache@v2
