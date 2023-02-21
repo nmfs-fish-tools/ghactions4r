@@ -21,6 +21,8 @@ jobs:
           results <- spelling::spell_check_package()
           if(nrow(results)>0) {
             print(results)
-            stop("Failing test because spelling errors found.")
+            stop("Spelling errors found.\n", 
+            "Need to ignore some words? Read up on using the WORDLIST file:\n",
+            "https://docs.ropensci.org/spelling/reference/wordlist.html")
           }
         shell: Rscript {0}
