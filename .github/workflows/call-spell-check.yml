@@ -4,10 +4,12 @@ name: call-spell-check
 on:
 # this workflow runs on pushing to main, pull requests to main, and manually.
   push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
   workflow_dispatch:
 jobs:
   call-workflow:
-    uses: nmfs-fish-tools/ghactions4r/.github/workflows/spell-check.yml@add-spell-check
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/spell-check.yml@main
