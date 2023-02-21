@@ -1,4 +1,4 @@
-# check spelling using devtools::spell_check()
+# check spelling using spelling::spell_check_package()
 on:
  workflow_call:
 
@@ -17,7 +17,10 @@ jobs:
         run: Rscript -e 'install.packages("spelling")'
 
       - name: spell check
-        run: spelling::spell_check_package()
+        run: |
+          results <- spelling::spell_check_package()
+          if(nrow(results)>0) {
+            print(results)
+            stop("Failing test because spelling errors found.")
+          }
         shell: Rscript {0}
-
-#      - name: fail job if any spelling errors are caught
