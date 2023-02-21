@@ -188,4 +188,3 @@ use_spell_check <- function(workflow_name = "call-spell-check.yml") {
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   return(path_to_yml)
 }
-
