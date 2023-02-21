@@ -1,0 +1,28 @@
+# check spelling using spelling::spell_check_package()
+on:
+ workflow_call:
+
+name: run devtools::spell_check
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - name: Install spelling
+        run: Rscript -e 'install.packages("spelling")'
+
+      - name: spell check
+        run: |
+          results <- spelling::spell_check_package()
+          if(nrow(results)>0) {
+            print(results)
+            stop("Spelling errors found.\n", 
+            "Need to ignore some words? Read up on using the WORDLIST file:\n",
+            "https://docs.ropensci.org/spelling/reference/wordlist.html")
+          }
+        shell: Rscript {0}

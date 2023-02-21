@@ -174,3 +174,18 @@ use_build_deploy_bookdown <- function(
   writeLines(gha, path_to_yml)
   return(path_to_yml)
 }
+
+#' use workflow to run spelling::spell_check_package()
+#' @template workflow_name
+#' @return The path to the new github action file.
+#' @export
+use_spell_check <- function(workflow_name = "call-spell-check.yml") {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-spell-check.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-spell-check.yml"
+  )
+  path_to_yml <- file.path(".github", "workflows", workflow_name)
+  return(path_to_yml)
+}
+

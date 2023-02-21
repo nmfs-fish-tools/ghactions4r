@@ -95,3 +95,8 @@ test_that("use_build_deploy_bookdown() works", {
   expect_length(grep("bookdown_output_dir:", txt), 1)
   expect_length(grep("deployment_dir:", txt), 1)
 })
+
+test_that("use_spell_check() works", {
+  use_spell_check()
+  expect_true(file.exists(".github/workflows/call-spell-check.yml"))
+})
