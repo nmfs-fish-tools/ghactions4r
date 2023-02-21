@@ -179,7 +179,7 @@ use_build_deploy_bookdown <- function(
 #' @template workflow_name
 #' @return The path to the new github action file.
 #' @export
-use_style_r_code <- function(workflow_name = "call-spell-check.yml") {
+use_spell_check <- function(workflow_name = "call-spell-check.yml") {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-spell-check.yml",
     save_as = workflow_name,
