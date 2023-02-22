@@ -70,6 +70,10 @@ Check that GitHub Actions has been given the right `GITHUB_TOKEN` permissions. G
 
 If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!
 
+## I want to setup and maintain my own github actions rather than use reusable workflows housed in ghactions4r. How do I do this?
+
+[r-lib/actions](https://github.com/r-lib/actions) Includes basic actions for R as well as example workflows. In fact, many of the reusable workflows in {ghactions4r} are based on these examples. Many of these can be set up through [usethis' GitHub Actions functions](https://usethis.r-lib.org/reference/github_actions.html).
+
 ## Code of Conduct
 
 {ghactions4r} uses the [NOAA FIT Code of Conduct](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/FIT-code-of-conduct/).
