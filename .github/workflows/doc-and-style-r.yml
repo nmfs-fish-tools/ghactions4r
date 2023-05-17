@@ -6,7 +6,7 @@
 # is required.
 
 # Optionally, the function ghactions4r::rm_dollar_sign() can be run to convert all $ references to [[]].
-# The advantage of this is it get rids of partial matching with $. For more details, see ?ghactinos4r::rm_dollar_sign()
+# The advantage of this is it get rids of partial matching with $. For more details, see ?ghactions4r::rm_dollar_sign()
 # in the R console
 
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
