@@ -1,5 +1,5 @@
 # This action runs styler::style_pkg() to style r code in an r pkg's repo. After
-# styling, the changes are commited and a pull request to the branch the Workflow
+# styling, the changes are committed and a pull request to the branch the Workflow
 # was started on is opened - this PR contains the commit.
 
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
