@@ -6,7 +6,7 @@
 #' function will incorrectly convert text enclosed in backticks that includes a dollar sign.
 #' Note also that if a dollar sign is within a text
 #' string enclosed with quotation marks, it will also not  convert correctly and
-#' so will exit on error.
+#' so will exit on error. Tmp change.
 #' (for example, "See test$name" would become
 #' "See test\[\["name"\]\]", which is not parsable R code due to 2 sets of quotation
 #' marks.)
