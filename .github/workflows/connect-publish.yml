@@ -13,6 +13,11 @@
 name: connect-publish
 on:
   workflow_call:
+    secrets:
+      CONNECT_URL:
+        required: true
+      CONNECT_API_KEY:
+        required: true
 
 jobs:
   connect-publish:
@@ -22,6 +27,5 @@ jobs:
       - name: Publish Connect content
         uses: rstudio/actions/connect-publish@main
         with:
-
           url: ${{ secrets.CONNECT_URL }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
