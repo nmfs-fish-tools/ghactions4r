@@ -89,6 +89,16 @@ Contributions are welcome! Contributions can be code, but are not just code, but
 
 Additional details are available in the [NOAA FIT Contributing Guide](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20fit/contributing/).
 
+### Checklist for adding a new workflow
+- [ ] Make sure the workflow is in scope by opening an issue to ask.
+- [ ] Create a feature branch or fork to do your work.
+- [ ] Create the reusable workflow in `.github/workflows`
+- [ ] Create the template workflow for users to use in `inst/templates`. Name it the same as the reusable workflow, but with `call-` in front.
+- [ ] Add a usethis style function to help the user add the workflow by adding the new function to `R/use_r_workflows.R`. Follow the style of the workflows already there.
+- [ ] Add a test (or tests) in `tests/testthat/test-use_r_workflow.R`. Add a new test to the end of the file and follow the style of the existing tests in the script.
+- [ ] Add to the "How do I use these workflows in my R package?" section of the readme, showing how to use the usethis style r function.
+- [ ] Open a pull request to main when work is ready for review!
+
 ## Disclaimer
 
 “The United States Department of Commerce (DOC) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.”
