@@ -1,0 +1,36 @@
+# This action publishes to connect using the git-backed workflow. Note that
+# it is only necessary to do it this way if the product is in a private or
+# internal repository; otherwise, it is far easier to deploy following the
+# instructions in https://docs.posit.co/connect/user/git-backed/
+
+# To use this workflow, the user will need to generate the manifest.json, create
+# and api key from connect, and add 2 secrets, one named
+# CONNECT_URL containing the connect url (complete with https:// in front of
+# the address) and one named CONNECT_API_KEY, containing an API Key from connect.
+# To generate the manifest file, follow instructions in the create a manifest 
+# from r setup and pushing it to github:
+# https://docs.posit.co/connect/user/git-backed/#creating-a-manifest-file-from-r
+# See  https://docs.posit.co/connect/user/api-keys/#api-keys-creating for
+# instructions on creating and API key from connect and
+# https://octopus.com/blog/githubactions-secrets for instructions on creating
+# secrets.
+name: call-connect-publish
+# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+on:
+  push:
+    branches: [main, master]
+# could change the build trigger to be specific to changes in the product, e.g.,
+# for changes only in the R markdown product called my-prod.Rmd:
+#on:
+#  push:
+#    branches: [main, master]
+#    paths:
+#      - 'my-prod.Rmd' 
+jobs:
+  call-workflow:
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/connect-publish.yml@main
+    secrets:
+      # can change secrets.CONNECT_URL or secrets.CONNECT_API_KEY to a different 
+      # secret name if it is named differently in the repository.
+      CONNECT_URL: ${{ secrets.CONNECT_URL }} 
+      CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}

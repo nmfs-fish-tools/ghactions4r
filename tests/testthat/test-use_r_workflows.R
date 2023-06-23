@@ -100,3 +100,8 @@ test_that("use_spell_check() works", {
   use_spell_check()
   expect_true(file.exists(".github/workflows/call-spell-check.yml"))
 })
+
+test_that("use_connect_publish() works", {
+  expect_output(use_connect_publish())
+  expect_true(file.exists(".github/workflows/call-spell-check.yml"))
+})
