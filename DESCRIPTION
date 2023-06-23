@@ -1,6 +1,6 @@
 Package: ghactions4r
 Title: Use GitHub Actions Reusable Workflows for R Packages
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     c(person(given = "Kathryn",
            family = "Doering",
