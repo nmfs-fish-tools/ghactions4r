@@ -1,0 +1,24 @@
+# check spelling using spelling::spell_check_package()
+on:
+  workflow_call:
+    inputs:
+      folder-path:
+        required: true
+        type: string
+        default: '.'
+
+name: render quarto and save as artifact
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: folder-path
+      - name: save artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: quarto-output
+          path: folder-path
