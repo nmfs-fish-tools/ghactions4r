@@ -1,5 +1,6 @@
 # update documentation and style for R code
-# This action runs both devtools::document() and styler::style_pkg() to style r code in an r pkg's repo. After
+# This action runs devtools::document(), tyler::style_pkg() to style r code in an r pkg's repo, and 
+# usethis::use_tidy_description() to style the DESCRIPTION file. After
 # styling, the changes are commited. If commit-directly is false (the default), a pull request to the branch 
 # the Workflow was started on is opened - this PR contains the commit. If commit-directly is true, the changes are
 # pushed directly to branch that the workflow was started on. Note that the job will fail if force pushing
@@ -41,6 +42,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
+      
+      - name: Install curl dependency
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
 
       - uses: r-lib/actions/setup-r@v2
       - name: Query dependencies
@@ -63,6 +68,7 @@ jobs:
           remotes::install_cran("styler")
           remotes::install_cran("roxygen2")
           remotes::install_cran("pkgbuild")
+          remotes::install_cran("usethis")
         shell: Rscript {0}
 
       - name: add ghactions4r, if using ghactions4r::rm_dollar_sign
@@ -102,6 +108,9 @@ jobs:
       - name: Document again, just in case
         run: |
           Rscript -e 'roxygen2::roxygenise()'
+        
+      - name: Style description file
+        run: Rscript -e 'usethis::use_tidy_description()'
           
       - name: Remove any rds in .github
         run: cd .github && rm -f *.rds

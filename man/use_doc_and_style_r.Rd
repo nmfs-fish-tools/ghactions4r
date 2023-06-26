@@ -30,5 +30,6 @@ workflow_dispatch trigger ("manually"); run on the default branch (usually
 main) once a week ("weekly").}
 }
 \description{
-Use workflow in current pkg  to automate documenting and styling
+Style your R package components automatically by running devtools::document(),
+styler::style_pkg() and usethis::use_tidy_description().
 }
