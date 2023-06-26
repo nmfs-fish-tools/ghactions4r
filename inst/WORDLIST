@@ -1,7 +1,7 @@
 CMD
-GitHub
 Lifecycle
 NOAA
+api
 bookdown
 cmd
 codecov
@@ -9,8 +9,10 @@ devtools
 gh
 ghactions
 github
+githubactions
+https
 io
-Linux
+json
 parsable
 pkgdown
 readme
