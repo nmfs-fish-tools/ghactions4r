@@ -31,7 +31,7 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml") {
 #' Use workflow in current pkg  to automate documenting and styling
 #'
 #' Style your R package components automatically by running devtools::document(),
-#' styler::style_pkg() and usethis::use_tidy_description().
+#' styler::style_pkg(), and usethis::use_tidy_description().
 #' @template workflow_name
 #' @param use_rm_dollar_sign in addition to devtools::document and
 #'  styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.

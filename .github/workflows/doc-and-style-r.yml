@@ -1,8 +1,8 @@
 # update documentation and style for R code
-# This action runs devtools::document(), tyler::style_pkg() to style r code in an r pkg's repo, and 
+# This action runs devtools::document(), styler::style_pkg() to style r code in an r pkg's repo, and 
 # usethis::use_tidy_description() to style the DESCRIPTION file. After
 # styling, the changes are commited. If commit-directly is false (the default), a pull request to the branch 
-# the Workflow was started on is opened - this PR contains the commit. If commit-directly is true, the changes are
+# the Workflow was started on is opened - this pull requset contains the commit. If commit-directly is true, the changes are
 # pushed directly to branch that the workflow was started on. Note that the job will fail if force pushing
 # is required.
 
