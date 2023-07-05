@@ -65,6 +65,10 @@ ghactions4r::use_build_deploy_bookdown()
 ghactions4r::use_spell_check()
 ```
 
+- To publish a product to posit connect from a private repo:
+```r
+ghactions4r::use_connect_publish()
+```
 
 Commit and push the files generated up to github, making the github actions available for the repository of the R package.
 
@@ -94,6 +98,16 @@ Contributions are welcome! Contributions can be code, but are not just code, but
 - Answering questions on the [discussions page](https://github.com/nmfs-fish-tools/ghactions4r/discussions)
 
 Additional details are available in the [NOAA FIT Contributing Guide](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20fit/contributing/).
+
+### Checklist for adding a new workflow
+- [ ] Make sure the workflow is in scope by opening an issue to ask.
+- [ ] Create a feature branch or fork to do your work.
+- [ ] Create the reusable workflow in `.github/workflows`
+- [ ] Create the template workflow for users to use in `inst/templates`. Name it the same as the reusable workflow, but with `call-` in front.
+- [ ] Add a usethis style function to help the user add the workflow by adding the new function to `R/use_r_workflows.R`. Follow the style of the workflows already there.
+- [ ] Add a test (or tests) in `tests/testthat/test-use_r_workflow.R`. Add a new test to the end of the file and follow the style of the existing tests in the script.
+- [ ] Add to the "How do I use these workflows in my R package?" section of the readme, showing how to use the usethis style r function.
+- [ ] Open a pull request to main when work is ready for review!
 
 ## Disclaimer
 
