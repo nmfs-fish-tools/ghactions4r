@@ -31,5 +31,5 @@ main) once a week ("weekly").}
 }
 \description{
 Style your R package components automatically by running devtools::document(),
-styler::style_pkg() and usethis::use_tidy_description().
+styler::style_pkg(), and usethis::use_tidy_description().
 }
