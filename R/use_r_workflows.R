@@ -29,6 +29,9 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml") {
 }
 
 #' Use workflow in current pkg  to automate documenting and styling
+#'
+#' Style your R package components automatically by running devtools::document(),
+#' styler::style_pkg(), and usethis::use_tidy_description().
 #' @template workflow_name
 #' @param use_rm_dollar_sign in addition to devtools::document and
 #'  styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.
@@ -124,6 +127,22 @@ use_update_roxygen_docs <- function(workflow_name = "call-update-docs.yml") {
   usethis::use_github_action("call-update-docs.yml",
     save_as = workflow_name,
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-docs.yml"
+  )
+  usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
+}
+
+#' use workflow in current pkg to run `usethis::use_tidy_description()`
+#'
+#' Run `usethis::use_tidy_description()` upon changes to the DESCRIPTION file
+#' and submit results as a PR.
+#' @template workflow_name
+#' @export
+use_style_description <- function(workflow_name = "call-style-description.yml") {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action(
+    "call-style-description.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-style-description.yml"
   )
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
