@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ghactions4r</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.4</span>
       </span>
     </div>
 
@@ -161,6 +161,11 @@
 </ul>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_spell_check.html">use_spell_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>To publish a product to posit connect from a private repo:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_connect_publish.html">use_connect_publish</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Commit and push the files generated up to github, making the github actions available for the repository of the R package.</p>
 <p>The templates these functions generate can also be <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates" class="external-link">viewed</a> for reference.</p>
 </div>
@@ -192,6 +197,29 @@
 </li>
 </ul>
 <p>Additional details are available in the <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20fit/contributing/" class="external-link">NOAA FIT Contributing Guide</a>.</p>
+<div class="section level3">
+<h3 id="checklist-for-adding-a-new-workflow">Checklist for adding a new workflow<a class="anchor" aria-label="anchor" href="#checklist-for-adding-a-new-workflow"></a>
+</h3>
+<ul class="task-list">
+<li>
+<input type="checkbox" disabled>Make sure the workflow is in scope by opening an issue to ask.</li>
+<li>
+<input type="checkbox" disabled>Create a feature branch or fork to do your work.</li>
+<li>
+<input type="checkbox" disabled>Create the reusable workflow in <code>.github/workflows</code>
+</li>
+<li>
+<input type="checkbox" disabled>Create the template workflow for users to use in <code>inst/templates</code>. Name it the same as the reusable workflow, but with <code>call-</code> in front.</li>
+<li>
+<input type="checkbox" disabled>Add a usethis style function to help the user add the workflow by adding the new function to <code>R/use_r_workflows.R</code>. Follow the style of the workflows already there.</li>
+<li>
+<input type="checkbox" disabled>Add a test (or tests) in <code>tests/testthat/test-use_r_workflow.R</code>. Add a new test to the end of the file and follow the style of the existing tests in the script.</li>
+<li>
+<input type="checkbox" disabled>Add to the “How do I use these workflows in my R package?” section of the readme, showing how to use the usethis style r function.</li>
+<li>
+<input type="checkbox" disabled>Open a pull request to main when work is ready for review!</li>
+</ul>
+</div>
 </div>
 <div class="section level2">
 <h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
