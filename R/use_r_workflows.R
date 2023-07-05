@@ -217,7 +217,7 @@ use_spell_check <- function(workflow_name = "call-spell-check.yml") {
 #' @details To use this workflow, the user will need to generate the manifest.json, and add 2 secrets, one named
 #' CONNECT_URL containing the connect url (complete with https:// in front of
 #' the address) and one named CONNECT_API_KEY, containing an API Key from connect.
-#' To generate the manifest file, follow instructions in the create a manifest 
+#' To generate the manifest file, follow instructions in the create a manifest
 #' from r setup and pushing it to github:
 #' https://docs.posit.co/connect/user/git-backed/#creating-a-manifest-file-from-r
 #' See  https://docs.posit.co/connect/user/api-keys/#api-keys-creating for
@@ -235,13 +235,13 @@ use_connect_publish <- function(workflow_name = "call-connect-publish.yml") {
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   instructions_text_general <-
-  "To use this workflow, the user will need to generate the manifest.json,\n and add 2 secrets, one named CONNECT_URL containing\nthe connect url (complete with https:// in front of the address) and one named\n CONNECT_API_KEY, containing an API Key from connect."
-  instructions_manifest <- 
-  "To generate the manifest file, follow instructions in 'create a manifest\n from r setup' and push it to github:\nhttps://docs.posit.co/connect/user/git-backed/#creating-a-manifest-file-from-r"
-  instructions_api <- 
-  "See https://docs.posit.co/connect/user/api-keys/#api-keys-creating for\n instructions on creating an API key from connect" 
-  instructions_secrets <- 
-  "See https://octopus.com/blog/githubactions-secrets for instructions on\ncreating GitHub secrets."
+    "To use this workflow, the user will need to generate the manifest.json,\n and add 2 secrets, one named CONNECT_URL containing\nthe connect url (complete with https:// in front of the address) and one named\n CONNECT_API_KEY, containing an API Key from connect."
+  instructions_manifest <-
+    "To generate the manifest file, follow instructions in 'create a manifest\n from r setup' and push it to github:\nhttps://docs.posit.co/connect/user/git-backed/#creating-a-manifest-file-from-r"
+  instructions_api <-
+    "See https://docs.posit.co/connect/user/api-keys/#api-keys-creating for\n instructions on creating an API key from connect"
+  instructions_secrets <-
+    "See https://octopus.com/blog/githubactions-secrets for instructions on\ncreating GitHub secrets."
   usethis::ui_todo(instructions_text_general)
   usethis::ui_info(instructions_manifest)
   usethis::ui_info(instructions_api)
