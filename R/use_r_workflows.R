@@ -214,8 +214,7 @@ use_spell_check <- function(workflow_name = "call-spell-check.yml") {
 #' it is only necessary to do it this way if the product is in a private or
 #' internal repository; otherwise, it is far easier to deploy following the
 #' instructions in https://docs.posit.co/connect/user/git-backed/
-#' @details To use this workflow, the user will need to generate the manifest.json, create
-#' an api key from connect, and add 2 secrets, one named
+#' @details To use this workflow, the user will need to generate the manifest.json, and add 2 secrets, one named
 #' CONNECT_URL containing the connect url (complete with https:// in front of
 #' the address) and one named CONNECT_API_KEY, containing an API Key from connect.
 #' To generate the manifest file, follow instructions in the create a manifest 
@@ -235,8 +234,8 @@ use_connect_publish <- function(workflow_name = "call-connect-publish.yml") {
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-connect-publish.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
-  instructions_text_general <- 
-  "To use this workflow, the user will need to generate the manifest.json,\n create an api key from connect, and add 2 secrets, one named CONNECT_URL containing\nthe connect url (complete with https:// in front of the address) and one named\n CONNECT_API_KEY, containing an API Key from connect."
+  instructions_text_general <-
+  "To use this workflow, the user will need to generate the manifest.json,\n and add 2 secrets, one named CONNECT_URL containing\nthe connect url (complete with https:// in front of the address) and one named\n CONNECT_API_KEY, containing an API Key from connect."
   instructions_manifest <- 
   "To generate the manifest file, follow instructions in 'create a manifest\n from r setup' and push it to github:\nhttps://docs.posit.co/connect/user/git-backed/#creating-a-manifest-file-from-r"
   instructions_api <- 

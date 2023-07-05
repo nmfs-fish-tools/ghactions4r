@@ -3,11 +3,12 @@
 # internal repository; otherwise, it is far easier to deploy following the
 # instructions in https://docs.posit.co/connect/user/git-backed/
 
-# To use this workflow, the user will need to add 2 secrets, one named
+# To use this workflow, the user will need to generate the manifest.json, and 
+# add 2 secrets, one named
 # CONNECT_URL containing the connect url (complete with https:// in front of
 # the address) and one named CONNECT_API_KEY, containing an API Key from connect.
 # See  https://docs.posit.co/connect/user/api-keys/#api-keys-creating for
-# instructions on creating and API key from connect and
+# instructions on creating an API key from connect and
 # https://octopus.com/blog/githubactions-secrets for instructions on creating
 # secrets
 name: connect-publish

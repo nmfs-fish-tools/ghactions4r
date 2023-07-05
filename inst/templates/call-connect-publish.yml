@@ -3,8 +3,8 @@
 # internal repository; otherwise, it is far easier to deploy following the
 # instructions in https://docs.posit.co/connect/user/git-backed/
 
-# To use this workflow, the user will need to generate the manifest.json, create
-# and api key from connect, and add 2 secrets, one named
+# To use this workflow, the user will need to generate the manifest.json,
+# and add 2 secrets, one named
 # CONNECT_URL containing the connect url (complete with https:// in front of
 # the address) and one named CONNECT_API_KEY, containing an API Key from connect.
 # To generate the manifest file, follow instructions in the create a manifest 
