@@ -1,0 +1,17 @@
+# use usethis::use_tidy_description() to style DESCRIPTION file and open any
+# changes as a pull request to the branch that started the workflow
+name: call-style-description
+# on specifies the build triggers. See more info at 
+# https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+on:
+# workflow_dispatch allows for pushing a button to run the workflow manually
+# push runs the workflow on branches listed in square brackets
+# uncomment the following line to add manual capabilities
+  #workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths: 
+      - 'DESCRIPTION'
+jobs:
+  call-workflow:
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/style-description.yml@main

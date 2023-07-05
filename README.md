@@ -40,7 +40,12 @@ ghactions4r::use_update_roxygen_docs()
 ghactions4r::use_style_r_code()
 ```
 
-- To update documentation and code styling (with the option of running `ghactions4r::rm_dollar_sign()`):
+- To update the style of the DESCRIPTION file using `usethis::use_tidy_description()`:
+```r
+ghactions4r::use_style_description()
+```
+
+- To update documentation, DESCRIPTION file, and code styling for an R package (with the option of running `ghactions4r::rm_dollar_sign()`):
 ```r
 ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 ```
