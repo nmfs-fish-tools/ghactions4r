@@ -5,7 +5,7 @@ setwd(temp_path)
 on.exit(setwd(old_wd), add = TRUE)
 on.exit(unlink(temp_path, recursive = TRUE), add = TRUE)
 # comment out below b/c causes an error when running check on codespaces
-#on.exit(usethis::proj_set("."), add = TRUE)
+# on.exit(usethis::proj_set("."), add = TRUE)
 pkg <- usethis::create_package(".")
 usethis::proj_set(".")
 
