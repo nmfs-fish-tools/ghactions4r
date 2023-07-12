@@ -9,3 +9,12 @@ on:
 jobs:
   call-workflow:
     uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main
+    # uncomment secrets below to allow the pull request created from this workflow to trigger github action runs.
+    # note a PAT can trigger recursive runs, so should be used with caution. See github documentation for more info:
+    # https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
+    # Need to add a personal access token as a secret to your github repository.
+    # can change secrets.API to a different 
+    # secret name if it is named differently in the repository.
+    #secrets:
+    #  PAT: ${{ secrets.PAT }}
+  
