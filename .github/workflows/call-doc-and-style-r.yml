@@ -1,11 +1,6 @@
 # document and style  using reusable workflow
 on:
   push:
-    branches: [main]
-    paths: 
-      - 'R/**'
-      - 'tests/**'
-      - 'vignettes/**'
 name: call-doc-and-style-r
 jobs:
   call-workflow:
