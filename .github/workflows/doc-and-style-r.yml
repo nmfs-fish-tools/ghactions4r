@@ -14,6 +14,9 @@
 # Need help debugging build failures? Open an issue at https://github.com/nmfs-fish-tools/ghactions4r/issues
 on:
  workflow_call:
+   secrets:
+     PAT:
+       required: false
    inputs:
      run-rm_dollar_sign:
        required: false
@@ -31,8 +34,11 @@ jobs:
     name: doc and style
     runs-on: ubuntu-latest
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PAT: ${{ secrets.PAT }}
     steps:
+      - name: setup env using GITHUB_TOKEN, if no pat
+        if: env.GITHUB_PAT == ''
+        run: echo "GITHUB_PAT=${{ secrets.GITHUB_TOKEN}}" >> "$GITHUB_ENV"
       - name: checkout, make changes and submit as pr on new branch
         if: inputs.commit-directly == false
         uses: actions/checkout@v3
@@ -120,6 +126,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           commit-message: 'style and docs: run devtools::document() and styler::style_pkg()'
+          token: ${{ env.GITHUB_PAT }}
           branch: style-doc-code
           title: 'Style code and document'
           body: |
