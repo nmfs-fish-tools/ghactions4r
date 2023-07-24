@@ -1,7 +1,7 @@
 # document and style  using reusable workflow
 on:
   push:
-    branches: [main]
+    branches: [fix-doc-and-style]
     paths: 
       - 'R/**'
       - 'tests/**'
