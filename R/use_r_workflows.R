@@ -17,7 +17,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
   )
 }
 
-#' workflow for calculating code coverage
+#' workflow for calculating code coverage with codecov.io
 #' @template workflow_name
 #' @export
 use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml") {
