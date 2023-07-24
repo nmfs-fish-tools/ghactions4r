@@ -1,4 +1,4 @@
-#' Replace dollar sign operator in a file 
+#' Replace dollar sign operator in a file
 #'
 #' The dollar sign is convenient to write, but allows for partial matching,
 #' which we don't often want. This function takes a file and changes all dollar

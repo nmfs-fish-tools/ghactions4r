@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_calc_coverage}
 \alias{use_calc_coverage}
-\title{workflow for calculating code coverage}
+\title{workflow for calculating code coverage with codecov.io}
 \usage{
 use_calc_coverage(workflow_name = "call-calc-coverage.yml")
 }
@@ -11,5 +11,5 @@ use_calc_coverage(workflow_name = "call-calc-coverage.yml")
 have the file extension \code{.yml}}
 }
 \description{
-workflow for calculating code coverage
+workflow for calculating code coverage with codecov.io
 }
