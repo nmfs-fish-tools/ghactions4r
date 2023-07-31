@@ -52,7 +52,7 @@ ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
 
 - To automatically update pkgdown that has already been set up:
 ```r
-ghactions4r::update_pkgdown()
+ghactions4r::use_update_pkgdown()
 ```
 
 - To automatically build and deploy bookdown (to a branch called gh-pages in the same repository) that is in an R package repository:
