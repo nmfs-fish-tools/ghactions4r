@@ -112,7 +112,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
 #' use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages
 #' @template workflow_name
 #' @export
-update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml") {
+use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml") {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-update-pkgdown.yml",
     save_as = workflow_name,

@@ -73,8 +73,8 @@ test_that("use_doc_and_style_r() works with manual trigger", {
   expect_true(length(grep("workflow_dispatch:", test, fixed = TRUE)) > 0)
 })
 
-test_that("update_pkgdown()) works", {
-  update_pkgdown()
+test_that("use_update_pkgdown()) works", {
+  use_update_pkgdown()
   expect_true(file.exists(".github/workflows/call-update-pkgdown.yml"))
 })
 
