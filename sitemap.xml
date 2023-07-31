@@ -25,9 +25,6 @@
     <loc>/reference/rm_dollar_sign.html</loc>
   </url>
   <url>
-    <loc>/reference/update_pkgdown.html</loc>
-  </url>
-  <url>
     <loc>/reference/use_build_deploy_bookdown.html</loc>
   </url>
   <url>
@@ -50,6 +47,9 @@
   </url>
   <url>
     <loc>/reference/use_style_r_code.html</loc>
+  </url>
+  <url>
+    <loc>/reference/use_update_pkgdown.html</loc>
   </url>
   <url>
     <loc>/reference/use_update_roxygen_docs.html</loc>
