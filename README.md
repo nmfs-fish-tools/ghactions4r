@@ -7,7 +7,7 @@
 
 ## What is in ghactions4r?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository.
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository. Rather than having to maintain your own GitHub actions files (as you would need to with actions set up with [`usethis::use_github_action()`](https://usethis.r-lib.org/reference/use_github_action.html)), using a {ghactions4r} `use_*` function sets up a github actions file to directly call actions that exist and are maintained in the ghactions4r repository (in the [workflows folder](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows)). This means all maintenance happens within the ghactions4r repository rather than in your repository!
 
 ## How do I use these workflows in my R package?
 
