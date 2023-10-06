@@ -19,7 +19,8 @@ remotes::install_github("nmfs-fish-tools/ghactions4r")
 ```
 `use_*()` functions in the `ghactions4r` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
-Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r.
+Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r. Below are a list of the basic 
+functions, for complete options, see [the pkgdown reference documentation](https://nmfs-fish-tools.github.io/ghactions4r/reference/index.html).
 
 - To run R CMD check using Linux (R release and R development), Mac (R release), and Windows (R release):
 ```r

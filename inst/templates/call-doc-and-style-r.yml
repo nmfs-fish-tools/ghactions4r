@@ -1,6 +1,4 @@
-# document and style using reusable workflow
-# This workflow runs devtools::document and styler::style_active_package(), then opens a pull request to the branch
-# That started the workflow with the changes
+# document and style R code using a reusable workflow
 name: call-doc-and-style-r
 # on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
@@ -9,12 +7,4 @@ on:
 jobs:
   call-workflow:
     uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main
-    # uncomment secrets below to allow the pull request created from this workflow to trigger github action runs.
-    # note a PAT can trigger recursive runs, so should be used with caution. See github documentation for more info:
-    # https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
-    # Need to add a personal access token as a secret to your github repository.
-    # can change secrets.API to a different 
-    # secret name if it is named differently in the repository.
-    #secrets:
-    #  PAT: ${{ secrets.PAT }}
   
