@@ -73,6 +73,26 @@ test_that("use_doc_and_style_r() works with manual trigger", {
   expect_true(length(grep("workflow_dispatch:", test, fixed = TRUE)) > 0)
 })
 
+test_that("use_doc_and_style_r() works with pat option", {
+  use_doc_and_style_r(
+    workflow_name = "doc_style_pat.yml",
+    use_rm_dollar_sign = FALSE, how_to_commit = "pull_request", 
+    use_pat = TRUE, pat_name = "MYPAT"
+  )
+  expect_true(file.exists(".github/workflows/doc_style_pat.yml"))
+  test <- readLines(".github/workflows/doc_style_pat.yml")
+  expect_length(grep("secrets.MYPAT", test, fixed = TRUE), 1)
+  expect_length(grep("^    secrets:", test), 1)
+})
+
+test_that("use_doc_and_style_r() errors when a bad combo", {
+  expect_error(use_doc_and_style_r(
+    workflow_name = "doc_style_bad.yml",
+    how_to_commit = "directly",
+    use_pat = TRUE
+  ), "recursive")
+})
+
 test_that("use_update_pkgdown()) works", {
   use_update_pkgdown()
   expect_true(file.exists(".github/workflows/call-update-pkgdown.yml"))
