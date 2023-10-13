@@ -205,7 +205,7 @@
        [9] "jobs:"                                                                                                                                    
       [10] "  call-workflow:"                                                                                                                         
       [11] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-deploy-bookdown.yml@main"                                                   
-      [12] "      with:"                                                                                                                              
+      [12] "    with:"                                                                                                                                
       [13] "        bookdown_input: . # where the bookdown .Rmd files are located"                                                                    
       [14] "        bookdown_output_dir: _book # where the bookdown files are rendered to."                                                           
       [15] "        deployment_dir: _book # The subfolder of the gh-pages branch that the bookdown is deployed to."                                   
