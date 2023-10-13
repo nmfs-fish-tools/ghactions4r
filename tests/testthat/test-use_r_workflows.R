@@ -9,15 +9,28 @@ on.exit(unlink(temp_path, recursive = TRUE), add = TRUE)
 pkg <- usethis::create_package(".")
 usethis::proj_set(".")
 
-test_that("use_r_cmd_check() works", {
+test_that("use_r_cmd_check() works with defaults", {
   use_r_cmd_check()
   expect_true(file.exists(".github/workflows/call-r-cmd-check.yml"))
   expect_true(file.exists(".github/.gitignore"))
+  test <- readLines(".github/workflows/call-r-cmd-check.yml")
+  expect_snapshot(test)
+})
+
+test_that("use_r_cmd_check() works with full build option", {
+  name <- "call-full-build-check.yml"
+  path <- file.path(".github", "workflows", name)
+  use_r_cmd_check(workflow_name = name,  use_full_build_matrix = TRUE)
+  expect_true(file.exists(path))
+  test <- readLines(path)
+  expect_snapshot(test)
 })
 
 test_that("use_calc_coverage()) works", {
   use_calc_coverage()
   expect_true(file.exists(".github/workflows/call-calc-coverage.yml"))
+  test <- readLines(".github/workflows/call-calc-coverage.yml")
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() works", {
@@ -30,6 +43,7 @@ test_that("use_doc_and_style_r() works", {
   expect_length(grep("run-rm_dollar_sign: true", test, fixed = TRUE), 1)
   expect_length(grep("commit-directly: true", test, fixed = TRUE), 1)
   expect_length(grep("pull_request:", test, fixed = TRUE), 1)
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() works with other options", {
@@ -44,6 +58,7 @@ test_that("use_doc_and_style_r() works with other options", {
   expect_length(grep("commit-directly: true", test, fixed = TRUE), 0)
   expect_length(grep("schedule:", test, fixed = TRUE), 1)
   expect_length(grep("cron:", test, fixed = TRUE), 1)
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() works with push to main", {
@@ -58,6 +73,7 @@ test_that("use_doc_and_style_r() works with push to main", {
   expect_length(grep("commit-directly: true", test, fixed = TRUE), 0)
   expect_length(grep("branches:", test, fixed = TRUE), 1)
   expect_length(grep("push:", test, fixed = TRUE), 1)
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() works with manual trigger", {
@@ -71,6 +87,7 @@ test_that("use_doc_and_style_r() works with manual trigger", {
   expect_length(grep("run-rm_dollar_sign: true", test, fixed = TRUE), 0)
   expect_length(grep("commit-directly: true", test, fixed = TRUE), 0)
   expect_true(length(grep("workflow_dispatch:", test, fixed = TRUE)) > 0)
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() works with pat option", {
@@ -83,6 +100,7 @@ test_that("use_doc_and_style_r() works with pat option", {
   test <- readLines(".github/workflows/doc_style_pat.yml")
   expect_length(grep("secrets.MYPAT", test, fixed = TRUE), 1)
   expect_length(grep("^    secrets:", test), 1)
+  expect_snapshot(test)
 })
 
 test_that("use_doc_and_style_r() errors when a bad combo", {
@@ -96,16 +114,22 @@ test_that("use_doc_and_style_r() errors when a bad combo", {
 test_that("use_update_pkgdown()) works", {
   use_update_pkgdown()
   expect_true(file.exists(".github/workflows/call-update-pkgdown.yml"))
+  test <- readLines(".github/workflows/call-update-pkgdown.yml")
+  expect_snapshot(test)
 })
 
 test_that("use_update_roxygen_docs() works", {
   use_update_roxygen_docs()
   expect_true(file.exists(".github/workflows/call-update-docs.yml"))
+  test <- readLines(".github/workflows/call-update-docs.yml")
+  expect_snapshot(test)
 })
 
 test_that("use_style_r_code() works", {
   use_style_r_code()
   expect_true(file.exists(".github/workflows/call-style.yml"))
+  test <- readLines(".github/workflows/call-style.yml")
+  expect_snapshot(test)
 })
 
 test_that("use_build_deploy_bookdown() works", {
@@ -115,14 +139,19 @@ test_that("use_build_deploy_bookdown() works", {
   expect_length(grep("bookdown_input:", txt), 1)
   expect_length(grep("bookdown_output_dir:", txt), 1)
   expect_length(grep("deployment_dir:", txt), 1)
+  expect_snapshot(txt)
 })
 
 test_that("use_spell_check() works", {
   use_spell_check()
   expect_true(file.exists(".github/workflows/call-spell-check.yml"))
+  test <- readLines(".github/workflows/call-spell-check.yml")
+  expect_snapshot(test)
 })
 
 test_that("use_connect_publish() works", {
   use_connect_publish()
-  expect_true(file.exists(".github/workflows/call-spell-check.yml"))
+  expect_true(file.exists(".github/workflows/call-connect-publish.yml"))
+  test <- readLines(".github/workflows/call-connect-publish.yml")
+  expect_snapshot(test)
 })
