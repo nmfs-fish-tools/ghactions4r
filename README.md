@@ -6,20 +6,20 @@
 
 <img src="man/figures/ghactions4r_hex.png" width="15%" height="15%" alt="arrows circling clapboard, symbol for the gh4actions package">
 
-## What is in ghactions4r?
+## What is in `{ghactions4r}`?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository. Rather than having to maintain your own GitHub actions files (as you would need to with actions set up with [`usethis::use_github_action()`](https://usethis.r-lib.org/reference/use_github_action.html)), using a {ghactions4r} `use_*` function sets up a github actions file to directly call actions that exist and are maintained in the ghactions4r repository (in the [workflows folder](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows)). This means all maintenance happens within the ghactions4r repository rather than in your repository!
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository. Rather than having to maintain your own GitHub actions files (as you would need to with actions set up with [`usethis::use_github_action()`](https://usethis.r-lib.org/reference/use_github_action.html)), using a `{ghactions4r}` `use_*` function sets up a github actions file to directly call actions that exist and are maintained in the `{ghactions4r}` repository (in the [workflows folder](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows)). This means all maintenance happens within the `{ghactions4r}` repository rather than in your repository!
 
 ## How do I use these workflows in my R package?
 
-First, install the ghactions4r R package:
+First, install the `{ghactions4r}` R package:
 ```r
 install.packages("remotes")
 remotes::install_github("nmfs-fish-tools/ghactions4r")
 ```
-`use_*()` functions in the `ghactions4r` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
+`use_*()` functions in the `{ghactions4r}` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
-Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in ghactions4r. Below are a list of the basic 
+Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in `{ghactions4r}`. Below are a list of the basic 
 functions, for complete options, see [the pkgdown reference documentation](https://nmfs-fish-tools.github.io/ghactions4r/reference/index.html).
 
 - To run R CMD check using Linux (R release and R development), Mac (R release), and Windows (R release):
@@ -80,15 +80,15 @@ The templates these functions generate can also be [viewed](https://github.com/n
 
 Check that GitHub Actions has been given the right `GITHUB_TOKEN` permissions. GitHub Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow [these GitHub Documentation instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
 
-If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make ghactions4r better for all users!
+If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make `{ghactions4r}` better for all users!
 
-## I want to setup and maintain my own github actions rather than use reusable workflows housed in ghactions4r. How do I do this?
+## I want to setup and maintain my own github actions rather than use reusable workflows housed in `{ghactions4r}`. How do I do this?
 
-[r-lib/actions](https://github.com/r-lib/actions) Includes basic actions for R as well as example workflows. In fact, many of the reusable workflows in {ghactions4r} are based on these examples. Many of these can be set up through [usethis' GitHub Actions functions](https://usethis.r-lib.org/reference/github_actions.html).
+[r-lib/actions](https://github.com/r-lib/actions) Includes basic actions for R as well as example workflows. In fact, many of the reusable workflows in `{ghactions4r}` are based on these examples. Many of these can be set up through [usethis' GitHub Actions functions](https://usethis.r-lib.org/reference/github_actions.html).
 
 ## Code of Conduct
 
-{ghactions4r} uses the [NOAA FIT Code of Conduct](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/FIT-code-of-conduct/).
+`{ghactions4r}` uses the [NOAA FIT Code of Conduct](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/FIT-code-of-conduct/).
 
 ## Contributing
 
