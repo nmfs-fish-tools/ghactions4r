@@ -20,7 +20,7 @@ test_that("use_r_cmd_check() works with defaults", {
 test_that("use_r_cmd_check() works with full build option", {
   name <- "call-full-build-check.yml"
   path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name,  use_full_build_matrix = TRUE)
+  use_r_cmd_check(workflow_name = name, use_full_build_matrix = TRUE)
   expect_true(file.exists(path))
   test <- readLines(path)
   expect_snapshot(test)
@@ -93,7 +93,7 @@ test_that("use_doc_and_style_r() works with manual trigger", {
 test_that("use_doc_and_style_r() works with pat option", {
   use_doc_and_style_r(
     workflow_name = "doc_style_pat.yml",
-    use_rm_dollar_sign = FALSE, how_to_commit = "pull_request", 
+    use_rm_dollar_sign = FALSE, how_to_commit = "pull_request",
     use_pat = TRUE, pat_name = "MYPAT"
   )
   expect_true(file.exists(".github/workflows/doc_style_pat.yml"))
