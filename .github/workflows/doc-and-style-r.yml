@@ -41,11 +41,11 @@ jobs:
         run: echo "GITHUB_PAT=${{ secrets.GITHUB_TOKEN}}" >> "$GITHUB_ENV"
       - name: checkout, make changes and submit as pr on new branch
         if: inputs.commit-directly == false
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: checkout, make changes directly
         if: inputs.commit-directly == true
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
       
@@ -124,7 +124,7 @@ jobs:
         
       - name: Create Pull Request
         if: ${{inputs.commit-directly == false}}
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: 'style and docs: run devtools::document() and styler::style_pkg()'
           token: ${{ env.GITHUB_PAT }}

@@ -22,7 +22,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install curl dependency
         run: |
@@ -40,7 +40,7 @@ jobs:
         run: Rscript -e 'usethis::use_tidy_description()'
         
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: 'style: run usethis::use_tidy_description()'
           branch: style-description
