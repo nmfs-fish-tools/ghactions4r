@@ -38,6 +38,49 @@
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
 
+# use_r_cmd_check() works with full build option and tmb
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      use_full_build_matrix: true"                                                                                                        
+      [16] "      depends_on_tmb: true"                                                                                                               
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      depends_on_tmb: true"                                                                                                               
+
 # use_calc_coverage()) works
 
     Code
