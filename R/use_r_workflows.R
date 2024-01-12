@@ -2,9 +2,14 @@
 #' @template workflow_name
 #' @param use_full_build_matrix Run R cmd check with two older versions of R in
 #'   addition to the three runs that use the release version.
+#' @param depends_on_tmb An option that install Matrix from source for windows
+#'  and Mac builds to solved a nuanced issue for packages dependent on TMB.
+#'  See this [google groups thread](https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ)
+#'  for more information.
 #' @export
 use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
-                            use_full_build_matrix = FALSE) {
+                            use_full_build_matrix = FALSE,
+                            depends_on_tmb = FALSE) {
   check_workflow_name(workflow_name)
   if (use_full_build_matrix) {
     url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml"
@@ -15,6 +20,23 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     save_as = workflow_name,
     url = url_name
   )
+  if(depends_on_tmb) {
+    path_to_yml <- file.path(".github", "workflows", workflow_name)
+    txt <- readLines(path_to_yml)
+    if(use_full_build_matrix) {
+      prev_line <- grep("use_full_build_matrix: true", txt, fixed = TRUE)
+    } else {
+      prev_line <- grep(
+        "uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main",
+        txt,
+        fixed = TRUE)
+      txt <- append(txt, "    with:", prev_line)
+      prev_line <- prev_line + 1
+    }
+    txt <- append(txt, "      depends_on_tmb: true", prev_line)
+    writeLines(txt, path_to_yml)
+  }
+  invisible(workflow_name)
 }
 
 #' workflow for calculating code coverage

@@ -11,6 +11,10 @@ on:
         required: false
         type: number
         default: 360
+      depends_on_tmb:
+        required: false
+        type: boolean
+        default: false
 
 name: R-CMD-check
 jobs:
@@ -72,6 +76,12 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
+
+      - name: If dependent on TMB, install Matrix from source for windows and mac
+        if: inputs.depends_on_tmb == true && runner.os != 'Linux'
+        run: install.packages("Matrix", type = "source")
+        shell: Rscript {0}
+
 
       - uses: r-lib/actions/check-r-package@v2
         with:

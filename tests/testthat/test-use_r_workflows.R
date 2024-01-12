@@ -26,6 +26,24 @@ test_that("use_r_cmd_check() works with full build option", {
   expect_snapshot(test)
 })
 
+test_that("use_r_cmd_check() works with full build option and tmb", {
+  name <- "call-full-build-check.yml"
+  path <- file.path(".github", "workflows", name)
+  use_r_cmd_check(workflow_name = name, use_full_build_matrix = TRUE, depends_on_tmb = TRUE)
+  expect_true(file.exists(path))
+  test <- readLines(path)
+  expect_snapshot(test)
+})
+
+test_that("use_r_cmd_check() works with full build option and tmb", {
+  name <- "call-full-tmb.yml"
+  path <- file.path(".github", "workflows", name)
+  use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, depends_on_tmb = TRUE)
+  expect_true(file.exists(path))
+  test <- readLines(path)
+  expect_snapshot(test)
+})
+
 test_that("use_calc_coverage()) works", {
   use_calc_coverage()
   expect_true(file.exists(".github/workflows/call-calc-coverage.yml"))
