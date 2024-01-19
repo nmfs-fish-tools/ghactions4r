@@ -6,7 +6,8 @@
 \usage{
 use_r_cmd_check(
   workflow_name = "call-r-cmd-check.yml",
-  use_full_build_matrix = FALSE
+  use_full_build_matrix = FALSE,
+  depends_on_tmb = FALSE
 )
 }
 \arguments{
@@ -15,6 +16,11 @@ have the file extension \code{.yml}}
 
 \item{use_full_build_matrix}{Run R cmd check with two older versions of R in
 addition to the three runs that use the release version.}
+
+\item{depends_on_tmb}{An option that install Matrix from source for windows
+and Mac builds to solved a nuanced issue for packages dependent on TMB.
+See this \href{https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ}{google groups thread}
+for more information.}
 }
 \description{
 Use workflow to run r cmd check on Linux, Mac, and Windows GitHub Actions

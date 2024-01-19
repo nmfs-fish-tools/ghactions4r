@@ -20,16 +20,17 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     save_as = workflow_name,
     url = url_name
   )
-  if(depends_on_tmb) {
+  if (depends_on_tmb) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     txt <- readLines(path_to_yml)
-    if(use_full_build_matrix) {
+    if (use_full_build_matrix) {
       prev_line <- grep("use_full_build_matrix: true", txt, fixed = TRUE)
     } else {
       prev_line <- grep(
         "uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main",
         txt,
-        fixed = TRUE)
+        fixed = TRUE
+      )
       txt <- append(txt, "    with:", prev_line)
       prev_line <- prev_line + 1
     }
