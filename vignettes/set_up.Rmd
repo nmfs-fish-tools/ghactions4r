@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Some workflows in `{ghactions4r}` take additional setup steps besides running the `use_*` function. Here is a detailed guide on the additional steps to be taken.
+Some workflows in `{ghactions4r}` take additional setup steps besides running the `use_*` function. Here is a guide on the additional steps to be taken.
 
 ## Setting up code coverage for your R package
 
