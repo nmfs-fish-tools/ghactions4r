@@ -1,9 +1,12 @@
 CMD
+Codecov
 Lifecycle
 NOAA
+OAuth
 TMB
 api
 bookdown
+calc
 cmd
 codecov
 devtools
