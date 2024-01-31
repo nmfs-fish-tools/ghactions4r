@@ -44,10 +44,18 @@ test_that("use_r_cmd_check() works with full build option and tmb", {
   expect_snapshot(test)
 })
 
-test_that("use_calc_coverage()) works", {
+test_that("use_calc_coverage() works", {
   use_calc_coverage()
   expect_true(file.exists(".github/workflows/call-calc-coverage.yml"))
   test <- readLines(".github/workflows/call-calc-coverage.yml")
+  expect_snapshot(test)
+})
+
+test_that("use_calc_coverage() works with use-public-rspm = FALSE", {
+  workflow_name <- "call-calc-cov-false.yml"
+  use_calc_coverage(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
   expect_snapshot(test)
 })
 

@@ -81,7 +81,7 @@
       [14] "    with:"                                                                                                                                
       [15] "      depends_on_tmb: true"                                                                                                               
 
-# use_calc_coverage()) works
+# use_calc_coverage() works
 
     Code
       test
@@ -94,6 +94,22 @@
       [6] "jobs:"                                                                                                                                    
       [7] "  call-workflow:"                                                                                                                         
       [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                           
+
+# use_calc_coverage() works with use-public-rspm = FALSE
+
+    Code
+      test
+    Output
+       [1] "# call a workflow that runs covr::codecov() to calculate code coverage"                                                                   
+       [2] "name: call-calc_coverage"                                                                                                                 
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "# The default is to run the workflow on every push or pull request to every branch."                                                      
+       [5] "on: [push, pull_request]"                                                                                                                 
+       [6] "jobs:"                                                                                                                                    
+       [7] "  call-workflow:"                                                                                                                         
+       [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                           
+       [9] "    with:"                                                                                                                                
+      [10] "      use-public-rspm: false"                                                                                                             
 
 # use_doc_and_style_r() works
 
