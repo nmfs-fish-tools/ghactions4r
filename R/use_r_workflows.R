@@ -42,13 +42,32 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 
 #' workflow for calculating code coverage
 #' @template workflow_name
+#' @param use_public_rspm Use posit package manager instead of CRAN to install dependencies? The
+#'  advantage here is that dependencies are precompiled, so install should be much quicker. In 
+#'  rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
+#'  a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so 
+#'  there will be no setting added if use_public_rspm is TRUE.
 #' @export
-use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml") {
+use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_public_rspm = TRUE) {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-coverage.yml",
     save_as = workflow_name,
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-coverage.yml"
   )
+  path_to_yml <- file.path(".github", "workflows", workflow_name)
+  gha <- readLines(path_to_yml)
+  if (use_public_rspm == FALSE) {
+    uses_line <- grep(
+      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml",
+      gha
+    )
+    with_line <- grep("with:", gha[uses_line + 1])
+    if (length(with_line) == 0) {
+      gha <- append(gha, "    with:", after = uses_line)
+    }
+    gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
+    writeLines(gha, path_to_yml)
+  }
 }
 
 #' Use workflow in current pkg  to automate documenting and styling
