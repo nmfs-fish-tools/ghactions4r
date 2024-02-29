@@ -117,7 +117,7 @@
 <p>First, install the <code>{ghactions4r}</code> R package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"nmfs-fish-tools/ghactions4r"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nmfs-fish-tools/ghactions4r"</span><span class="op">)</span></span></code></pre></div>
 <p><code>use_*()</code> functions in the <code>{ghactions4r}</code> package work like <a href="https://github.com/r-lib/usethis#usage" class="external-link"><code>use_*()</code> functions in the <code>usethis</code> package</a>.</p>
 <p>Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in <code>{ghactions4r}</code>. Below are a list of the basic functions, for complete options, see <a href="https://nmfs-fish-tools.github.io/ghactions4r/reference/index.html" class="external-link">the pkgdown reference documentation</a>.</p>
 <ul>
@@ -126,7 +126,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_r_cmd_check.html">use_r_cmd_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li>To calculate code coverage using <code><a href="http://covr.r-lib.org/reference/codecov.html" class="external-link">covr::codecov()</a></code> :</li>
+<li>To calculate code coverage using <code>covr::codecov()</code> :</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -137,7 +137,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_roxygen_docs.html">use_update_roxygen_docs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li>To update R code styling using <code><a href="https://styler.r-lib.org/reference/style_pkg.html" class="external-link">styler::style_pkg()</a></code>:</li>
+<li>To update R code styling using <code>styler::style_pkg()</code>:</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_r_code.html">use_style_r_code</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -206,23 +206,14 @@
 <h3 id="checklist-for-adding-a-new-workflow">Checklist for adding a new workflow<a class="anchor" aria-label="anchor" href="#checklist-for-adding-a-new-workflow"></a>
 </h3>
 <ul class="task-list">
-<li>
-<input type="checkbox" disabled>Make sure the workflow is in scope by opening an issue to ask.</li>
-<li>
-<input type="checkbox" disabled>Create a feature branch or fork to do your work.</li>
-<li>
-<input type="checkbox" disabled>Create the reusable workflow in <code>.github/workflows</code>
-</li>
-<li>
-<input type="checkbox" disabled>Create the template workflow for users to use in <code>inst/templates</code>. Name it the same as the reusable workflow, but with <code>call-</code> in front.</li>
-<li>
-<input type="checkbox" disabled>Add a usethis style function to help the user add the workflow by adding the new function to <code>R/use_r_workflows.R</code>. Follow the style of the workflows already there.</li>
-<li>
-<input type="checkbox" disabled>Add a test (or tests) in <code>tests/testthat/test-use_r_workflow.R</code>. Add a new test to the end of the file and follow the style of the existing tests in the script.</li>
-<li>
-<input type="checkbox" disabled>Add to the “How do I use these workflows in my R package?” section of the readme, showing how to use the usethis style r function.</li>
-<li>
-<input type="checkbox" disabled>Open a pull request to main when work is ready for review!</li>
+<li><label><input type="checkbox">Make sure the workflow is in scope by opening an issue to ask.</label></li>
+<li><label><input type="checkbox">Create a feature branch or fork to do your work.</label></li>
+<li><label><input type="checkbox">Create the reusable workflow in <code>.github/workflows</code></label></li>
+<li><label><input type="checkbox">Create the template workflow for users to use in <code>inst/templates</code>. Name it the same as the reusable workflow, but with <code>call-</code> in front.</label></li>
+<li><label><input type="checkbox">Add a usethis style function to help the user add the workflow by adding the new function to <code>R/use_r_workflows.R</code>. Follow the style of the workflows already there.</label></li>
+<li><label><input type="checkbox">Add a test (or tests) in <code>tests/testthat/test-use_r_workflow.R</code>. Add a new test to the end of the file and follow the style of the existing tests in the script.</label></li>
+<li><label><input type="checkbox">Add to the “How do I use these workflows in my R package?” section of the readme, showing how to use the usethis style r function.</label></li>
+<li><label><input type="checkbox">Open a pull request to main when work is ready for review!</label></li>
 </ul>
 </div>
 </div>
