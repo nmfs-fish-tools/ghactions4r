@@ -80,7 +80,10 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_calc_coverage</span><span class="op">(</span>workflow_name <span class="op">=</span> <span class="st">"call-calc-coverage.yml"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_calc_coverage</span><span class="op">(</span></span>
+<span>  workflow_name <span class="op">=</span> <span class="st">"call-calc-coverage.yml"</span>,</span>
+<span>  use_public_rspm <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -88,6 +91,14 @@
     <dl><dt>workflow_name</dt>
 <dd><p>What to name the github action workflow locally. Must
 have the file extension <code>.yml</code></p></dd>
+
+
+<dt>use_public_rspm</dt>
+<dd><p>Use posit package manager instead of CRAN to install dependencies? The
+advantage here is that dependencies are precompiled, so install should be much quicker. In
+rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
+a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
+there will be no setting added if use_public_rspm is TRUE.</p></dd>
 
 </dl></div>
 
