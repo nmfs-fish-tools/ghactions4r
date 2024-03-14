@@ -19,9 +19,11 @@ io
 json
 parsable
 pkgdown
+precompiled
 readme
 repo
 repos
+rspm
 ss
 styler
 usethis
