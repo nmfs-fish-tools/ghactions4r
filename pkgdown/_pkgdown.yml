@@ -32,5 +32,8 @@ navbar:
       text: Vignettes
       icon: fas fa-file-contract fa-lg
       menu:
+      - text: Set up details
+        href: articles/set_up.html
       - text: Dependency graph
         href: articles/dependency_graph.html
+      
