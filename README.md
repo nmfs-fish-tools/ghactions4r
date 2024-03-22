@@ -119,7 +119,7 @@ Additional details are available in the [NOAA FIT Contributing Guide](https://no
 ### Checklist for adding a new workflow
 - [ ] Make sure the workflow is in scope by opening an issue to ask.
 - [ ] Create a feature branch or fork to do your work.
-- [ ] Create the reusable workflow in `.github/workflows`
+- [ ] Create the reusable workflow in `.github/workflows`. For consistency with other workflows, uses dashes (`-`) between words in the file name and use the extension `.yml` (not `.yaml`). Do NOT start the file name with `call-`.
 - [ ] Create the template workflow for users to use in `inst/templates`. Name it the same as the reusable workflow, but with `call-` in front.
 - [ ] Add a usethis style function to help the user add the workflow by adding the new function to `R/use_r_workflows.R`. Follow the style of the workflows already there.
 - [ ] Add a test (or tests) in `tests/testthat/test-use_r_workflow.R`. Add a new test to the end of the file and follow the style of the existing tests in the script.
