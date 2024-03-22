@@ -17,11 +17,21 @@ Rather than having to maintain your own GitHub actions files (as you would need 
 
 ## How do I use these workflows in my R package?
 
-First, install the `{ghactions4r}` R package:
+First, install the `{ghactions4r}` R package.
+
+Using R universe:
+```r
+install.packages("ghactions4r", 
+repos = c("https://noaa-fisheries-integrated-toolbox.r-universe.dev", 
+          "https://cran.r-project.org"))
+```
+or `remotes::install_github()`:
+
 ```r
 install.packages("remotes")
 remotes::install_github("nmfs-fish-tools/ghactions4r")
 ```
+
 `use_*()` functions in the `{ghactions4r}` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
 
 Open the cloned repository of an R package and run the function of choice. These functions set up the files needed to use the reproducible workflows in `{ghactions4r}`. Below are a list of the basic 
