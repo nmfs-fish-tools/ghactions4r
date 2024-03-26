@@ -64,6 +64,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/set_up.html">Set up details</a>
+    </li>
+    <li>
       <a href="articles/dependency_graph.html">Dependency graph</a>
     </li>
   </ul>
@@ -114,8 +117,14 @@
 <div class="section level2">
 <h2 id="how-do-i-use-these-workflows-in-my-r-package">How do I use these workflows in my R package?<a class="anchor" aria-label="anchor" href="#how-do-i-use-these-workflows-in-my-r-package"></a>
 </h2>
-<p>First, install the <code>{ghactions4r}</code> R package:</p>
+<p>First, install the <code>{ghactions4r}</code> R package.</p>
+<p>Using R universe:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ghactions4r"</span>, </span>
+<span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://noaa-fisheries-integrated-toolbox.r-universe.dev"</span>, </span>
+<span>          <span class="st">"https://cran.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>or <code>remotes::install_github()</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nmfs-fish-tools/ghactions4r"</span><span class="op">)</span></span></code></pre></div>
 <p><code>use_*()</code> functions in the <code>{ghactions4r}</code> package work like <a href="https://github.com/r-lib/usethis#usage" class="external-link"><code>use_*()</code> functions in the <code>usethis</code> package</a>.</p>
@@ -123,53 +132,53 @@
 <ul>
 <li>To run R CMD check using Linux (R release and R development), Mac (R release), and Windows (R release):</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_r_cmd_check.html">use_r_cmd_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To calculate code coverage using <code>covr::codecov()</code> :</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>(a codecov.io account is also necessary to view the coverage results)</p>
 <ul>
 <li>To update documentation using <code>devtools::document()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_roxygen_docs.html">use_update_roxygen_docs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To update R code styling using <code>styler::style_pkg()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_r_code.html">use_style_r_code</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To update the style of the DESCRIPTION file using <code><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">usethis::use_tidy_description()</a></code>:</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_description.html">use_style_description</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To update documentation, DESCRIPTION file, and code styling for an R package (with the option of running <code><a href="reference/rm_dollar_sign.html">ghactions4r::rm_dollar_sign()</a></code>):</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_doc_and_style_r.html">use_doc_and_style_r</a></span><span class="op">(</span>use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To automatically update pkgdown that has already been set up:</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_pkgdown.html">use_update_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To automatically build and deploy bookdown (to a branch called gh-pages in the same repository) that is in an R package repository:</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_build_deploy_bookdown.html">use_build_deploy_bookdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To spell check an R package:</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_spell_check.html">use_spell_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To publish a product to posit connect from a private repo:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_connect_publish.html">use_connect_publish</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Commit and push the files generated up to github, making the github actions available for the repository of the R package.</p>
 <p>The templates these functions generate can also be <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates" class="external-link">viewed</a> for reference.</p>
@@ -208,7 +217,7 @@
 <ul class="task-list">
 <li><label><input type="checkbox">Make sure the workflow is in scope by opening an issue to ask.</label></li>
 <li><label><input type="checkbox">Create a feature branch or fork to do your work.</label></li>
-<li><label><input type="checkbox">Create the reusable workflow in <code>.github/workflows</code></label></li>
+<li><label><input type="checkbox">Create the reusable workflow in <code>.github/workflows</code>. For consistency with other workflows, uses dashes (<code>-</code>) between words in the file name and use the extension <code>.yml</code> (not <code>.yaml</code>). Do NOT start the file name with <code>call-</code>.</label></li>
 <li><label><input type="checkbox">Create the template workflow for users to use in <code>inst/templates</code>. Name it the same as the reusable workflow, but with <code>call-</code> in front.</label></li>
 <li><label><input type="checkbox">Add a usethis style function to help the user add the workflow by adding the new function to <code>R/use_r_workflows.R</code>. Follow the style of the workflows already there.</label></li>
 <li><label><input type="checkbox">Add a test (or tests) in <code>tests/testthat/test-use_r_workflow.R</code>. Add a new test to the end of the file and follow the style of the existing tests in the script.</label></li>
