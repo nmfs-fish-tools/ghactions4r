@@ -193,6 +193,17 @@ use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml") {
   )
 }
 
+#' use workflow in current pkg to check pkgdown site builds.
+#' @template workflow_name
+#' @export
+use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml") {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-build-pkgdown.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-build-pkgdown.yml"
+  )
+}
+
 #' use workflow in current pkg to run devtools::document() and submit results as a PR
 #' @template workflow_name
 #' @export

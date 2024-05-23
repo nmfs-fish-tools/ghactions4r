@@ -144,6 +144,13 @@ test_that("use_update_pkgdown()) works", {
   expect_snapshot(test)
 })
 
+test_that("use_build_pkgdown()) works", {
+  use_build_pkgdown()
+  expect_true(file.exists(".github/workflows/call-build-pkgdown.yml"))
+  test <- readLines(".github/workflows/call-build-pkgdown.yml")
+  expect_snapshot(test)
+})
+
 test_that("use_update_roxygen_docs() works", {
   use_update_roxygen_docs()
   expect_true(file.exists(".github/workflows/call-update-docs.yml"))
