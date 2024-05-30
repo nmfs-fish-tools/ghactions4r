@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Additional steps for setting up workflows for your R package • ghactions4r</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -125,19 +125,20 @@ the build triggers if desired.</li>
 runs. If it does not, try pushing to your main branch to trigger a run,
 if your build triggers include a run on pushing to the main branch (the
 default).</li>
-<li>Set up an account on <a href="https://about.codecov.io/" class="external-link">codecov</a>
-or <a href="https://coveralls.io/" class="external-link">coveralls</a>. For codecov, <a href="https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#create-a-codecov-account" class="external-link">create
+<li>Set up an account on <a href="https://about.codecov.io/" class="external-link">codecov</a>. For codecov, <a href="https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#create-a-codecov-account" class="external-link">create
 an account</a>, then install the <a href="https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#install-the-github-app-integration" class="external-link">github
-app</a>. For coveralls, <a href="https://coveralls.io/sign-up" class="external-link">sign up
-to use OAuth through GitHub</a>.</li>
+app</a>.</li>
+<li>Add an <a href="https://docs.codecov.com/docs/adding-the-codecov-token" class="external-link">upload
+token as a secret</a> to your GitHub repository. Name the secret
+<code>CODECOV_TOKEN</code>. Note that owner permissions are needed on
+GitHub to add the secret.</li>
 <li>Try re-running your Code Coverage GitHub Action by pushing a new
-commit and see if your results go to the Codecov or Coveralls website.
-Note that if your tool is in an organization that is already using
-Codecov or Coveralls, you may not need to make an account.</li>
+commit and see if your results go to the Codecov website. Note that if
+your tool is in an organization that is already using Codecov, you may
+not need to make an account.</li>
 <li>Optionally, display a <a href="https://docs.codecov.com/docs/status-badges" class="external-link">code coverage status
 badge</a> on your repository or make a <a href="https://docs.codecov.com/docs/codecovyml-reference#coverage" class="external-link">custom
-codecov.yml file</a>, if desired. The <a href="https://docs.coveralls.io/" class="external-link">Coveralls docs</a> provide more
-information on custom options</li>
+codecov.yml file</a>, if desired.</li>
 </ol>
 </div>
   </div>
@@ -159,7 +160,7 @@ information on custom options</li>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>
