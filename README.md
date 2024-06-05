@@ -1,11 +1,11 @@
-# ghactions4r
+# ghactions4r <img src="man/figures/logo.png" alt="arrows circling clapboard, symbol for the gh4actions package" align="right" width=250/>
 
 [![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml)
 [![Lifecycle badge indicating this repository is stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html) 
 [![NOAA Fisheries Integrated Toolbox Badge](https://img.shields.io/badge/NOAA_FIT-blue)](https://www.fisheries.noaa.gov/resource/tool-app/noaa-fisheries-integrated-toolbox)
 [![codecov Badge](https://codecov.io/github/nmfs-fish-tools/ghactions4r/graph/badge.svg?token=6INRIE2FG6)](https://codecov.io/github/nmfs-fish-tools/ghactions4r)
 
-<img src="man/figures/ghactions4r_hex.png" width="15%" height="15%" alt="arrows circling clapboard, symbol for the gh4actions package">
+
 
 ## What is in `{ghactions4r}`?
 
