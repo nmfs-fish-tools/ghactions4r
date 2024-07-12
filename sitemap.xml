@@ -1,63 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/dependency_graph.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/set_up.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_workflow_name.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rm_dollar_sign.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_build_deploy_bookdown.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_build_pkgdown.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_calc_coverage.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_connect_publish.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_doc_and_style_r.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_r_cmd_check.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_spell_check.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_style_description.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_style_r_code.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_update_pkgdown.html</loc>
-  </url>
-  <url>
-    <loc>/reference/use_update_roxygen_docs.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/dependency_graph.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/set_up.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/check_workflow_name.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/rm_dollar_sign.html</loc></url>
+<url><loc>/reference/use_build_deploy_bookdown.html</loc></url>
+<url><loc>/reference/use_build_pkgdown.html</loc></url>
+<url><loc>/reference/use_calc_coverage.html</loc></url>
+<url><loc>/reference/use_connect_publish.html</loc></url>
+<url><loc>/reference/use_doc_and_style_r.html</loc></url>
+<url><loc>/reference/use_r_cmd_check.html</loc></url>
+<url><loc>/reference/use_spell_check.html</loc></url>
+<url><loc>/reference/use_style_description.html</loc></url>
+<url><loc>/reference/use_style_r_code.html</loc></url>
+<url><loc>/reference/use_update_pkgdown.html</loc></url>
+<url><loc>/reference/use_update_roxygen_docs.html</loc></url>
 </urlset>
+
