@@ -26,7 +26,7 @@ jobs:
 
       - name: Warn about workflow removal
         run: |
-          echo "::warning title=Deprecating style-description workflow::The style-description reusable workflow will soon be deprecated. Use ghactions4r::use_style_and_document() instead to set up a replacement with additional functionality."
+          echo "::error title=Deprecating style-description workflow::The style-description reusable workflow will soon be deprecated. Use ghactions4r::use_style_and_document() instead to set up a replacement with additional functionality."
 
 
       - name: Install curl dependency
