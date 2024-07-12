@@ -151,20 +151,6 @@ test_that("use_build_pkgdown()) works", {
   expect_snapshot(test)
 })
 
-test_that("use_update_roxygen_docs() works", {
-  use_update_roxygen_docs()
-  expect_true(file.exists(".github/workflows/call-update-docs.yml"))
-  test <- readLines(".github/workflows/call-update-docs.yml")
-  expect_snapshot(test)
-})
-
-test_that("use_style_r_code() works", {
-  use_style_r_code()
-  expect_true(file.exists(".github/workflows/call-style.yml"))
-  test <- readLines(".github/workflows/call-style.yml")
-  expect_snapshot(test)
-})
-
 test_that("use_build_deploy_bookdown() works", {
   use_build_deploy_bookdown()
   expect_true(file.exists(".github/workflows/call-build-deploy-bookdown.yml"))

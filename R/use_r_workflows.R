@@ -204,46 +204,6 @@ use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml") {
   )
 }
 
-#' use workflow in current pkg to run devtools::document() and submit results as a PR
-#' @template workflow_name
-#' @export
-use_update_roxygen_docs <- function(workflow_name = "call-update-docs.yml") {
-  usethis::use_github_action("call-update-docs.yml",
-    save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-docs.yml"
-  )
-  usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
-}
-
-#' use workflow in current pkg to run `usethis::use_tidy_description()`
-#'
-#' Run `usethis::use_tidy_description()` upon changes to the DESCRIPTION file
-#' and submit results as a PR.
-#' @template workflow_name
-#' @export
-use_style_description <- function(workflow_name = "call-style-description.yml") {
-  check_workflow_name(workflow_name)
-  usethis::use_github_action(
-    "call-style-description.yml",
-    save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-style-description.yml"
-  )
-  usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
-}
-
-#' use workflow in current pkg to run styler::style_pkg() and submit results as a PR
-#' @template workflow_name
-#' @export
-use_style_r_code <- function(workflow_name = "call-style.yml") {
-  check_workflow_name(workflow_name)
-  usethis::use_github_action("call-style.yml",
-    save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-style.yml"
-  )
-  usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
-}
-
-
 #' use workflow in current pkg to build and deploy (update) bookdown
 #' Builds the bookdown, then deploys it to a branch in the same repository called gh-pages.
 #' The repository must be

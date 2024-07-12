@@ -47,21 +47,6 @@ ghactions4r::use_calc_coverage()
 ```
 (a codecov.io account is also necessary to view the coverage results)
 
-- To update documentation using `devtools::document()`:
-```r
-ghactions4r::use_update_roxygen_docs()
-```
-
-- To update R code styling using `styler::style_pkg()`:
-```r
-ghactions4r::use_style_r_code()
-```
-
-- To update the style of the DESCRIPTION file using `usethis::use_tidy_description()`:
-```r
-ghactions4r::use_style_description()
-```
-
 - To update documentation, DESCRIPTION file, and code styling for an R package (with the option of running `ghactions4r::rm_dollar_sign()`):
 ```r
 ghactions4r::use_doc_and_style_r(use_rm_dollar_sign = FALSE)
