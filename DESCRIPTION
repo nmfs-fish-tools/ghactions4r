@@ -10,8 +10,6 @@ Authors@R: c(
 Description: Provides functions to allow users to set up github action
     workflows related to R packages.
 License: CC0
-Imports:
-    usethis
 Suggests: 
     dplyr,
     knitr,
@@ -26,3 +24,5 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Imports:
+    usethis
