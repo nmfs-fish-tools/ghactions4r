@@ -18,6 +18,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Warn about workflow removal
+        run: |
+          echo "::warning title=Deprecating update-roxygen-docs workflow::The update-roxygen-docs reusable workflow will be deprecated on 5 December 2024. Use ghactions4r::use_style_and_document() instead to set up a replacement with additional functionality."
+
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
