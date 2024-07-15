@@ -140,49 +140,34 @@
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>(a codecov.io account is also necessary to view the coverage results)</p>
 <ul>
-<li>To update documentation using <code>devtools::document()</code>:</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_roxygen_docs.html">use_update_roxygen_docs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul>
-<li>To update R code styling using <code>styler::style_pkg()</code>:</li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_r_code.html">use_style_r_code</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul>
-<li>To update the style of the DESCRIPTION file using <code><a href="https://usethis.r-lib.org/reference/tidyverse.html" class="external-link">usethis::use_tidy_description()</a></code>:</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_style_description.html">use_style_description</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<ul>
 <li>To update documentation, DESCRIPTION file, and code styling for an R package (with the option of running <code><a href="reference/rm_dollar_sign.html">ghactions4r::rm_dollar_sign()</a></code>):</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_doc_and_style_r.html">use_doc_and_style_r</a></span><span class="op">(</span>use_rm_dollar_sign <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To automatically update pkgdown that has already been set up:</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_update_pkgdown.html">use_update_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To check that a pkgdown site builds:</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_build_pkgdown.html">use_build_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To automatically build and deploy bookdown (to a branch called gh-pages in the same repository) that is in an R package repository:</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_build_deploy_bookdown.html">use_build_deploy_bookdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To spell check an R package:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_spell_check.html">use_spell_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>To publish a product to posit connect from a private repo:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_connect_publish.html">use_connect_publish</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Commit and push the files generated up to github, making the github actions available for the repository of the R package.</p>
 <p>The templates these functions generate can also be <a href="https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates" class="external-link">viewed</a> for reference.</p>
