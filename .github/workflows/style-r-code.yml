@@ -20,7 +20,7 @@ jobs:
 
       - name: Warn about workflow removal
         run: |
-          echo "::warning title=Deprecating style-r-code workflow::The style-r-code reusable workflow will soon be deprecated. Use ghactions4r::use_style_and_document() instead to set up a replacement with additional functionality."
+          echo "::warning title=Deprecating style-r-code workflow::The style-r-code reusable workflow will be deprecated on 5 December 2024. Use ghactions4r::use_style_and_document() instead to set up a replacement with additional functionality."
 
       - uses: r-lib/actions/setup-r@v2
 
