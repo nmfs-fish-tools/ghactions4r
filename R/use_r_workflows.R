@@ -86,7 +86,7 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #'  for more information.
 #' @template workflow_name
 #' @param use_rm_dollar_sign in addition to devtools::document and
-#'  styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.
+#'  styler::style_pkg, should ghactions4r::rm_dollar_sign be run? Defaults to FALSE.
 #' @param how_to_commit Where should changes made to style and documentation be
 #'  committed? Options are 1) in a pull request to the branch ("pull_request")
 #'  where the workflow started; or 2) directly to the branch ("directly") where
