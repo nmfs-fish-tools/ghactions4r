@@ -2,9 +2,7 @@ CMD
 Codecov
 Lifecycle
 NOAA
-OAuth
 TMB
-api
 bookdown
 calc
 cmd
@@ -13,10 +11,7 @@ devtools
 gh
 ghactions
 github
-githubactions
-https
 io
-json
 parsable
 pkgdown
 precompiled
@@ -26,6 +21,7 @@ repos
 rspm
 ss
 styler
+tmb
 usethis
 writeLines
 yml
