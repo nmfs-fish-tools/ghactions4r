@@ -150,7 +150,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
     stop("Using how_to_commit = 'directly' and use_pat = TRUE can lead to recursive runs.")
   }
 
-  if (how_to_commit == "pull_request" & build_trigger = "pull_request") {
+  if (how_to_commit == "pull_request" & build_trigger == "pull_request") {
     stop("Currently it is not possible to use how_to_commit == 'pull_request' and build_trigger = 'pull_request' in ghactions4r. Instead, create your own workflow and follow this example: https://github.com/peter-evans/create-pull-request/blob/main/docs/examples.md#use-case-create-a-pull-request-to-modifyfix-pull-requests")
   }
   # get the template github action
