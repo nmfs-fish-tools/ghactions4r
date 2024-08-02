@@ -114,13 +114,13 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #' use_doc_and_style_r(how_to_commit = "pull_request", 
 #'                     build_trigger = "push_to_main")
 #' }
-#' Set up running doc and style on each pull request, commiting directly to
-#' the pull request branch
+#' # Set up running doc and style on each pull request, commiting directly to
+#' # the pull request branch
 #' \dontrun{
 #' use_doc_and_style_r(how_to_commit = "directly",
 #'                     build_trigger = "pull_request")
 #' }
-#' Set up the workflow to use a personal access token (PAT)
+#' # Set up the workflow to use a personal access token (PAT)
 #' \dontrun{
 #' use_doc_and_style_r(use_pat = TRUE, pat_name = "PAT")
 #' }
