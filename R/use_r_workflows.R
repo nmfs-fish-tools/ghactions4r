@@ -86,7 +86,7 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #'  for more information.
 #' @template workflow_name
 #' @param use_rm_dollar_sign in addition to devtools::document and
-#'  styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.
+#'  styler::style_pkg, should ghactions4r::rm_dollar_sign be run? Defaults to FALSE.
 #' @param how_to_commit Where should changes made to style and documentation be
 #'  committed? Options are 1) in a pull request to the branch ("pull_request")
 #'  where the workflow started; or 2) directly to the branch ("directly") where
@@ -103,6 +103,27 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #'  Only used if `use_pat = TRUE`. After
 #'  [generating the personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens),
 #' See [how to add it as a secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+#' @examples
+#' # set up running the doc and style workflow on each push to main, opening a
+#' # pull request to main when changes are found.
+#' \dontrun{
+#' use_doc_and_style_r()
+#' }
+#' # the same as
+#' \dontrun{
+#' use_doc_and_style_r(how_to_commit = "pull_request", 
+#'                     build_trigger = "push_to_main")
+#' }
+#' Set up running doc and style on each pull request, commiting directly to
+#' the pull request branch
+#' \dontrun{
+#' use_doc_and_style_r(how_to_commit = "directly",
+#'                     build_trigger = "pull_request")
+#' }
+#' Set up the workflow to use a personal access token (PAT)
+#' \dontrun{
+#' use_doc_and_style_r(use_pat = TRUE, pat_name = "PAT")
+#' }
 #' @export
 use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
                                 use_rm_dollar_sign = FALSE,
@@ -127,6 +148,10 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
   )
   if (how_to_commit == "directly" & use_pat == TRUE) {
     stop("Using how_to_commit = 'directly' and use_pat = TRUE can lead to recursive runs.")
+  }
+
+  if (how_to_commit == "pull_request" & build_trigger == "pull_request") {
+    stop("Currently it is not possible to use how_to_commit == 'pull_request' and build_trigger = 'pull_request' in ghactions4r. Instead, create your own workflow and follow this example: https://github.com/peter-evans/create-pull-request/blob/main/docs/examples.md#use-case-create-a-pull-request-to-modifyfix-pull-requests")
   }
   # get the template github action
   usethis::use_github_action("call-doc-and-style-r.yml",
