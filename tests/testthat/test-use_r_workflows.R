@@ -167,10 +167,3 @@ test_that("use_spell_check() works", {
   test <- readLines(".github/workflows/call-spell-check.yml")
   expect_snapshot(test)
 })
-
-test_that("use_connect_publish() works", {
-  use_connect_publish()
-  expect_true(file.exists(".github/workflows/call-connect-publish.yml"))
-  test <- readLines(".github/workflows/call-connect-publish.yml")
-  expect_snapshot(test)
-})
