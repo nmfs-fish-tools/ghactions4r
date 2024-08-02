@@ -62,11 +62,6 @@ ghactions4r::use_update_pkgdown()
 ghactions4r::use_build_pkgdown()
 ```
 
-- To automatically build and deploy bookdown (to a branch called gh-pages in the same repository) that is in an R package repository:
-```r
-ghactions4r::use_build_deploy_bookdown()
-```
-
 - To spell check an R package:
 ```r
 ghactions4r::use_spell_check()
