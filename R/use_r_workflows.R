@@ -103,6 +103,27 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #'  Only used if `use_pat = TRUE`. After
 #'  [generating the personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens),
 #' See [how to add it as a secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+#' @examples
+#' # set up running the doc and style workflow on each push to main, opening a
+#' # pull request to main when changes are found.
+#' \dontrun{
+#' use_doc_and_style_r()
+#' }
+#' # the same as
+#' \dontrun{
+#' use_doc_and_style_r(how_to_commit = "pull_request", 
+#'                     build_trigger = "push_to_main")
+#' }
+#' Set up running doc and style on each pull request, commiting directly to
+#' the pull request branch
+#' \dontrun{
+#' use_doc_and_style_r(how_to_commit = "directly",
+#'                     build_trigger = "pull_request")
+#' }
+#' Set up the workflow to use a personal access token (PAT)
+#' \dontrun{
+#' use_doc_and_style_r(use_pat = TRUE, pat_name = "PAT")
+#' }
 #' @export
 use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
                                 use_rm_dollar_sign = FALSE,
