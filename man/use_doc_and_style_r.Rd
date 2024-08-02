@@ -18,7 +18,7 @@ use_doc_and_style_r(
 have the file extension \code{.yml}}
 
 \item{use_rm_dollar_sign}{in addition to devtools::document and
-styler::style_pkg, should r4ss:::rm_dollar_sign be run? Defaults to FALSE.}
+styler::style_pkg, should ghactions4r::rm_dollar_sign be run? Defaults to FALSE.}
 
 \item{how_to_commit}{Where should changes made to style and documentation be
 committed? Options are 1) in a pull request to the branch ("pull_request")
@@ -54,4 +54,30 @@ Using a PAT can cause recursive runs, so should be used
 with caution. See github documentation on
 \href{https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow}{triggering a workflow from a workflow}
 for more information.
+}
+\examples{
+# set up running the doc and style workflow on each push to main, opening a
+# pull request to main when changes are found.
+\dontrun{
+use_doc_and_style_r()
+}
+# the same as
+\dontrun{
+use_doc_and_style_r(
+  how_to_commit = "pull_request",
+  build_trigger = "push_to_main"
+)
+}
+# Set up running doc and style on each pull request, commiting directly to
+# the pull request branch
+\dontrun{
+use_doc_and_style_r(
+  how_to_commit = "directly",
+  build_trigger = "pull_request"
+)
+}
+# Set up the workflow to use a personal access token (PAT)
+\dontrun{
+use_doc_and_style_r(use_pat = TRUE, pat_name = "PAT")
+}
 }
