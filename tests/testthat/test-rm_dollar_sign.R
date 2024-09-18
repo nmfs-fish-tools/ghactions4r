@@ -18,7 +18,8 @@ test_that("rm dollar sign works", {
     "x$`$$weirdcharacters`<-222",
     "x$`nameinbacktick`",
     "x$mylist$my_col$YetAnotherCol",
-    "x$mylist$my_col$`1_somename`"
+    "x$mylist$my_col$`1_somename`",
+    "x()$my_name <- y$test"
   )
   expect_output <- c(
     "x[[\"my_name\"]] <- y[[\"test\"]]",
@@ -29,7 +30,8 @@ test_that("rm dollar sign works", {
     "x[[\"$$weirdcharacters\"]]<-222",
     "x[[\"nameinbacktick\"]]",
     "x[[\"mylist\"]][[\"my_col\"]][[\"YetAnotherCol\"]]",
-    "x[[\"mylist\"]][[\"my_col\"]][[\"1_somename\"]]"
+    "x[[\"mylist\"]][[\"my_col\"]][[\"1_somename\"]]",
+    "x()[[\"my_name\"]] <- y[[\"test\"]]"
   )
   writeLines(test_text, "test_rm_dollar_sign.txt")
   new_text <- rm_dollar_sign(
@@ -64,7 +66,8 @@ test_that("rm dollar sign writes to file", {
     "x$`$$weirdcharacters`<-222",
     "x$`nameinbacktick`",
     "x$mylist$my_col$YetAnotherCol",
-    "x$mylist$my_col$`1_somename`"
+    "x$mylist$my_col$`1_somename`",
+    "x()$my_name <- y$test"
   )
   writeLines(test_text, "test_rm_dollar_sign.txt")
   new_text <- rm_dollar_sign(

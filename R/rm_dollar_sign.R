@@ -66,13 +66,13 @@ rm_dollar_sign <- function(file,
   }
   # get rid of names in back ticks first:
   mod_lines <- gsub(
-    pattern = "([[:alnum:]]|\\.|\\_)\\$`([[:print:]]+)`",
+    pattern = "([[:alnum:]]|\\.|\\_|\\(|\\))\\$`([[:print:]]+)`",
     replacement = "\\1\\[\\[\"\\2\"\\]\\]",
     lines
   )
   # all others not in back ticks
   pattern_no_backtick <-
-    "([[:alnum:]]|\\.|\\_|\\])\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(\\s|[[:punct:]]|$)"
+    "([[:alnum:]]|\\.|\\_|\\]|\\(|\\))\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(\\s|[[:punct:]]|$)"
   replace_no_backtick <- "\\1\\[\\[\"\\2\\3\"\\]\\]\\5"
   mod_lines <- gsub(
     pattern = pattern_no_backtick,
