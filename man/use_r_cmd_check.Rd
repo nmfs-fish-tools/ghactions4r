@@ -7,7 +7,8 @@
 use_r_cmd_check(
   workflow_name = "call-r-cmd-check.yml",
   use_full_build_matrix = FALSE,
-  depends_on_tmb = FALSE
+  depends_on_tmb = FALSE,
+  additional_args = NULL
 )
 }
 \arguments{
@@ -21,7 +22,28 @@ addition to the three runs that use the release version.}
 and Mac builds to solved a nuanced issue for packages dependent on TMB.
 See this \href{https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ}{google groups thread}
 for more information.}
+
+\item{additional_args}{A named list of additional command line arguments to be
+passed to the workflow. The names of the list represent the platforms (windows,
+macos, or ubuntu), and the values are character vectors of arguments.
+These additional arguments are executed after the step that checks out the
+repository and before the step that sets up R.}
 }
 \description{
 Use workflow to run r cmd check on Linux, Mac, and Windows GitHub Actions
+}
+\examples{
+\dontrun{
+use_r_cmd_check(
+  additional_args = list(
+    ubuntu = c(
+      "sudo apt-get update",
+      "sudo apt-get install -y libcurl4-openssl-dev",
+      "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+      "sudo apt-get install --only-upgrade libstdc++6"
+    ),
+    macos = c("brew install curl")
+  )
+)
+}
 }

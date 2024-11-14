@@ -35,13 +35,76 @@ test_that("use_r_cmd_check() works with full build option and tmb", {
   expect_snapshot(test)
 })
 
-test_that("use_r_cmd_check() works with full build option and tmb", {
+test_that("use_r_cmd_check() works with tmb", {
   name <- "call-full-tmb.yml"
   path <- file.path(".github", "workflows", name)
   use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, depends_on_tmb = TRUE)
   expect_true(file.exists(path))
   test <- readLines(path)
   expect_snapshot(test)
+})
+
+test_that("use_r_cmd_check() works with additional_args", {
+  name <- "call-rcmd-additional-args-tmb.yml"
+  path <- file.path(".github", "workflows", name)
+  use_r_cmd_check(
+    workflow_name = name,
+    use_full_build_matrix = FALSE,
+    depends_on_tmb = TRUE,
+    additional_args = list(
+      "ubuntu" = c(
+        "sudo apt-get update",
+        "sudo apt-get install -y libcurl4-openssl-dev",
+        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+        "sudo apt-get install --only-upgrade libstdc++6"
+      ),
+      "windows" = c("tree"),
+      "macos" = c("brew install curl")
+    )
+  )
+  expect_true(file.exists(path))
+  test <- readLines(path)
+  expect_snapshot(test)
+
+  name <- "call-rcmd-additional-args-full.yml"
+  path <- file.path(".github", "workflows", name)
+  use_r_cmd_check(
+    workflow_name = name,
+    use_full_build_matrix = TRUE,
+    depends_on_tmb = FALSE,
+    additional_args = list(
+      "macos" = c("brew install curl")
+    )
+  )
+  expect_true(file.exists(path))
+  test <- readLines(path)
+  expect_snapshot(test)
+})
+
+test_that("use_r_cmd_check() doesn't work with invalid additional_args", {
+  # Invalid inputs: not a list
+  expect_error(
+    use_r_cmd_check(additional_args = "brew install curl"),
+    regexp = "must be a named list"
+  )
+
+  # Invalid inputs: list without names
+  expect_error(
+    use_r_cmd_check(additional_args = list("brew install curl")),
+    regexp = "Invalid platform in"
+  )
+
+  # Invalid inputs: list with invalid names
+  expect_error(
+    use_r_cmd_check(additional_args = list(linux = "sudo apt-get update")),
+    regexp = "Invalid platform in"
+  )
+
+  # Invalid inputs: list with non-character values
+  expect_error(
+    use_r_cmd_check(additional_args = list(windows = 123)),
+    regexp = "must be character vectors"
+  )
 })
 
 test_that("use_calc_coverage() works", {
@@ -144,8 +207,39 @@ test_that("use_update_pkgdown()) works", {
   expect_snapshot(test)
 })
 
-test_that("use_build_pkgdown()) works", {
-  use_build_pkgdown()
+test_that("use_update_pkgdown()) works with additional_args", {
+  use_update_pkgdown(
+    workflow_name = "call-update-pkgdown.yml",
+    additional_args = list(
+      "ubuntu" = c(
+        "sudo apt-get update",
+        "sudo apt-get install -y libcurl4-openssl-dev",
+        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+        "sudo apt-get install --only-upgrade libstdc++6"
+      ),
+      "windows" = c("tree"),
+      "macos" = c("brew install curl")
+    )
+  )
+  expect_true(file.exists(".github/workflows/call-update-pkgdown.yml"))
+  test <- readLines(".github/workflows/call-update-pkgdown.yml")
+  expect_snapshot(test)
+})
+
+test_that("use_build_pkgdown()) works with additional_args", {
+  use_build_pkgdown(
+    workflow_name = "call-build-pkgdown.yml",
+    additional_args = list(
+      "ubuntu" = c(
+        "sudo apt-get update",
+        "sudo apt-get install -y libcurl4-openssl-dev",
+        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+        "sudo apt-get install --only-upgrade libstdc++6"
+      ),
+      "windows" = c("tree"),
+      "macos" = c("brew install curl")
+    )
+  )
   expect_true(file.exists(".github/workflows/call-build-pkgdown.yml"))
   test <- readLines(".github/workflows/call-build-pkgdown.yml")
   expect_snapshot(test)
