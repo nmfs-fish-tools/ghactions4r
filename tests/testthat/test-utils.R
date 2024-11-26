@@ -13,14 +13,18 @@ test_that("add_args() works with additional_args", {
   use_update_pkgdown()
   workflow_name <- "call-update-pkgdown.yml"
   additional_args <- list(
-    ubuntu = c("sudo apt-get update",
-                 "sudo apt-get install -y libcurl4-openssl-dev"),
+    ubuntu = c(
+      "sudo apt-get update",
+      "sudo apt-get install -y libcurl4-openssl-dev"
+    ),
     windows = c("tree"),
     macos = c("brew install curl")
   )
-  
-  add_args(workflow_name = workflow_name,
-           additional_args = additional_args)
+
+  add_args(
+    workflow_name = workflow_name,
+    additional_args = additional_args
+  )
   path <- file.path(".github", "workflows", workflow_name)
   expect_true(file.exists(path))
   test <- readLines(path)
@@ -31,7 +35,7 @@ test_that("add_args() works with txt and prev_line", {
   use_update_pkgdown()
   workflow_name <- "call-update-pkgdown.yml"
   path <- file.path(".github", "workflows", workflow_name)
-  
+
   txt <- readLines(path)
   prev_line <- grep(
     paste0(
@@ -42,10 +46,12 @@ test_that("add_args() works with txt and prev_line", {
     txt,
     fixed = TRUE
   )
-  add_args(workflow_name = workflow_name,
-           additional_args = list(ubuntu = "sudo apt-get install --only-upgrade libstdc++6"),
-           txt = txt,
-           prev_line = prev_line)
+  add_args(
+    workflow_name = workflow_name,
+    additional_args = list(ubuntu = "sudo apt-get install --only-upgrade libstdc++6"),
+    txt = txt,
+    prev_line = prev_line
+  )
   expect_true(file.exists(path))
   test <- readLines(path)
   expect_snapshot(test)
