@@ -2,6 +2,19 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   workflow_call:
+    inputs:
+      additional_args_windows:
+        required: false
+        type: string
+        default: ""
+      additional_args_macos:
+        required: false
+        type: string
+        default: ""
+      additional_args_ubuntu:
+        required: false
+        type: string
+        default: ""
 
 name: build-pkgdown
 
@@ -12,6 +25,18 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+      
+      - name: run additional args on windows
+        if: matrix.config.os == 'windows-latest'
+        run: ${{ inputs.additional_args_windows }}
+      
+      - name: run additional args on macOS
+        if: matrix.config.os == 'macOS-latest'
+        run: ${{ inputs.additional_args_macos }}
+        
+      - name: run additional args on ubuntu
+        if: matrix.config.os == 'ubuntu-latest'
+        run: ${{ inputs.additional_args_ubuntu }}
 
       - uses: r-lib/actions/setup-pandoc@v2
 

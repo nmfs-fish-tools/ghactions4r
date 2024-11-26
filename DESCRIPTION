@@ -11,6 +11,7 @@ Description: Provides functions to allow users to set up github action
     workflows related to R packages.
 License: CC0
 Imports:
+    cli,
     usethis
 Suggests: 
     dplyr,

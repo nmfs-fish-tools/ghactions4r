@@ -58,7 +58,55 @@
       [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
-      [16] "      depends_on_tmb: true"                                                                                                               
+
+# use_r_cmd_check() works with tmb
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+
+# use_r_cmd_check() works with additional_args
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      depends_on_tmb: true"                                                                                                               
 
 ---
 
@@ -79,7 +127,9 @@
       [12] "  call-workflow:"                                                                                                                         
       [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
       [14] "    with:"                                                                                                                                
-      [15] "      depends_on_tmb: true"                                                                                                               
+      [15] "      use_full_build_matrix: true"                                                                                                        
+      [16] "      additional_args_macos: |"                                                                                                           
+      [17] "        brew install curl"                                                                                                                
 
 # use_calc_coverage() works
 
@@ -217,7 +267,35 @@
       [11] "  call-workflow:"                                                                                                                         
       [12] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                          
 
-# use_build_pkgdown()) works
+# use_update_pkgdown()) works with additional_args
+
+    Code
+      test
+    Output
+       [1] "# updates exiting pkgdown site for a repository"                                                                                          
+       [2] "# deploys to a branch gh-pages"                                                                                                           
+       [3] "name: call-update-pkgdown"                                                                                                                
+       [4] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [5] "on:"                                                                                                                                      
+       [6] "# this workflow runs on pushes to main or master or any time a new tag is pushed"                                                         
+       [7] "  push:"                                                                                                                                  
+       [8] "    branches: [main, master]"                                                                                                             
+       [9] "    tags: ['*']"                                                                                                                          
+      [10] "jobs:"                                                                                                                                    
+      [11] "  call-workflow:"                                                                                                                         
+      [12] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                          
+      [13] "    with:"                                                                                                                                
+      [14] "      additional_args_ubuntu: |"                                                                                                          
+      [15] "        sudo apt-get update"                                                                                                              
+      [16] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [17] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [18] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [19] "      additional_args_macos: |"                                                                                                           
+      [20] "        brew install curl"                                                                                                                
+      [21] "      additional_args_windows: |"                                                                                                         
+      [22] "        tree"                                                                                                                             
+
+# use_build_pkgdown()) works with additional_args
 
     Code
       test
@@ -237,6 +315,16 @@
       [13] "jobs:"                                                                                                                                    
       [14] "  call-workflow:"                                                                                                                         
       [15] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-pkgdown.yml@main"                                                           
+      [16] "    with:"                                                                                                                                
+      [17] "      additional_args_ubuntu: |"                                                                                                          
+      [18] "        sudo apt-get update"                                                                                                              
+      [19] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [20] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [21] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [22] "      additional_args_macos: |"                                                                                                           
+      [23] "        brew install curl"                                                                                                                
+      [24] "      additional_args_windows: |"                                                                                                         
+      [25] "        tree"                                                                                                                             
 
 # use_spell_check() works
 

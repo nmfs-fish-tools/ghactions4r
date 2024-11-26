@@ -6,10 +6,32 @@
 #'  and Mac builds to solved a nuanced issue for packages dependent on TMB.
 #'  See this [google groups thread](https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ)
 #'  for more information.
+#' @param additional_args A named list of additional command line arguments to be
+#'   passed to the workflow. The names of the list represent the platforms (windows,
+#'   macos, or ubuntu), and the values are character vectors of arguments.
+#'   These additional arguments are executed after the step that checks out the
+#'   repository and before the step that sets up R.
+#' @examples
+#' \dontrun{
+#' use_r_cmd_check(
+#'   additional_args = list(
+#'     ubuntu = c(
+#'       "sudo apt-get update",
+#'       "sudo apt-get install -y libcurl4-openssl-dev",
+#'       "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+#'       "sudo apt-get install --only-upgrade libstdc++6"
+#'     ),
+#'     macos = c("brew install curl")
+#'   )
+#' )
+#' }
 #' @export
 use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
                             use_full_build_matrix = FALSE,
-                            depends_on_tmb = FALSE) {
+                            depends_on_tmb = FALSE,
+                            additional_args = NULL) {
+  validate_additional_args(additional_args)
+
   check_workflow_name(workflow_name)
   if (use_full_build_matrix) {
     url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml"
@@ -20,7 +42,8 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     save_as = workflow_name,
     url = url_name
   )
-  if (depends_on_tmb) {
+
+  if (depends_on_tmb | !is.null(additional_args)) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     txt <- readLines(path_to_yml)
     if (use_full_build_matrix) {
@@ -34,8 +57,17 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
       txt <- append(txt, "    with:", prev_line)
       prev_line <- prev_line + 1
     }
-    txt <- append(txt, "      depends_on_tmb: true", prev_line)
-    writeLines(txt, path_to_yml)
+
+    if (depends_on_tmb) txt <- append(txt, "      depends_on_tmb: true", prev_line)
+
+    if (!is.null(additional_args)) {
+      add_args(
+        workflow_name = workflow_name,
+        additional_args = additional_args,
+        txt = txt,
+        prev_line = prev_line
+      )
+    }
   }
   invisible(workflow_name)
 }
@@ -213,24 +245,67 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
 
 #' use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages
 #' @template workflow_name
+#' @inheritParams use_r_cmd_check
+#' @examples
+#' \dontrun{
+#' use_update_pkgdown(
+#'   additional_args = list(
+#'     ubuntu = c(
+#'       "sudo apt-get update",
+#'       "sudo apt-get install -y libcurl4-openssl-dev",
+#'       "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+#'       "sudo apt-get install --only-upgrade libstdc++6"
+#'     ),
+#'     macos = c("brew install curl")
+#'   )
+#' )
+#' }
 #' @export
-use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml") {
+use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml",
+                               additional_args = NULL) {
+  validate_additional_args(additional_args)
+
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-update-pkgdown.yml",
     save_as = workflow_name,
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-pkgdown.yml"
   )
+
+  if (!is.null(additional_args)) {
+    add_args(workflow_name = workflow_name, additional_args = additional_args)
+  }
 }
 
 #' use workflow in current pkg to check pkgdown site builds.
 #' @template workflow_name
+#' @inheritParams use_r_cmd_check
+#' @examples
+#' \dontrun{
+#' use_build_pkgdown(
+#'   additional_args = list(
+#'     ubuntu = c(
+#'       "sudo apt-get update",
+#'       "sudo apt-get install -y libcurl4-openssl-dev",
+#'       "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+#'       "sudo apt-get install --only-upgrade libstdc++6"
+#'     ),
+#'     macos = c("brew install curl")
+#'   )
+#' )
+#' }
 #' @export
-use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml") {
+use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml", additional_args = NULL) {
+  validate_additional_args(additional_args)
+
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-build-pkgdown.yml",
     save_as = workflow_name,
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-build-pkgdown.yml"
   )
+
+  if (!is.null(additional_args)) {
+    add_args(workflow_name = workflow_name, additional_args = additional_args)
+  }
 }
 
 #' use workflow to run spelling::spell_check_package()

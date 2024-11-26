@@ -4,12 +4,36 @@
 \alias{use_build_pkgdown}
 \title{use workflow in current pkg to check pkgdown site builds.}
 \usage{
-use_build_pkgdown(workflow_name = "call-build-pkgdown.yml")
+use_build_pkgdown(
+  workflow_name = "call-build-pkgdown.yml",
+  additional_args = NULL
+)
 }
 \arguments{
 \item{workflow_name}{What to name the github action workflow locally. Must
 have the file extension \code{.yml}}
+
+\item{additional_args}{A named list of additional command line arguments to be
+passed to the workflow. The names of the list represent the platforms (windows,
+macos, or ubuntu), and the values are character vectors of arguments.
+These additional arguments are executed after the step that checks out the
+repository and before the step that sets up R.}
 }
 \description{
 use workflow in current pkg to check pkgdown site builds.
+}
+\examples{
+\dontrun{
+use_build_pkgdown(
+  additional_args = list(
+    ubuntu = c(
+      "sudo apt-get update",
+      "sudo apt-get install -y libcurl4-openssl-dev",
+      "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+      "sudo apt-get install --only-upgrade libstdc++6"
+    ),
+    macos = c("brew install curl")
+  )
+)
+}
 }

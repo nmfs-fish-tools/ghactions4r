@@ -12,6 +12,7 @@ gh
 ghactions
 github
 io
+macos
 parsable
 pkgdown
 precompiled
@@ -22,6 +23,8 @@ rspm
 ss
 styler
 tmb
+ubuntu
 usethis
 writeLines
+YAML
 yml
