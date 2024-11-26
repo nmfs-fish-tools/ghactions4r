@@ -83,7 +83,10 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_update_pkgdown</span><span class="op">(</span>workflow_name <span class="op">=</span> <span class="st">"call-update-pkgdown.yml"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_update_pkgdown</span><span class="op">(</span></span>
+<span>  workflow_name <span class="op">=</span> <span class="st">"call-update-pkgdown.yml"</span>,</span>
+<span>  additional_args <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -94,8 +97,33 @@
 <dd><p>What to name the github action workflow locally. Must
 have the file extension <code>.yml</code></p></dd>
 
+
+<dt id="arg-additional-args">additional_args<a class="anchor" aria-label="anchor" href="#arg-additional-args"></a></dt>
+<dd><p>A named list of additional command line arguments to be
+passed to the workflow. The names of the list represent the platforms (windows,
+macos, or ubuntu), and the values are character vectors of arguments.
+These additional arguments are executed after the step that checks out the
+repository and before the step that sets up R.</p></dd>
+
 </dl></div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="fu">use_update_pkgdown</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  additional_args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    ubuntu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="st">"sudo apt-get update"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"sudo apt-get install -y libcurl4-openssl-dev"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"sudo add-apt-repository ppa:ubuntu-toolchain-r/test"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"sudo apt-get install --only-upgrade libstdc++6"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    macos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"brew install curl"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

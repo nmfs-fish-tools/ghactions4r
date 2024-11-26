@@ -6,6 +6,7 @@
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
+<url><loc>/reference/add_args.html</loc></url>
 <url><loc>/reference/check_workflow_name.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/rm_dollar_sign.html</loc></url>
@@ -15,5 +16,6 @@
 <url><loc>/reference/use_r_cmd_check.html</loc></url>
 <url><loc>/reference/use_spell_check.html</loc></url>
 <url><loc>/reference/use_update_pkgdown.html</loc></url>
+<url><loc>/reference/validate_additional_args.html</loc></url>
 </urlset>
 
