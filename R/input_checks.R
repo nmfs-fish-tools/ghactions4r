@@ -13,7 +13,7 @@ check_workflow_name <- function(workflow_name) {
 }
 
 #' Validate additional arguments for R functions
-#' 
+#'
 #' @inheritParams use_r_cmd_check
 validate_additional_args <- function(additional_args) {
   if (!is.null(additional_args)) {
@@ -22,7 +22,7 @@ validate_additional_args <- function(additional_args) {
     }
     invalid_platforms <- setdiff(names(additional_args), c("windows", "macos", "ubuntu"))
     if (length(invalid_platforms) > 0 | is.null(invalid_platforms)) {
-      cli::cli_abort("Invalid platform in {.var additional_args}: {.val {invalid_platforms}}. 
+      cli::cli_abort("Invalid platform in {.var additional_args}: {.val {invalid_platforms}}.
                       Allowed platforms are {.val windows}, {.val macos}, and {.val ubuntu}.")
     }
     if (!all(vapply(additional_args, is.character, logical(1)))) {
