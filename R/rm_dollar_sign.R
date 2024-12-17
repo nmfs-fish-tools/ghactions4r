@@ -71,6 +71,16 @@ rm_dollar_sign <- function(file,
     lines
   )
   # all others not in back ticks
+  # address situations in quotation marks
+  pattern_no_backtick_in_quotes <-
+    '(".*)([[:alnum:]]|\\.|\\_|\\]|\\(|\\))\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(.*")'
+  replace_no_backtick_in_quotes <- "\\1\\2\\[\\[\'\\3\\4\'\\]\\]\\6"
+  mod_lines <- gsub(
+    pattern = pattern_no_backtick_in_quotes,
+    replacement = replace_no_backtick_in_quotes,
+    mod_lines
+  )
+
   pattern_no_backtick <-
     "([[:alnum:]]|\\.|\\_|\\]|\\(|\\))\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(\\s|[[:punct:]]|$)"
   replace_no_backtick <- "\\1\\[\\[\"\\2\\3\"\\]\\]\\5"

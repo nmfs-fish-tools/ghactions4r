@@ -39,6 +39,7 @@ jobs:
       - name: setup env using GITHUB_TOKEN, if no pat
         if: env.GITHUB_PAT == ''
         run: echo "GITHUB_PAT=${{ secrets.GITHUB_TOKEN}}" >> "$GITHUB_ENV"
+
       - name: checkout, make changes and submit as pr on new branch
         if: inputs.commit-directly == false
         uses: actions/checkout@v4

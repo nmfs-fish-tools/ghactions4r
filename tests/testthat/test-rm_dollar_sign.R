@@ -19,7 +19,8 @@ test_that("rm dollar sign works", {
     "x$`nameinbacktick`",
     "x$mylist$my_col$YetAnotherCol",
     "x$mylist$my_col$`1_somename`",
-    "x()$my_name <- y$test"
+    "x()$my_name <- y$test",
+    "\"test object$item with additional quoted text\""
   )
   expect_output <- c(
     "x[[\"my_name\"]] <- y[[\"test\"]]",
@@ -31,7 +32,8 @@ test_that("rm dollar sign works", {
     "x[[\"nameinbacktick\"]]",
     "x[[\"mylist\"]][[\"my_col\"]][[\"YetAnotherCol\"]]",
     "x[[\"mylist\"]][[\"my_col\"]][[\"1_somename\"]]",
-    "x()[[\"my_name\"]] <- y[[\"test\"]]"
+    "x()[[\"my_name\"]] <- y[[\"test\"]]",
+    "\"test object[['item']] with additional quoted text\""
   )
   writeLines(test_text, "test_rm_dollar_sign.txt")
   new_text <- rm_dollar_sign(
