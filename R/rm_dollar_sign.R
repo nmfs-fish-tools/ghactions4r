@@ -44,8 +44,6 @@
 #' )
 #' new_text
 #' file.remove("test_rm_dollar_sign.txt")
-#' # file <- "C:\Users\elizabeth.gugliotti\Documents\github_repos\r4ss\R\get_ss3_exe2.R"
-#' # out_file <- "C:\Users\elizabeth.gugliotti\Documents\github_repos\r4ss\R\get_ss3_exe3.R"
 rm_dollar_sign <- function(file,
                            out_file = file,
                            allow_recursive = TRUE,
