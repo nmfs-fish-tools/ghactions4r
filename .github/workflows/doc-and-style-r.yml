@@ -71,7 +71,7 @@ jobs:
 
       - name: add ghactions4r, if using ghactions4r::rm_dollar_sign
         if: inputs.run-rm_dollar_sign == true 
-        run: Rscript -e 'remotes::install_github("nmfs-fish-tools/ghactions4r@quotes_dollar_sign_fix", upgrade = "always")'
+        run: Rscript -e 'remotes::install_github("nmfs-fish-tools/ghactions4r", upgrade = "always")'
 
       - name: Style
         run: |
