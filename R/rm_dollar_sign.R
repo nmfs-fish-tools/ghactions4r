@@ -4,12 +4,6 @@
 #' which we don't often want. This function takes a file and changes all dollar
 #' signs to double brackets with names in quotations instead. Note that this
 #' function will incorrectly convert text enclosed in backticks that includes a dollar sign.
-#' Note also that if a dollar sign is within a text
-#' string enclosed with quotation marks, it will also not convert correctly and
-#' so will exit on error.
-#' (for example, "See test$name" would become
-#' "See test\[\["name"\]\]", which is not parsable R code due to 2 sets of quotation
-#' marks.)
 #' @param file Filename either with full path or relative to working directory.
 #' @param out_file The name or path of a new file to write to. This is by
 #'  default the same as the original file. Set to NULL to avoid writing a new
