@@ -75,16 +75,18 @@ rm_dollar_sign <- function(file,
     mod_lines
   )
   if (allow_recursive) {
-    mod_lines <- recursive_replace(pattern = pattern_no_backtick_in_quotes,
-      replace = replace_no_backtick_in_quotes, lines = mod_lines, max_loops = max_loops)
-} else {
-  if (length(grep(pattern_no_backtick_in_quotes, x = mod_lines)) > 0) {
-    warning(
-      "There are lists in lists in quotes, but allow_recursive = FALSE, so not all",
-      "dollar sign operators were converted."
+    mod_lines <- recursive_replace(
+      pattern = pattern_no_backtick_in_quotes,
+      replace = replace_no_backtick_in_quotes, lines = mod_lines, max_loops = max_loops
     )
+  } else {
+    if (length(grep(pattern_no_backtick_in_quotes, x = mod_lines)) > 0) {
+      warning(
+        "There are lists in lists in quotes, but allow_recursive = FALSE, so not all",
+        "dollar sign operators were converted."
+      )
+    }
   }
-}
 
   pattern_no_backtick <-
     "([[:alnum:]]|\\.|\\_|\\]|\\(|\\))\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(\\s|[[:punct:]]|$)"
@@ -95,8 +97,10 @@ rm_dollar_sign <- function(file,
     mod_lines
   )
   if (allow_recursive) {
-    mod_lines <- recursive_replace(pattern = pattern_no_backtick,
-      replace = replace_no_backtick, lines = mod_lines, max_loops = max_loops)
+    mod_lines <- recursive_replace(
+      pattern = pattern_no_backtick,
+      replace = replace_no_backtick, lines = mod_lines, max_loops = max_loops
+    )
   } else {
     if (length(grep(pattern_no_backtick, x = mod_lines)) > 0) {
       warning(
