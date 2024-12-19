@@ -74,6 +74,17 @@ rm_dollar_sign <- function(file,
     replacement = replace_no_backtick_in_quotes,
     mod_lines
   )
+  if (allow_recursive) {
+    mod_lines <- recursive_replace(pattern = pattern_no_backtick_in_quotes,
+      replace = replace_no_backtick_in_quotes, lines = mod_lines, max_loops = max_loops)
+} else {
+  if (length(grep(pattern_no_backtick_in_quotes, x = mod_lines)) > 0) {
+    warning(
+      "There are lists in lists in quotes, but allow_recursive = FALSE, so not all",
+      "dollar sign operators were converted."
+    )
+  }
+}
 
   pattern_no_backtick <-
     "([[:alnum:]]|\\.|\\_|\\]|\\(|\\))\\$([[:alnum:]]+)(([[:alnum:]]|\\.|\\_)*)(\\s|[[:punct:]]|$)"
@@ -84,23 +95,8 @@ rm_dollar_sign <- function(file,
     mod_lines
   )
   if (allow_recursive) {
-    # get rid of $ when there are lists in lists.
-    ind <- 1
-    while (length(grep(pattern_no_backtick, x = mod_lines)) > 0 &
-      ind <= max_loops) {
-      ind <- ind + 1
-      mod_lines <- gsub(
-        pattern = pattern_no_backtick,
-        replacement = replace_no_backtick,
-        mod_lines
-      )
-    }
-    if (length(grep(pattern_no_backtick, x = mod_lines)) > 0) {
-      warning(
-        "max_loops was set too low to replace all instances of dollar ",
-        "sign references."
-      )
-    }
+    mod_lines <- recursive_replace(pattern = pattern_no_backtick,
+      replace = replace_no_backtick, lines = mod_lines, max_loops = max_loops)
   } else {
     if (length(grep(pattern_no_backtick, x = mod_lines)) > 0) {
       warning(
@@ -113,4 +109,24 @@ rm_dollar_sign <- function(file,
     writeLines(mod_lines, out_file)
   }
   mod_lines
+}
+
+recursive_replace <- function(pattern, replace, lines, max_loops) {
+  # get rid of $ when there are lists in lists.
+  ind <- 1
+  while (length(grep(pattern, x = lines)) > 0 && ind <= max_loops) {
+    ind <- ind + 1
+    lines <- gsub(
+      pattern = pattern,
+      replacement = replace,
+      lines
+    )
+  }
+  if (length(grep(pattern, x = lines)) > 0) {
+    warning(
+      "max_loops was set too low to replace all instances of dollar ",
+      "sign references in quotes."
+    )
+  }
+  lines
 }
