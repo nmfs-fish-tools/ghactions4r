@@ -125,7 +125,7 @@ jobs:
         
       - name: Create Pull Request
         if: ${{inputs.commit-directly == false}}
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: 'style and docs: run devtools::document() and styler::style_pkg()'
           token: ${{ env.GITHUB_PAT }}
