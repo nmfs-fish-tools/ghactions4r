@@ -2,10 +2,12 @@
 #' @template workflow_name
 #' @param use_full_build_matrix Run R cmd check with two older versions of R in
 #'   addition to the three runs that use the release version.
-#' @param depends_on_tmb An option that install Matrix from source for windows
+#' @param depends_on_tmb Adds an option that install Matrix from source for windows
 #'  and Mac builds to solved a nuanced issue for packages dependent on TMB.
 #'  See this [google groups thread](https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ)
 #'  for more information.
+#' @param depends_on_quarto Adds an option that installs quarto before running r cmd
+#'  check. 
 #' @param additional_args A named list of additional command line arguments to be
 #'   passed to the workflow. The names of the list represent the platforms (windows,
 #'   macos, or ubuntu), and the values are character vectors of arguments.
@@ -29,6 +31,7 @@
 use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
                             use_full_build_matrix = FALSE,
                             depends_on_tmb = FALSE,
+                            depends_on_quarto = FALSE,
                             additional_args = NULL) {
   validate_additional_args(additional_args)
 
@@ -43,7 +46,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     url = url_name
   )
 
-  if (depends_on_tmb | !is.null(additional_args)) {
+  if (depends_on_tmb | depends_on_quarto | !is.null(additional_args)) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     txt <- readLines(path_to_yml)
     if (use_full_build_matrix) {
@@ -58,7 +61,15 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
       prev_line <- prev_line + 1
     }
 
-    if (depends_on_tmb) txt <- append(txt, "      depends_on_tmb: true", prev_line)
+    if (depends_on_tmb) {
+      txt <- append(txt, "      depends_on_tmb: true", prev_line)
+      prev_line <- prev_line + 1
+    }
+
+    if (depends_on_quarto) {
+      txt <- append(txt, "      depends_on_quarto: true", prev_line)
+      prev_line <- prev_line + 1
+    }
 
     if (!is.null(additional_args)) {
       add_args(
