@@ -46,7 +46,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     url = url_name
   )
 
-  if (depends_on_tmb | depends_on_quarto | !is.null(additional_args)) {
+  if (depends_on_tmb | depends_on_quarto ) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     txt <- readLines(path_to_yml)
     if (use_full_build_matrix) {
@@ -68,17 +68,16 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 
     if (depends_on_quarto) {
       txt <- append(txt, "      depends_on_quarto: true", prev_line)
-      prev_line <- prev_line + 1
     }
+    writeLines(txt, path_to_yml)
+  }
 
-    if (!is.null(additional_args)) {
-      add_args(
-        workflow_name = workflow_name,
-        additional_args = additional_args,
-        txt = txt,
-        prev_line = prev_line
-      )
-    }
+  if (!is.null(additional_args)) {
+    add_args(
+      workflow_name = workflow_name,
+      additional_args = additional_args,
+      txt = NULL,
+      prev_line = NULL)
   }
   invisible(workflow_name)
 }
