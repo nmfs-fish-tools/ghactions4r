@@ -11,16 +11,16 @@ add_args <- function(workflow_name, additional_args, txt = NULL, prev_line = NUL
     txt <- readLines(path_to_yml)
 
     prev_line <- grep(
-      paste0(
-        "uses: nmfs-fish-tools/ghactions4r/.github/workflows/",
-        gsub("call-", "", workflow_name),
-        "@main"
-      ),
+      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/",
       txt,
       fixed = TRUE
     )
-    txt <- append(txt, "    with:", prev_line)
-    prev_line <- prev_line + 1
+    if (grepl("with:", txt[prev_line+1], fixed = TRUE)) {
+      prev_line <- prev_line + 1
+    } else {
+      txt <- append(txt, "    with:", prev_line)
+      prev_line <- prev_line + 1
+    }
   }
 
   # Add platform-specific additional arguments

@@ -54,7 +54,7 @@ test_that("use_r_cmd_check() works with depends on quarto", {
 })
 
 test_that("use_r_cmd_check() works with depends on quarto and tmb", {
-  name <- "call-full-quarto.yml"
+  name <- "call-full-quarto-tmb.yml"
   path <- file.path(".github", "workflows", name)
   use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, 
   depends_on_tmb = TRUE, depends_on_quarto = TRUE)
