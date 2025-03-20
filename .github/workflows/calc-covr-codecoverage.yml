@@ -28,7 +28,7 @@ jobs:
             clean = FALSE,
             install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
           )
-          covr::report(cov)
+          print(cov)
           covr::to_sonarqube(cov)
         shell: Rscript {0}
   
