@@ -4,6 +4,11 @@ on:
 
 name: run devtools::spell_check
 
+# no permissions are needed by the default github token for this workflow to 
+# run, so don't pass any.
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
+
 jobs:
   spell-check:
     runs-on: ubuntu-latest
