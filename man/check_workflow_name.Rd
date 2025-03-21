@@ -11,5 +11,5 @@ check_workflow_name(workflow_name)
 have the file extension \code{.yml}}
 }
 \description{
-Basically check that it is a filename that ends in .yml
+Basically check that it is a filename that ends in .yml. add doc
 }

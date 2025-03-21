@@ -18,9 +18,9 @@ check_workflow_name <- function(workflow_name) {
 validate_additional_args <- function(additional_args) {
   if (!is.null(additional_args)) {
     if (!is.list(additional_args)) {
-           cli::cli_abort("{.var additional_args} must be a named list.")
+      cli::cli_abort("{.var additional_args} must be a named list.")
     }
-        invalid_platforms <- setdiff(names(additional_args), c("windows", "macos", "ubuntu"))
+    invalid_platforms <- setdiff(names(additional_args), c("windows", "macos", "ubuntu"))
     if (length(invalid_platforms) > 0 | is.null(invalid_platforms)) {
       cli::cli_abort("Invalid platform in {.var additional_args}: {.val {invalid_platforms}}.
                       Allowed platforms are {.val windows}, {.val macos}, and {.val ubuntu}.")
