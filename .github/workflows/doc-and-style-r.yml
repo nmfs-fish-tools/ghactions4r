@@ -29,7 +29,7 @@ on:
 # Give the fewest permissions possible. content and pull-requests are necessary.
 # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
   actions: none
   attestations: none
