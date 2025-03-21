@@ -12,7 +12,9 @@ on:
         default: true
 
 name: calc-coverage
-
+# no permissions are needed, so don't pass any.
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
 jobs:
   calc-coverage:
     runs-on: ubuntu-latest

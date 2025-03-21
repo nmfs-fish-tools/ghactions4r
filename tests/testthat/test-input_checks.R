@@ -1,5 +1,5 @@
 test_that("check_workflow_name works", {
-  expect_equal(check_workflow_name("my_workflow.yml"), "my_workflow1.yml")
+  expect_equal(check_workflow_name("my_workflow.yml"), "my_workflow.yml")
   expect_error(check_workflow_name("wrk.YML"))
   expect_error(check_workflow_name("wrk.YAML"))
   expect_error(check_workflow_name("wrk.yaml"))

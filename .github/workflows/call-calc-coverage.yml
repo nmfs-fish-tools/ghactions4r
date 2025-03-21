@@ -5,21 +5,9 @@ name: call-calc_coverage
 on:
   workflow_dispatch:
   push:
-    branches:    
-      - main
-    paths-ignore:
-      - .devcontainer
-      - .github
-      - 'README.md'
-      - 'CONTRIBUTING.md'
-      - 'Rbuildignore'
-      - '.gitignore'
-      - 'man'
-  pull_request:
-    branches:
-      - main
+
 jobs:
   call-workflow:
-    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@main
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@permissions
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN}}
