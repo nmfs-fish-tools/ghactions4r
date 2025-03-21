@@ -1,7 +1,7 @@
 # Run r cmd check
 on:
   workflow_dispatch:
-  push:
+
 name: call-r-cmd-check
 
 jobs:
