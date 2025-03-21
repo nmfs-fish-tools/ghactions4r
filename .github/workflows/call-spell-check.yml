@@ -7,4 +7,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: nmfs-fish-tools/ghactions4r/.github/workflows/spell-check.yml@main
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/spell-check.yml@permissions
