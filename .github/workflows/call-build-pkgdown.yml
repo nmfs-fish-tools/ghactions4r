@@ -6,10 +6,6 @@ on:
 # this workflow runs on pushes to main or master or any time a new tag is pushed
 # it also runs everytime a pull request to main or master is opened.
   push:
-    branches: [main, master]
-    tags: ['*']
-  pull_request:
-    branches: [main, master]
 jobs:
   call-workflow:
-    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-pkgdown.yml@main
+    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-pkgdown.yml@permissions
