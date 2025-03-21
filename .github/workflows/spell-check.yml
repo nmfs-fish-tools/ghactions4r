@@ -3,6 +3,9 @@ on:
  workflow_call:
 
 name: run devtools::spell_check
+# no permissions are needed, so don't pass any.
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
 
 jobs:
   spell-check:
@@ -24,5 +27,7 @@ jobs:
             stop("Spelling errors found.\n", 
             "Need to ignore some words? Read up on using the WORDLIST file:\n",
             "https://docs.ropensci.org/spelling/reference/wordlist.html")
+          } else {
+            message("No spelling errors found.")
           }
         shell: Rscript {0}
