@@ -1,7 +1,6 @@
 # document and style  using reusable workflow
 on:
-  push:
-    branches: [permissions]
+  workflow_dispatch:
 
 name: call-doc-and-style-r
 jobs:
