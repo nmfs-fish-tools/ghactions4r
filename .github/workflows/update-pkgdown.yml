@@ -18,6 +18,24 @@ on:
 
 name: update-pkgdown
 
+# Give the fewest permissions possible. content is necessary.
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions:
+  contents: write
+  pull-requests: none
+  actions: none
+  attestations: none
+  checks: none
+  deployments: none
+  id-token: none
+  issues: none
+  discussions: none
+  packages: none
+  pages: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
