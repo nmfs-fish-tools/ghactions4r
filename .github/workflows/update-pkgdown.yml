@@ -18,6 +18,10 @@ on:
 
 name: update-pkgdown
 
+# no permissions are needed, so don't pass any.
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
+
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
