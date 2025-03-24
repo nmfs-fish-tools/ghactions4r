@@ -32,18 +32,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  actions: none
-  attestations: none
-  checks: none
-  deployments: none
-  id-token: none
-  issues: none
-  discussions: none
-  packages: none
-  pages: none
-  repository-projects: none
-  security-events: none
-  statuses: none
 
 name: style r code with styler
 
