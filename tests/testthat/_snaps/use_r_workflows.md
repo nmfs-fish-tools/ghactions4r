@@ -17,6 +17,421 @@
       [12] "  call-workflow:"                                                                                                                         
       [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
 
+# all use_r_cmd_check() options work without additional args
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      use_full_build_matrix: true"                                                                                                        
+      [16] "      depends_on_tmb: true"                                                                                                               
+      [17] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      depends_on_tmb: true"                                                                                                               
+      [16] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      use_full_build_matrix: true"                                                                                                        
+      [16] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      use_full_build_matrix: true"                                                                                                        
+      [16] "      depends_on_tmb: true"                                                                                                               
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      depends_on_tmb: true"                                                                                                               
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      use_full_build_matrix: true"                                                                                                        
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+
+# all use_r_cmd_check() options work with additional args
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      use_full_build_matrix: true"                                                                                                        
+      [25] "      depends_on_tmb: true"                                                                                                               
+      [26] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      depends_on_tmb: true"                                                                                                               
+      [25] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      use_full_build_matrix: true"                                                                                                        
+      [25] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      depends_on_quarto: true"                                                                                                            
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      use_full_build_matrix: true"                                                                                                        
+      [25] "      depends_on_tmb: true"                                                                                                               
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      depends_on_tmb: true"                                                                                                               
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+      [24] "      use_full_build_matrix: true"                                                                                                        
+
+---
+
+    Code
+      test
+    Output
+       [1] "# Run r cmd check"                                                                                                                        
+       [2] "name: call-r-cmd-check"                                                                                                                   
+       [3] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [4] "on:"                                                                                                                                      
+       [5] "# The default build trigger is to run the action on every push and pull request, for any branch"                                          
+       [6] "  push:"                                                                                                                                  
+       [7] "  pull_request:"                                                                                                                          
+       [8] "  # To run the default repository branch weekly on sunday, uncomment the following 2 lines"                                               
+       [9] "  #schedule:"                                                                                                                             
+      [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
+      [11] "jobs:"                                                                                                                                    
+      [12] "  call-workflow:"                                                                                                                         
+      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [14] "    with:"                                                                                                                                
+      [15] "      additional_args_ubuntu: |"                                                                                                          
+      [16] "        sudo apt-get update"                                                                                                              
+      [17] "        sudo apt-get install -y libcurl4-openssl-dev"                                                                                     
+      [18] "        sudo add-apt-repository ppa:ubuntu-toolchain-r/test"                                                                              
+      [19] "        sudo apt-get install --only-upgrade libstdc++6"                                                                                   
+      [20] "      additional_args_macos: |"                                                                                                           
+      [21] "        brew install curl"                                                                                                                
+      [22] "      additional_args_windows: |"                                                                                                         
+      [23] "        tree"                                                                                                                             
+
 # use_r_cmd_check() works with full build option
 
     Code
