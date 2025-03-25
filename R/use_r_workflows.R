@@ -7,7 +7,7 @@
 #'  See this [google groups thread](https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ)
 #'  for more information.
 #' @param depends_on_quarto Adds an option that installs quarto before running r cmd
-#'  check. 
+#'  check.
 #' @param additional_args A named list of additional command line arguments to be
 #'   passed to the workflow. The names of the list represent the platforms (windows,
 #'   macos, or ubuntu), and the values are character vectors of arguments.
@@ -46,7 +46,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
     url = url_name
   )
 
-  if (depends_on_tmb | depends_on_quarto ) {
+  if (depends_on_tmb | depends_on_quarto) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     txt <- readLines(path_to_yml)
     if (use_full_build_matrix) {
@@ -77,7 +77,8 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
       workflow_name = workflow_name,
       additional_args = additional_args,
       txt = NULL,
-      prev_line = NULL)
+      prev_line = NULL
+    )
   }
   invisible(workflow_name)
 }
