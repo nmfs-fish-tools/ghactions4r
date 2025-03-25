@@ -9,14 +9,6 @@ on.exit(unlink(temp_path, recursive = TRUE), add = TRUE)
 pkg <- usethis::create_package(".")
 usethis::proj_set(".")
 
-test_that("use_r_cmd_check() works with defaults", {
-  use_r_cmd_check()
-  expect_true(file.exists(".github/workflows/call-r-cmd-check.yml"))
-  expect_true(file.exists(".github/.gitignore"))
-  test <- readLines(".github/workflows/call-r-cmd-check.yml")
-  expect_snapshot(test)
-})
-
 test_that("all use_r_cmd_check() options work without additional args", {
 
   test_grid <- expand.grid(use_full_build_matrix_opt = c(TRUE, FALSE),
@@ -85,75 +77,7 @@ test_that("all use_r_cmd_check() options work with additional args", {
 })
 
 
-test_that("use_r_cmd_check() works with full build option", {
-  name <- "call-full-build-check.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name, use_full_build_matrix = TRUE)
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-test_that("use_r_cmd_check() works with full build option and tmb", {
-  name <- "call-full-build-check.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name, use_full_build_matrix = TRUE, depends_on_tmb = TRUE)
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-test_that("use_r_cmd_check() works with tmb", {
-  name <- "call-full-tmb.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, depends_on_tmb = TRUE)
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-test_that("use_r_cmd_check() works with depends on quarto", {
-  name <- "call-full-quarto.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, depends_on_quarto = TRUE)
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-test_that("use_r_cmd_check() works with depends on quarto and tmb", {
-  name <- "call-full-quarto-tmb.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(workflow_name = name, use_full_build_matrix = FALSE, 
-  depends_on_tmb = TRUE, depends_on_quarto = TRUE)
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-
-test_that("use_r_cmd_check() works with additional_args", {
-  name <- "call-rcmd-additional-args-tmb.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(
-    workflow_name = name,
-    use_full_build_matrix = FALSE,
-    depends_on_tmb = TRUE,
-    additional_args = list(
-      "ubuntu" = c(
-        "sudo apt-get update",
-        "sudo apt-get install -y libcurl4-openssl-dev",
-        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
-        "sudo apt-get install --only-upgrade libstdc++6"
-      ),
-      "windows" = c("tree"),
-      "macos" = c("brew install curl")
-    )
-  )
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-
+test_that("use_r_cmd_check() works with additional_args mac only", {
   name <- "call-rcmd-additional-args-full.yml"
   path <- file.path(".github", "workflows", name)
   use_r_cmd_check(
@@ -161,30 +85,6 @@ test_that("use_r_cmd_check() works with additional_args", {
     use_full_build_matrix = TRUE,
     depends_on_tmb = FALSE,
     additional_args = list(
-      "macos" = c("brew install curl")
-    )
-  )
-  expect_true(file.exists(path))
-  test <- readLines(path)
-  expect_snapshot(test)
-})
-
-test_that("use_r_cmd_check() works with additional_args, depends_on_tmb, and depends_on_quarto", {
-  name <- "call-rcmd-add-args-quarto-tmb.yml"
-  path <- file.path(".github", "workflows", name)
-  use_r_cmd_check(
-    workflow_name = name,
-    use_full_build_matrix = FALSE,
-    depends_on_tmb = TRUE,
-    depends_on_quarto = TRUE,
-    additional_args = list(
-      "ubuntu" = c(
-        "sudo apt-get update",
-        "sudo apt-get install -y libcurl4-openssl-dev",
-        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
-        "sudo apt-get install --only-upgrade libstdc++6"
-      ),
-      "windows" = c("tree"),
       "macos" = c("brew install curl")
     )
   )
