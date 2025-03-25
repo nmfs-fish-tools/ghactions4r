@@ -15,7 +15,7 @@ add_args <- function(workflow_name, additional_args, txt = NULL, prev_line = NUL
       txt,
       fixed = TRUE
     )
-    if (grepl("with:", txt[prev_line+1], fixed = TRUE)) {
+    if (grepl("with:", txt[prev_line + 1], fixed = TRUE)) {
       prev_line <- prev_line + 1
     } else {
       txt <- append(txt, "    with:", prev_line)

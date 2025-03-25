@@ -10,70 +10,76 @@ pkg <- usethis::create_package(".")
 usethis::proj_set(".")
 
 test_that("all use_r_cmd_check() options work without additional args", {
-
-  test_grid <- expand.grid(use_full_build_matrix_opt = c(TRUE, FALSE),
-                depends_on_tmb_opt = c(TRUE, FALSE),
-                depends_on_quarto_opt = c(TRUE, FALSE))
+  test_grid <- expand.grid(
+    use_full_build_matrix_opt = c(TRUE, FALSE),
+    depends_on_tmb_opt = c(TRUE, FALSE),
+    depends_on_quarto_opt = c(TRUE, FALSE)
+  )
   for (i in 1:nrow(test_grid)) {
     name <- paste0("call-build-check-", i, ".yml")
     path <- file.path(".github", "workflows", name)
-    use_r_cmd_check(workflow_name = name,
+    use_r_cmd_check(
+      workflow_name = name,
       use_full_build_matrix = test_grid[i, "use_full_build_matrix_opt"],
       depends_on_tmb = test_grid[i, "depends_on_tmb_opt"],
       depends_on_quarto = test_grid[i, "depends_on_quarto_opt"],
-      additional_args = NULL)
-      expect_true(file.exists(path))
-    test <- readLines(path)
-    expect_snapshot(test)
-    }
-# Note: this is the grid to compare to.
-#  use_full_build_matrix_opt depends_on_tmb_opt depends_on_quarto_opt
-# 1                       TRUE               TRUE                  TRUE
-# 2                      FALSE               TRUE                  TRUE
-# 3                       TRUE              FALSE                  TRUE
-# 4                      FALSE              FALSE                  TRUE
-# 5                       TRUE               TRUE                 FALSE
-# 6                      FALSE               TRUE                 FALSE
-# 7                       TRUE              FALSE                 FALSE
-# 8                      FALSE              FALSE                 FALSE
-})
-
-test_that("all use_r_cmd_check() options work with additional args", {
-
-  test_grid <- expand.grid(use_full_build_matrix_opt = c(TRUE, FALSE),
-                depends_on_tmb_opt = c(TRUE, FALSE),
-                depends_on_quarto_opt = c(TRUE, FALSE))
-  for (i in 1:nrow(test_grid)) {
-    name <- paste0("call-build-check-add-args", i, ".yml")
-    path <- file.path(".github", "workflows", name)
-    use_r_cmd_check(workflow_name = name,
-      use_full_build_matrix = test_grid[i, "use_full_build_matrix_opt"],
-      depends_on_tmb = test_grid[i, "depends_on_tmb_opt"],
-      depends_on_quarto = test_grid[i, "depends_on_quarto_opt"],
-      additional_args = list(
-      "ubuntu" = c(
-        "sudo apt-get update",
-        "sudo apt-get install -y libcurl4-openssl-dev",
-        "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
-        "sudo apt-get install --only-upgrade libstdc++6"
-      ),
-      "windows" = c("tree"),
-      "macos" = c("brew install curl")
-    ))
+      additional_args = NULL
+    )
     expect_true(file.exists(path))
     test <- readLines(path)
     expect_snapshot(test)
   }
-# Note: this is the grid to compare to.
-#  use_full_build_matrix_opt depends_on_tmb_opt depends_on_quarto_opt
-# 1                       TRUE               TRUE                  TRUE
-# 2                      FALSE               TRUE                  TRUE
-# 3                       TRUE              FALSE                  TRUE
-# 4                      FALSE              FALSE                  TRUE
-# 5                       TRUE               TRUE                 FALSE
-# 6                      FALSE               TRUE                 FALSE
-# 7                       TRUE              FALSE                 FALSE
-# 8                      FALSE              FALSE                 FALSE
+  # Note: this is the grid to compare to.
+  #  use_full_build_matrix_opt depends_on_tmb_opt depends_on_quarto_opt
+  # 1                       TRUE               TRUE                  TRUE
+  # 2                      FALSE               TRUE                  TRUE
+  # 3                       TRUE              FALSE                  TRUE
+  # 4                      FALSE              FALSE                  TRUE
+  # 5                       TRUE               TRUE                 FALSE
+  # 6                      FALSE               TRUE                 FALSE
+  # 7                       TRUE              FALSE                 FALSE
+  # 8                      FALSE              FALSE                 FALSE
+})
+
+test_that("all use_r_cmd_check() options work with additional args", {
+  test_grid <- expand.grid(
+    use_full_build_matrix_opt = c(TRUE, FALSE),
+    depends_on_tmb_opt = c(TRUE, FALSE),
+    depends_on_quarto_opt = c(TRUE, FALSE)
+  )
+  for (i in 1:nrow(test_grid)) {
+    name <- paste0("call-build-check-add-args", i, ".yml")
+    path <- file.path(".github", "workflows", name)
+    use_r_cmd_check(
+      workflow_name = name,
+      use_full_build_matrix = test_grid[i, "use_full_build_matrix_opt"],
+      depends_on_tmb = test_grid[i, "depends_on_tmb_opt"],
+      depends_on_quarto = test_grid[i, "depends_on_quarto_opt"],
+      additional_args = list(
+        "ubuntu" = c(
+          "sudo apt-get update",
+          "sudo apt-get install -y libcurl4-openssl-dev",
+          "sudo add-apt-repository ppa:ubuntu-toolchain-r/test",
+          "sudo apt-get install --only-upgrade libstdc++6"
+        ),
+        "windows" = c("tree"),
+        "macos" = c("brew install curl")
+      )
+    )
+    expect_true(file.exists(path))
+    test <- readLines(path)
+    expect_snapshot(test)
+  }
+  # Note: this is the grid to compare to.
+  #  use_full_build_matrix_opt depends_on_tmb_opt depends_on_quarto_opt
+  # 1                       TRUE               TRUE                  TRUE
+  # 2                      FALSE               TRUE                  TRUE
+  # 3                       TRUE              FALSE                  TRUE
+  # 4                      FALSE              FALSE                  TRUE
+  # 5                       TRUE               TRUE                 FALSE
+  # 6                      FALSE               TRUE                 FALSE
+  # 7                       TRUE              FALSE                 FALSE
+  # 8                      FALSE              FALSE                 FALSE
 })
 
 
