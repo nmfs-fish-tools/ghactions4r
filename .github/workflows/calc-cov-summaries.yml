@@ -1,0 +1,60 @@
+# Reusable workflow to calculate coverage; don't push to code cov.
+# instead, use octocov, which allows all data to remain on github.
+
+name: calc-cov-summaries
+
+on:
+  workflow_call:
+    inputs:
+      use-public-rspm:
+        required: false
+        type: boolean
+        default: true
+
+# limits permisions to write, as the common use case is for pull requests;
+# this means certain options may not work, but makes the workflow more secure
+permissions:
+  pull-requests: write
+
+jobs:
+  calc-cov-summaries:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: ${{ inputs.use-public-rspm }}
+
+
+      # need: coverage allows users to put additional pkgs for coverage calculations
+      # into the description file under a field called Config/Needs/coverage
+      # For more info, see https://r-pkgs.org/dependencies-in-practice.html#sec-dependencies-nonstandard-config-needs
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::covr, any::xml2
+          needs: coverage
+
+      - name: Calc. Test coverage
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          print(cov)
+          covr::to_cobertura(cov, filename = "coverage.xml")
+          covr::report(cov, browse = false, file = "coverage_report.html")
+        shell: Rscript {0}
+  
+      - name: Use octocov to create coverage summaries
+        uses: k1LoW/octocov-action@v1
+
+
+      - name: Upload artifact to GitHub Action Run
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage_report.html
+          path: ./coverage_report.html

@@ -42,11 +42,14 @@ functions, for complete options, see [the pkgdown reference documentation](https
 ```r
 ghactions4r::use_r_cmd_check()
 ```
-- To calculate code coverage using `covr::codecov()` :
+
+
+- To calculate code coverage using [covr](https://covr.r-lib.org/index.html) and [octocov](https://github.com/k1LoW/octocov) (so that all code coverage calculations data remains in your GitHub repository) and create summaries on pull request and on pushes to main:
 ```r
-ghactions4r::use_calc_coverage()
+ghactions4r::use_calc_cov_summaries()
 ```
-(a codecov.io account is also necessary to view the coverage results)
+
+- Note that a previous workflow to calculate code coverage and push it to codecov.io is deprecated
 
 - To create a badge (stored on a branch in the repo called badges) for coverage that
 can be added to your R package's readme:

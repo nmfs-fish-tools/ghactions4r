@@ -83,32 +83,60 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
   invisible(workflow_name)
 }
 
-#' workflow for calculating code coverage
+#' Workflow for calculating coverage and summarizing using octocov toolkit
+#' This workflow calculates coverage using the covr package, then creates 
+#' summaries to post as a GitHub action summary or as pull request comment. All
+#' data remains in the GitHub repository.
 #' @template workflow_name
-#' @param use_public_rspm Use posit package manager instead of CRAN to install dependencies? The
-#'  advantage here is that dependencies are precompiled, so install should be much quicker. In
-#'  rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
-#'  a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
-#'  there will be no setting added if use_public_rspm is TRUE.
+#' @template use_public_rspm
+#' @export
+use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml", use_public_rspm = TRUE) {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-calc-cov-summaries.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-cov-summaries.yml"
+  )
+  path_to_yml <- file.path(".github", "workflows", workflow_name)
+
+  if (use_public_rspm == FALSE) {
+    gha <- readLines(path_to_yml)
+    gha <- add_public_rspm_false(
+      uses_line = "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml",
+      gha = gha
+    )
+    writeLines(gha, path_to_yml)
+  }
+  # Also create the .octocov.yml file.
+  usethis::use_github_file(
+      "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/.octocov.yml", 
+      save_as = ".octocov.yml")
+}
+
+
+#' workflow for calculating code coverage and pushing to codecov.io
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#' 
+#' This function was deprecated because it was replaced by use_calc_cov_summaries(),
+#' which allows all coverage calculations to remain on GitHub.
+#' @template workflow_name
+#' @template use_public_rspm
+#' @keywords internal
 #' @export
 use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_public_rspm = TRUE) {
+  lifecycle::deprecate_warn("0.3.0", "use_calc_coverage()", "use_calc_cov_summaries()")
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-coverage.yml",
     save_as = workflow_name,
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-coverage.yml"
   )
-  path_to_yml <- file.path(".github", "workflows", workflow_name)
-  gha <- readLines(path_to_yml)
   if (use_public_rspm == FALSE) {
-    uses_line <- grep(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml",
-      gha
+    path_to_yml <- file.path(".github", "workflows", workflow_name)
+    gha <- readLines(path_to_yml)
+    gha <- add_public_rspm_false(
+      uses_line = "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml",
+      gha = gha
     )
-    with_line <- grep("with:", gha[uses_line + 1])
-    if (length(with_line) == 0) {
-      gha <- append(gha, "    with:", after = uses_line)
-    }
-    gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
     writeLines(gha, path_to_yml)
   }
 }

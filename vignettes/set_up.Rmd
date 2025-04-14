@@ -17,12 +17,6 @@ Some workflows in `{ghactions4r}` take additional setup steps besides running th
 
 Follow the [steps to create a NOAA themed pkgdown](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/NOAA-pkgdown/). Note that dependencies needed for a website can be included in the [`Config/Needs/website` section](https://r-pkgs.org/dependencies-in-practice.html#sec-dependencies-nonstandard-config-needs) of the `DESCRIPTION` file.
 
-## Setting up code coverage for your R package
+## Setting up code coverage
 
-1) Clone your R package locally.
-2) In the local clone, run [ghactions4r::use_calc_coverage()](https://nmfs-fish-tools.github.io/ghactions4r/reference/use_calc_coverage.html) to generate the the github action file or any other files needed. Change the build triggers if desired.
-3) Commit the files and push them up to GitHub. See if a github action runs. If it does not, try pushing to your main branch to trigger a run, if your build triggers include a run on pushing to the main branch (the default).
-4) Set up an account on [codecov](https://about.codecov.io/). For codecov, [create an account](https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#create-a-codecov-account), then install the [github app](https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#install-the-github-app-integration).
-5) Add an [upload token as a secret](https://docs.codecov.com/docs/adding-the-codecov-token) to your GitHub repository. Name the secret `CODECOV_TOKEN`. Note that owner permissions are needed on GitHub to add the secret.
-6) Try re-running your Code Coverage GitHub Action by pushing a new commit and see if your results go to the Codecov website. Note that if your tool is in an organization that is already using Codecov, you may not need to make an account.
-7) Optionally, display a [code coverage status badge](https://docs.codecov.com/docs/status-badges) on your repository or make a [custom codecov.yml file](https://docs.codecov.com/docs/codecovyml-reference#coverage), if desired.
+`use_code_coverage()` is now deprecated; instead, use `use_calc_cov_summaries()`, which will allow you to see summaries of coverage on each push to the main branch and on pull requests to the main branch. It will also post a comment on pull requests with a summary of code coverage for the pull request.
