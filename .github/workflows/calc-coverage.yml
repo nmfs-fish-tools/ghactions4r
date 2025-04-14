@@ -1,4 +1,4 @@
-# Reusable workflow to calculate coverage from codecov.io
+# Reusable workflow to calculate coverage and push to codecov.io
 
 on:
   workflow_call:

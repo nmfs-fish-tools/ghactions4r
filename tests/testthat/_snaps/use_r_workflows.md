@@ -436,6 +436,77 @@
       [16] "        brew install curl"                                                                                                                
       [17] "      use_full_build_matrix: true"                                                                                                        
 
+# use_calc_cov_summaries() works
+
+    Code
+      test
+    Output
+       [1] "# call a workflow that runs covr::codecov() to calculate code coverage, then"                                                             
+       [2] "# uses octocov to summarize the coverage information and post it as appropriate."                                                         
+       [3] ""                                                                                                                                         
+       [4] "# note that a .octocov.yml file in the repository is also necessary."                                                                     
+       [5] "name: call-calc-cov-summaries"                                                                                                            
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# The default is to run the workflow on every push or pull request to main."                                                              
+       [8] "on:"                                                                                                                                      
+       [9] "  workflow_dispatch:"                                                                                                                     
+      [10] "  push:"                                                                                                                                  
+      [11] "    branches:"                                                                                                                            
+      [12] "      - main"                                                                                                                             
+      [13] "  pull_request:"                                                                                                                          
+      [14] "    branches:"                                                                                                                            
+      [15] "      - main"                                                                                                                             
+      [16] "jobs:"                                                                                                                                    
+      [17] "  call-workflow:"                                                                                                                         
+      [18] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml@calc-cov-octocov # change to main"                         
+
+---
+
+    Code
+      test_octoyml
+    Output
+       [1] "# .octocov.yml. See definitions: https://github.com/k1LoW/octocov?tab=readme-ov-file#configuration"
+       [2] "coverage:"                                                                                         
+       [3] "  paths:"                                                                                          
+       [4] "    - coverage.xml"                                                                                
+       [5] "codeToTestRatio:"                                                                                  
+       [6] "  code:"                                                                                           
+       [7] "    - 'R/**.R'"                                                                                    
+       [8] "  test:"                                                                                           
+       [9] "    - 'tests/testthat/test*.R'"                                                                    
+      [10] "testExecutionTime:"                                                                                
+      [11] "  if: true"                                                                                        
+      [12] "comment:"                                                                                          
+      [13] "  if: is_pull_request"                                                                             
+      [14] "summary:"                                                                                          
+      [15] "  if: true"                                                                                        
+
+# use_calc_cov_summaries() works with use-public-rspm = FALSE
+
+    Code
+      test
+    Output
+       [1] "# call a workflow that runs covr::codecov() to calculate code coverage, then"                                                             
+       [2] "# uses octocov to summarize the coverage information and post it as appropriate."                                                         
+       [3] ""                                                                                                                                         
+       [4] "# note that a .octocov.yml file in the repository is also necessary."                                                                     
+       [5] "name: call-calc-cov-summaries"                                                                                                            
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# The default is to run the workflow on every push or pull request to main."                                                              
+       [8] "on:"                                                                                                                                      
+       [9] "  workflow_dispatch:"                                                                                                                     
+      [10] "  push:"                                                                                                                                  
+      [11] "    branches:"                                                                                                                            
+      [12] "      - main"                                                                                                                             
+      [13] "  pull_request:"                                                                                                                          
+      [14] "    branches:"                                                                                                                            
+      [15] "      - main"                                                                                                                             
+      [16] "jobs:"                                                                                                                                    
+      [17] "  call-workflow:"                                                                                                                         
+      [18] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml@calc-cov-octocov # change to main"                         
+      [19] "    with:"                                                                                                                                
+      [20] "      use-public-rspm: false"                                                                                                             
+
 # use_calc_coverage() works
 
     Code

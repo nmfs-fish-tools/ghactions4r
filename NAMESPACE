@@ -2,6 +2,7 @@
 
 export(rm_dollar_sign)
 export(use_build_pkgdown)
+export(use_calc_cov_summaries)
 export(use_calc_coverage)
 export(use_create_cov_badge)
 export(use_doc_and_style_r)

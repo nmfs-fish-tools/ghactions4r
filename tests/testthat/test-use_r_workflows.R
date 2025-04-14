@@ -125,8 +125,27 @@ test_that("use_r_cmd_check() doesn't work with invalid additional_args", {
   )
 })
 
+test_that("use_calc_cov_summaries() works", {
+  use_calc_cov_summaries()
+  expect_true(file.exists(".github/workflows/call-calc-cov-summaries.yml"))
+  test <- readLines(".github/workflows/call-calc-cov-summaries.yml")
+  expect_snapshot(test)
+
+  expect_true(file.exists(".octocov.yml"))
+  test_octoyml <- readLines(".octocov.yml")
+  expect_snapshot(test_octoyml)
+})
+
+test_that("use_calc_cov_summaries() works with use-public-rspm = FALSE", {
+  workflow_name <- "call-calc-cov-summaries-false.yml"
+  use_calc_cov_summaries(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
 test_that("use_calc_coverage() works", {
-  use_calc_coverage()
+  expect_warning(use_calc_coverage())
   expect_true(file.exists(".github/workflows/call-calc-coverage.yml"))
   test <- readLines(".github/workflows/call-calc-coverage.yml")
   expect_snapshot(test)
@@ -134,7 +153,7 @@ test_that("use_calc_coverage() works", {
 
 test_that("use_calc_coverage() works with use-public-rspm = FALSE", {
   workflow_name <- "call-calc-cov-false.yml"
-  use_calc_coverage(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_warning(use_calc_coverage(workflow_name = workflow_name, use_public_rspm = FALSE))
   expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
   test <- readLines(file.path(".github", "workflows", workflow_name))
   expect_snapshot(test)
