@@ -28,7 +28,7 @@ jobs:
           extra-packages: any::covr, any::xml2, any::htmltools, any::DT
           needs: coverage
 
-      - name: Test coverage
+      - name: Calc. Test coverage
         run: |
           cov <- covr::package_coverage(
             quiet = FALSE,
@@ -39,11 +39,11 @@ jobs:
           covr::to_cobertura(cov, filename = "coverage.xml")
         shell: Rscript {0}
   
-      - name:
+      - name: Use octocov
         uses: k1LoW/octocov-action@v1
 
 
-      - name: Upload artifact
+      - name: Upload artifact to GitHub Action Run
         uses: actions/upload-artifact@v4
         with:
           name: coverage_report.xml
