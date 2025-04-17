@@ -113,6 +113,49 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
   }
 }
 
+
+#' workflow for adding a code coverage badge
+#' This workflow will create a new code coverage badge with the latest overall
+#' coverage value from the main branch on every push to main. The coverage badges are pushed
+#' to a branch called badges within the repository, which can be referenced in
+#' the readme file on main to display the current code coverage.
+#' @template workflow_name
+#' @param use_public_rspm Use posit package manager instead of CRAN to install dependencies? The
+#'  advantage here is that dependencies are precompiled, so install should be much quicker. In
+#'  rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
+#'  a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
+#'  there will be no setting added if use_public_rspm is TRUE.
+#' @export
+use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", use_public_rspm = TRUE) {
+  check_workflow_name(workflow_name)
+  usethis::use_github_action("call-create-cov-badge.yml",
+    save_as = workflow_name,
+    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-create-cov-badge.yml"
+  )
+  path_to_yml <- file.path(".github", "workflows", workflow_name)
+  gha <- readLines(path_to_yml)
+  if (use_public_rspm == FALSE) {
+    uses_line <- grep(
+      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml",
+      gha
+    )
+    with_line <- grep("with:", gha[uses_line + 1])
+    if (length(with_line) == 0) {
+      gha <- append(gha, "    with:", after = uses_line)
+    }
+    gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
+    writeLines(gha, path_to_yml)
+  }
+  cli::cli_alert_info("Once pushed up to GitHub, a GitHub action will run that will create the badge on a branch called badges.")
+
+badge_code <- "[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/<OWNER>/<REPO>/refs/heads/badges/coverage-badge.json)](https://github.com/<OWNER>/<REPO>/tree/badges)"
+cli::cli_alert_info("Copy and paste the following into your readme for a badge, replacing <OWNER> and <REPO> for your GitHub repository location:")
+cli::cli_alert_info("{.code {badge_code}}")
+
+return(workflow_name)
+}
+
+
 #' Use workflow in current pkg  to automate documenting and styling
 #'
 #' Style your R package components automatically by running devtools::document(),

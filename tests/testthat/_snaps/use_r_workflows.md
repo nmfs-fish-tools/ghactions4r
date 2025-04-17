@@ -470,6 +470,48 @@
       [11] "    secrets:"                                                                                                                             
       [12] "      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN}}"                                                                                         
 
+# use_create_cov_badge() works
+
+    Code
+      test
+    Output
+       [1] "# Reusable workflow to calculate coverage add it to a badge that is stored on "                                                           
+       [2] "# a branch in the repo called badges."                                                                                                    
+       [3] "# note that this has only been tested to build a badge with the main branch"                                                              
+       [4] "# coverage; it may not work to calculate coverage from other branches."                                                                   
+       [5] "name: call-create-cov-badge"                                                                                                              
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# other option would be to run this on a schedule. Other build trigger options may not work well."                                        
+       [8] "on:"                                                                                                                                      
+       [9] "  push:"                                                                                                                                  
+      [10] "    branches:"                                                                                                                            
+      [11] "      - main"                                                                                                                             
+      [12] "jobs:"                                                                                                                                    
+      [13] "  call-workflow:"                                                                                                                         
+      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@create-cov-badge # change to main"                           
+
+# use_create_cov_badge() works with use-public-rspm = FALSE
+
+    Code
+      test
+    Output
+       [1] "# Reusable workflow to calculate coverage add it to a badge that is stored on "                                                           
+       [2] "# a branch in the repo called badges."                                                                                                    
+       [3] "# note that this has only been tested to build a badge with the main branch"                                                              
+       [4] "# coverage; it may not work to calculate coverage from other branches."                                                                   
+       [5] "name: call-create-cov-badge"                                                                                                              
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# other option would be to run this on a schedule. Other build trigger options may not work well."                                        
+       [8] "on:"                                                                                                                                      
+       [9] "  push:"                                                                                                                                  
+      [10] "    branches:"                                                                                                                            
+      [11] "      - main"                                                                                                                             
+      [12] "jobs:"                                                                                                                                    
+      [13] "  call-workflow:"                                                                                                                         
+      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@create-cov-badge # change to main"                           
+      [15] "    with:"                                                                                                                                
+      [16] "      use-public-rspm: false"                                                                                                             
+
 # use_doc_and_style_r() works
 
     Code

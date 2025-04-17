@@ -5,6 +5,7 @@
 [![NOAA Fisheries Integrated Toolbox Badge](https://img.shields.io/badge/NOAA_FIT-blue)](https://www.fisheries.noaa.gov/resource/tool-app/noaa-fisheries-integrated-toolbox)
 [![codecov Badge](https://codecov.io/github/nmfs-fish-tools/ghactions4r/graph/badge.svg?token=6INRIE2FG6)](https://codecov.io/github/nmfs-fish-tools/ghactions4r)
 
+[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/refs/heads/badges/coverage-badge.json)](https://github.com/nmfs-fish-tools/ghactions4r/tree/badges)
 
 
 ## What is in `{ghactions4r}`?
@@ -46,6 +47,13 @@ ghactions4r::use_r_cmd_check()
 ghactions4r::use_calc_coverage()
 ```
 (a codecov.io account is also necessary to view the coverage results)
+
+- To create a badge (stored on a branch in the repo called badges) for coverage that
+can be added to your R package's readme:
+
+```r
+ghactions4r::use_create_cov_badge()
+```
 
 - To update documentation, DESCRIPTION file, and code styling for an R package (with the option of running `ghactions4r::rm_dollar_sign()`):
 ```r
