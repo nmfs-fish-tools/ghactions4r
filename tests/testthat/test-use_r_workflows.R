@@ -140,6 +140,22 @@ test_that("use_calc_coverage() works with use-public-rspm = FALSE", {
   expect_snapshot(test)
 })
 
+test_that("use_create_cov_badge() works", {
+  use_create_cov_badge()
+  expect_true(file.exists(".github/workflows/call-create-cov-badge.yml"))
+  test <- readLines(".github/workflows/call-create-cov-badge.yml")
+  expect_snapshot(test)
+})
+
+test_that("use_create_cov_badge() works with use-public-rspm = FALSE", {
+  workflow_name <- "call-create-cov-badge-false.yml"
+  use_create_cov_badge(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
+
 test_that("use_doc_and_style_r() works", {
   use_doc_and_style_r(
     use_rm_dollar_sign = TRUE, how_to_commit = "directly",

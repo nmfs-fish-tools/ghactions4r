@@ -1,0 +1,63 @@
+# Reusable workflow to calculate coverage; don't push to code cov.
+# note that this has only been tested to build a badge with the main branch
+# coverage; it may not work to calculate coverage from other branches.
+name: create-cov-badge
+
+permissions:
+  contents: write
+
+on:
+  workflow_call:
+    inputs:
+      use-public-rspm:
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  create-cov-badge:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm:  ${{ inputs.use-public-rspm }}
+
+
+      # need: coverage allows users to put additional pkgs for coverage calculations
+      # into the description file under a field called Config/Needs/coverage
+      # For more info, see https://r-pkgs.org/dependencies-in-practice.html#sec-dependencies-nonstandard-config-needs
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::covr
+          needs: coverage
+
+      - name: Calc. test coverage and create badge
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          overall_cov <- ceiling(covr::percent_coverage(cov))
+          badge <- paste0("{\"schemaVersion\":1,\"label\":\"coverage\",\"message\":\"", 
+            overall_cov, "%\",\"color\":\"blue\"}")
+          print(badge)
+          dir.create("badges")
+          writeLines(badge, "badges/coverage-badge.json")
+        shell: Rscript {0}
+ 
+ #Note: this action is for "deploying to github pages", but I don't think you 
+ # actually have to deploy this to github pages for it to work?
+      - name: Add new badge to a branch called badges
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: badges
+          branch: badges
