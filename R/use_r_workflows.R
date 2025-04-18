@@ -253,7 +253,10 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
   usethis::use_git_ignore(ignores = "*.rds", directory = file.path(".github"))
 }
 
-#' use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages
+#' Creates a workflow in current R package to update an existing pkgdown GitHub pages site
+#' For more information, see [the setup details vignette](https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html) before
+#' running this function. This workflow will assume the webiste is built form
+#' a branch called `gh-pages`.
 #' @template workflow_name
 #' @inheritParams use_r_cmd_check
 #' @examples
@@ -284,9 +287,16 @@ use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml",
   if (!is.null(additional_args)) {
     add_args(workflow_name = workflow_name, additional_args = additional_args)
   }
+  cli::cli_alert_info("New to pkgdown? Follow these instructions to set up pkgdown on GitHub Pages {.url https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/NOAA-pkgdown/}.")
 }
 
 #' use workflow in current pkg to check pkgdown site builds.
+#' This workflow will try to build the pkgdown site, and store it as an artifact
+#' to be retrieved from the GitHub actions run. It will fail if the pkgdown site
+#' cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown
+# ' workflow builds AND deploys the site to GitHub Pages. This workflow only builds
+#' the site, and therefore can be used to test if the build is working in cases
+#' where you do not want to deploy as well.
 #' @template workflow_name
 #' @inheritParams use_r_cmd_check
 #' @examples
@@ -316,6 +326,7 @@ use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml", addition
   if (!is.null(additional_args)) {
     add_args(workflow_name = workflow_name, additional_args = additional_args)
   }
+    cli::cli_alert_info("New to pkgdown? Follow these instructions to set up pkgdown on GitHub Pages {.url https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20resources/NOAA-pkgdown/}.")
 }
 
 #' use workflow to run spelling::spell_check_package()
@@ -329,5 +340,6 @@ use_spell_check <- function(workflow_name = "call-spell-check.yml") {
     url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-spell-check.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
+  cli::cli_alert_info("New to spelling::spell_check_package()? Learn more at {.url https://docs.ropensci.org/spelling/#spell-check-a-package}")
   return(path_to_yml)
 }
