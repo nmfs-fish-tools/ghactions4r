@@ -2,7 +2,10 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_update_pkgdown}
 \alias{use_update_pkgdown}
-\title{use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages}
+\title{Creates a workflow in current R package to update an existing pkgdown GitHub pages site
+For more information, see \href{https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html}{the setup details vignette} before
+running this function. This workflow will assume the website is built from
+a branch called \code{gh-pages}.}
 \usage{
 use_update_pkgdown(
   workflow_name = "call-update-pkgdown.yml",
@@ -20,7 +23,10 @@ These additional arguments are executed after the step that checks out the
 repository and before the step that sets up R.}
 }
 \description{
-use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages
+Creates a workflow in current R package to update an existing pkgdown GitHub pages site
+For more information, see \href{https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html}{the setup details vignette} before
+running this function. This workflow will assume the website is built from
+a branch called \code{gh-pages}.
 }
 \examples{
 \dontrun{
