@@ -8,6 +8,7 @@ use_r_cmd_check(
   workflow_name = "call-r-cmd-check.yml",
   use_full_build_matrix = FALSE,
   depends_on_tmb = FALSE,
+  depends_on_quarto = FALSE,
   additional_args = NULL
 )
 }
@@ -18,10 +19,13 @@ have the file extension \code{.yml}}
 \item{use_full_build_matrix}{Run R cmd check with two older versions of R in
 addition to the three runs that use the release version.}
 
-\item{depends_on_tmb}{An option that install Matrix from source for windows
+\item{depends_on_tmb}{Adds an option that install Matrix from source for windows
 and Mac builds to solved a nuanced issue for packages dependent on TMB.
 See this \href{https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ}{google groups thread}
 for more information.}
+
+\item{depends_on_quarto}{Adds an option that installs quarto before running r cmd
+check.}
 
 \item{additional_args}{A named list of additional command line arguments to be
 passed to the workflow. The names of the list represent the platforms (windows,
