@@ -255,7 +255,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
 
 #' Creates a workflow in current R package to update an existing pkgdown GitHub pages site
 #' For more information, see [the setup details vignette](https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html) before
-#' running this function. This workflow will assume the webiste is built form
+#' running this function. This workflow will assume the website is built from
 #' a branch called `gh-pages`.
 #' @template workflow_name
 #' @inheritParams use_r_cmd_check
