@@ -87,6 +87,7 @@
 <span>  workflow_name <span class="op">=</span> <span class="st">"call-r-cmd-check.yml"</span>,</span>
 <span>  use_full_build_matrix <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  depends_on_tmb <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  depends_on_quarto <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  additional_args <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -106,10 +107,15 @@ addition to the three runs that use the release version.</p></dd>
 
 
 <dt id="arg-depends-on-tmb">depends_on_tmb<a class="anchor" aria-label="anchor" href="#arg-depends-on-tmb"></a></dt>
-<dd><p>An option that install Matrix from source for windows
+<dd><p>Adds an option that install Matrix from source for windows
 and Mac builds to solved a nuanced issue for packages dependent on TMB.
 See this <a href="https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ" class="external-link">google groups thread</a>
 for more information.</p></dd>
+
+
+<dt id="arg-depends-on-quarto">depends_on_quarto<a class="anchor" aria-label="anchor" href="#arg-depends-on-quarto"></a></dt>
+<dd><p>Adds an option that installs quarto before running r cmd
+check.</p></dd>
 
 
 <dt id="arg-additional-args">additional_args<a class="anchor" aria-label="anchor" href="#arg-additional-args"></a></dt>

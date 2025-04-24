@@ -95,7 +95,7 @@
       </tr><tr><td>
           <p><code><a href="use_build_pkgdown.html">use_build_pkgdown()</a></code> </p>
         </td>
-        <td><p>use workflow in current pkg to check pkgdown site builds.</p></td>
+        <td><p>use workflow in current pkg to check pkgdown site builds. This workflow will try to build the pkgdown site, and store it as an artifact to be retrieved from the GitHub actions run. It will fail if the pkgdown site cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown the site, and therefore can be used to test if the build is working in cases where you do not want to deploy as well.</p></td>
       </tr><tr><td>
           <p><code><a href="use_calc_coverage.html">use_calc_coverage()</a></code> </p>
         </td>
@@ -115,7 +115,7 @@
       </tr><tr><td>
           <p><code><a href="use_update_pkgdown.html">use_update_pkgdown()</a></code> </p>
         </td>
-        <td><p>use workflow in current pkg to update pkg down, where the site is deployed to a branch called gh-pages</p></td>
+        <td><p>Creates a workflow in current R package to update an existing pkgdown GitHub pages site For more information, see <a href="https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html" class="external-link">the setup details vignette</a> before running this function. This workflow will assume the website is built from a branch called <code>gh-pages</code>.</p></td>
       </tr><tr><td>
           <p><code><a href="validate_additional_args.html">validate_additional_args()</a></code> </p>
         </td>
