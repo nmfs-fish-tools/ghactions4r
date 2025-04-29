@@ -488,7 +488,7 @@
       [11] "      - main"                                                                                                                             
       [12] "jobs:"                                                                                                                                    
       [13] "  call-workflow:"                                                                                                                         
-      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@create-cov-badge # change to main"                           
+      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                        
 
 # use_create_cov_badge() works with use-public-rspm = FALSE
 
@@ -508,7 +508,7 @@
       [11] "      - main"                                                                                                                             
       [12] "jobs:"                                                                                                                                    
       [13] "  call-workflow:"                                                                                                                         
-      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@create-cov-badge # change to main"                           
+      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                        
       [15] "    with:"                                                                                                                                
       [16] "      use-public-rspm: false"                                                                                                             
 
