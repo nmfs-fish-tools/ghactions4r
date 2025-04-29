@@ -148,11 +148,11 @@ use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", us
   }
   cli::cli_alert_info("Once pushed up to GitHub, a GitHub action will run that will create the badge on a branch called badges.")
 
-badge_code <- "[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/<OWNER>/<REPO>/refs/heads/badges/coverage-badge.json)](https://github.com/<OWNER>/<REPO>/tree/badges)"
-cli::cli_alert_info("Copy and paste the following into your readme for a badge, replacing <OWNER> and <REPO> for your GitHub repository location:")
-cli::cli_alert_info("{.code {badge_code}}")
+  badge_code <- "[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/<OWNER>/<REPO>/refs/heads/badges/coverage-badge.json)](https://github.com/<OWNER>/<REPO>/tree/badges)"
+  cli::cli_alert_info("Copy and paste the following into your readme for a badge, replacing <OWNER> and <REPO> for your GitHub repository location:")
+  cli::cli_alert_info("{.code {badge_code}}")
 
-return(workflow_name)
+  return(workflow_name)
 }
 
 
