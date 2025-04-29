@@ -2,12 +2,7 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_build_pkgdown}
 \alias{use_build_pkgdown}
-\title{use workflow in current pkg to check pkgdown site builds.
-This workflow will try to build the pkgdown site, and store it as an artifact
-to be retrieved from the GitHub actions run. It will fail if the pkgdown site
-cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown
-the site, and therefore can be used to test if the build is working in cases
-where you do not want to deploy as well.}
+\title{use workflow in current pkg to check pkgdown site builds.}
 \usage{
 use_build_pkgdown(
   workflow_name = "call-build-pkgdown.yml",
@@ -25,7 +20,6 @@ These additional arguments are executed after the step that checks out the
 repository and before the step that sets up R.}
 }
 \description{
-use workflow in current pkg to check pkgdown site builds.
 This workflow will try to build the pkgdown site, and store it as an artifact
 to be retrieved from the GitHub actions run. It will fail if the pkgdown site
 cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown

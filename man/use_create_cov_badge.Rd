@@ -2,11 +2,7 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_create_cov_badge}
 \alias{use_create_cov_badge}
-\title{workflow for adding a code coverage badge
-This workflow will create a new code coverage badge with the latest overall
-coverage value from the main branch on every push to main. The coverage badges are pushed
-to a branch called badges within the repository, which can be referenced in
-the readme file on main to display the current code coverage.}
+\title{workflow for adding a code coverage badge}
 \usage{
 use_create_cov_badge(
   workflow_name = "call-create-cov-badge.yml",
@@ -24,7 +20,6 @@ a better option. Note a setting only needs to be specified in the yml if use_pub
 there will be no setting added if use_public_rspm is TRUE.}
 }
 \description{
-workflow for adding a code coverage badge
 This workflow will create a new code coverage badge with the latest overall
 coverage value from the main branch on every push to main. The coverage badges are pushed
 to a branch called badges within the repository, which can be referenced in

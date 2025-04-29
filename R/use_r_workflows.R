@@ -84,6 +84,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 }
 
 #' Workflow for calculating coverage and summarizing using octocov toolkit
+#' 
 #' This workflow calculates coverage using the covr package, then creates
 #' summaries to post as a GitHub action summary or as pull request comment. All
 #' data remains in the GitHub repository.
@@ -144,6 +145,7 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 
 
 #' workflow for adding a code coverage badge
+#' 
 #' This workflow will create a new code coverage badge with the latest overall
 #' coverage value from the main branch on every push to main. The coverage badges are pushed
 #' to a branch called badges within the repository, which can be referenced in
@@ -327,6 +329,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
 }
 
 #' Creates a workflow in current R package to update an existing pkgdown GitHub pages site
+#' 
 #' For more information, see [the setup details vignette](https://nmfs-fish-tools.github.io/ghactions4r/articles/set_up.html) before
 #' running this function. This workflow will assume the website is built from
 #' a branch called `gh-pages`.
@@ -364,6 +367,7 @@ use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml",
 }
 
 #' use workflow in current pkg to check pkgdown site builds.
+#' 
 #' This workflow will try to build the pkgdown site, and store it as an artifact
 #' to be retrieved from the GitHub actions run. It will fail if the pkgdown site
 #' cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown

@@ -2,10 +2,7 @@
 % Please edit documentation in R/use_r_workflows.R
 \name{use_calc_cov_summaries}
 \alias{use_calc_cov_summaries}
-\title{Workflow for calculating coverage and summarizing using octocov toolkit
-This workflow calculates coverage using the covr package, then creates
-summaries to post as a GitHub action summary or as pull request comment. All
-data remains in the GitHub repository.}
+\title{Workflow for calculating coverage and summarizing using octocov toolkit}
 \usage{
 use_calc_cov_summaries(
   workflow_name = "call-calc-cov-summaries.yml",
@@ -23,7 +20,6 @@ a better option. Note a setting only needs to be specified in the yml if use_pub
 there will be no setting added if use_public_rspm is TRUE.}
 }
 \description{
-Workflow for calculating coverage and summarizing using octocov toolkit
 This workflow calculates coverage using the covr package, then creates
 summaries to post as a GitHub action summary or as pull request comment. All
 data remains in the GitHub repository.
