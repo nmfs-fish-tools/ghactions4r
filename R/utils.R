@@ -38,14 +38,14 @@ add_args <- function(workflow_name, additional_args, txt = NULL, prev_line = NUL
 #' @param gha The workflow file that has been read in using readLines
 #' @return The modified workflow file
 add_public_rspm_false <- function(uses_line, gha) {
-    uses_line <- grep(
-      uses_line,
-      gha
-    )
-    with_line <- grep("with:", gha[uses_line + 1])
-    if (length(with_line) == 0) {
-      gha <- append(gha, "    with:", after = uses_line)
-    }
-    gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
+  uses_line <- grep(
+    uses_line,
     gha
+  )
+  with_line <- grep("with:", gha[uses_line + 1])
+  if (length(with_line) == 0) {
+    gha <- append(gha, "    with:", after = uses_line)
+  }
+  gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
+  gha
 }
