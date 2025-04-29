@@ -34,7 +34,7 @@ jobs:
       # For more info, see https://r-pkgs.org/dependencies-in-practice.html#sec-dependencies-nonstandard-config-needs
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr, any::xml2
+          extra-packages: any::covr, any::xml2, any::DT, any::htmltools
           needs: coverage
 
       - name: Calc. Test coverage
