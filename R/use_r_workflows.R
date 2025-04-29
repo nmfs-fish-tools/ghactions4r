@@ -84,7 +84,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 }
 
 #' Workflow for calculating coverage and summarizing using octocov toolkit
-#' This workflow calculates coverage using the covr package, then creates 
+#' This workflow calculates coverage using the covr package, then creates
 #' summaries to post as a GitHub action summary or as pull request comment. All
 #' data remains in the GitHub repository.
 #' @template workflow_name
@@ -108,15 +108,16 @@ use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml"
   }
   # Also create the .octocov.yml file.
   usethis::use_github_file(
-      "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/.octocov.yml", 
-      save_as = ".octocov.yml")
+    "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/.octocov.yml",
+    save_as = ".octocov.yml"
+  )
 }
 
 
 #' workflow for calculating code coverage and pushing to codecov.io
 #' @description
 #' `r lifecycle::badge("deprecated")`
-#' 
+#'
 #' This function was deprecated because it was replaced by use_calc_cov_summaries(),
 #' which allows all coverage calculations to remain on GitHub.
 #' @template workflow_name
@@ -176,11 +177,11 @@ use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", us
   }
   cli::cli_alert_info("Once pushed up to GitHub, a GitHub action will run that will create the badge on a branch called badges.")
 
-badge_code <- "[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/<OWNER>/<REPO>/refs/heads/badges/coverage-badge.json)](https://github.com/<OWNER>/<REPO>/tree/badges)"
-cli::cli_alert_info("Copy and paste the following into your readme for a badge, replacing <OWNER> and <REPO> for your GitHub repository location:")
-cli::cli_alert_info("{.code {badge_code}}")
+  badge_code <- "[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/<OWNER>/<REPO>/refs/heads/badges/coverage-badge.json)](https://github.com/<OWNER>/<REPO>/tree/badges)"
+  cli::cli_alert_info("Copy and paste the following into your readme for a badge, replacing <OWNER> and <REPO> for your GitHub repository location:")
+  cli::cli_alert_info("{.code {badge_code}}")
 
-return(workflow_name)
+  return(workflow_name)
 }
 
 
