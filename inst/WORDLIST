@@ -1,5 +1,4 @@
 CMD
-Codecov
 Lifecycle
 NOAA
 TMB
@@ -8,9 +7,9 @@ bookdown
 calc
 cmd
 codecov
+cov
 covr
 devtools
-gh
 ghactions
 github
 io
@@ -18,6 +17,7 @@ macos
 octocov
 pkgdown
 precompiled
+readLines
 readme
 repo
 repos
