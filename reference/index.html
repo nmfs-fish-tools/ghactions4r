@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ghactions4r</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
@@ -85,6 +85,10 @@
         </td>
         <td><p>Add platform-specific additional arguments to a GitHub workflow YAML file</p></td>
       </tr><tr><td>
+          <p><code><a href="add_public_rspm_false.html">add_public_rspm_false()</a></code> </p>
+        </td>
+        <td><p>Add public rspm is false option to workflows.</p></td>
+      </tr><tr><td>
           <p><code><a href="check_workflow_name.html">check_workflow_name()</a></code> </p>
         </td>
         <td><p>Check the workflow name is formatted correctly</p></td>
@@ -97,9 +101,9 @@
         </td>
         <td><p>use workflow in current pkg to check pkgdown site builds. This workflow will try to build the pkgdown site, and store it as an artifact to be retrieved from the GitHub actions run. It will fail if the pkgdown site cannot be built. This is a companion to use_update_pkgdown(), as the update_pkgdown the site, and therefore can be used to test if the build is working in cases where you do not want to deploy as well.</p></td>
       </tr><tr><td>
-          <p><code><a href="use_calc_coverage.html">use_calc_coverage()</a></code> </p>
+          <p><code><a href="use_calc_cov_summaries.html">use_calc_cov_summaries()</a></code> </p>
         </td>
-        <td><p>workflow for calculating code coverage</p></td>
+        <td><p>Workflow for calculating coverage and summarizing using octocov toolkit This workflow calculates coverage using the covr package, then creates summaries to post as a GitHub action summary or as pull request comment. All data remains in the GitHub repository.</p></td>
       </tr><tr><td>
           <p><code><a href="use_create_cov_badge.html">use_create_cov_badge()</a></code> </p>
         </td>

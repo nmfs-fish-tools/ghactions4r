@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ghactions4r</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
@@ -135,13 +135,13 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_r_cmd_check.html">use_r_cmd_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li>To calculate code coverage using <code><a href="http://covr.r-lib.org/reference/codecov.html" class="external-link">covr::codecov()</a></code> :</li>
+<li>To calculate code coverage using <a href="https://covr.r-lib.org/index.html" class="external-link">covr</a> and <a href="https://github.com/k1LoW/octocov" class="external-link">octocov</a> (so that all code coverage calculations data remains in your GitHub repository) and create summaries on pull request and on pushes to main:</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_coverage.html">use_calc_coverage</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>(a codecov.io account is also necessary to view the coverage results)</p>
+<code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_calc_cov_summaries.html">use_calc_cov_summaries</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li>To create a badge (stored on a branch in the repo called badges) for coverage that can be added to your R package’s readme:</li>
+<li><p>Note that a previous workflow to calculate code coverage and push it to codecov.io is deprecated</p></li>
+<li><p>To create a badge (stored on a branch in the repo called badges) for coverage that can be added to your R package’s readme:</p></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ghactions4r</span><span class="fu">::</span><span class="fu"><a href="reference/use_create_cov_badge.html">use_create_cov_badge</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>

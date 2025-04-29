@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ghactions4r</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
@@ -121,32 +121,13 @@ website can be included in the <a href="https://r-pkgs.org/dependencies-in-pract
 section</a> of the <code>DESCRIPTION</code> file.</p>
 </div>
 <div class="section level2">
-<h2 id="setting-up-code-coverage-for-your-r-package">Setting up code coverage for your R package<a class="anchor" aria-label="anchor" href="#setting-up-code-coverage-for-your-r-package"></a>
+<h2 id="setting-up-code-coverage">Setting up code coverage<a class="anchor" aria-label="anchor" href="#setting-up-code-coverage"></a>
 </h2>
-<ol style="list-style-type: decimal">
-<li>Clone your R package locally.</li>
-<li>In the local clone, run <a href="https://nmfs-fish-tools.github.io/ghactions4r/reference/use_calc_coverage.html" class="external-link">ghactions4r::use_calc_coverage()</a>
-to generate the the github action file or any other files needed. Change
-the build triggers if desired.</li>
-<li>Commit the files and push them up to GitHub. See if a github action
-runs. If it does not, try pushing to your main branch to trigger a run,
-if your build triggers include a run on pushing to the main branch (the
-default).</li>
-<li>Set up an account on <a href="https://about.codecov.io/" class="external-link">codecov</a>. For codecov, <a href="https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#create-a-codecov-account" class="external-link">create
-an account</a>, then install the <a href="https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage#install-the-github-app-integration" class="external-link">github
-app</a>.</li>
-<li>Add an <a href="https://docs.codecov.com/docs/adding-the-codecov-token" class="external-link">upload
-token as a secret</a> to your GitHub repository. Name the secret
-<code>CODECOV_TOKEN</code>. Note that owner permissions are needed on
-GitHub to add the secret.</li>
-<li>Try re-running your Code Coverage GitHub Action by pushing a new
-commit and see if your results go to the Codecov website. Note that if
-your tool is in an organization that is already using Codecov, you may
-not need to make an account.</li>
-<li>Optionally, display a <a href="https://docs.codecov.com/docs/status-badges" class="external-link">code coverage status
-badge</a> on your repository or make a <a href="https://docs.codecov.com/docs/codecovyml-reference#coverage" class="external-link">custom
-codecov.yml file</a>, if desired.</li>
-</ol>
+<p><code>use_code_coverage()</code> is now deprecated; instead, use
+<code><a href="../reference/use_calc_cov_summaries.html">use_calc_cov_summaries()</a></code>, which will allow you to see
+summaries of coverage on each push to the main branch and on pull
+requests to the main branch. It will also post a comment on pull
+requests with a summary of code coverage for the pull request.</p>
 </div>
   </div>
 
