@@ -39,7 +39,7 @@ test_that("add_args() works with txt and prev_line", {
   txt <- readLines(path)
   prev_line <- grep(
     paste0(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/",
+      "uses: nmfs-ost/ghactions4r/.github/workflows/",
       gsub("call-", "", workflow_name),
       "@main"
     ),
