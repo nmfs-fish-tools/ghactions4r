@@ -15,7 +15,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
       [16] "      depends_on_tmb: true"                                                                                                               
@@ -38,7 +38,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      depends_on_tmb: true"                                                                                                               
       [16] "      depends_on_quarto: true"                                                                                                            
@@ -60,7 +60,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
       [16] "      depends_on_quarto: true"                                                                                                            
@@ -82,7 +82,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      depends_on_quarto: true"                                                                                                            
 
@@ -103,7 +103,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
       [16] "      depends_on_tmb: true"                                                                                                               
@@ -125,7 +125,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      depends_on_tmb: true"                                                                                                               
 
@@ -146,7 +146,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      use_full_build_matrix: true"                                                                                                        
 
@@ -167,7 +167,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
 
 # all use_r_cmd_check() options work with additional args
 
@@ -186,7 +186,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -218,7 +218,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -249,7 +249,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -280,7 +280,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -310,7 +310,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -341,7 +341,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -371,7 +371,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -401,7 +401,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_ubuntu: |"                                                                                                          
       [16] "        sudo apt-get update"                                                                                                              
@@ -430,7 +430,7 @@
       [10] "    #- cron: '0 0 * * 0'"                                                                                                                 
       [11] "jobs:"                                                                                                                                    
       [12] "  call-workflow:"                                                                                                                         
-      [13] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                             
+      [13] "    uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main"                                                                    
       [14] "    with:"                                                                                                                                
       [15] "      additional_args_macos: |"                                                                                                           
       [16] "        brew install curl"                                                                                                                
@@ -460,7 +460,7 @@
       [17] "      - main"                                                                                                                             
       [18] "jobs:"                                                                                                                                    
       [19] "  call-workflow:"                                                                                                                         
-      [20] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                      
+      [20] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                             
 
 ---
 
@@ -507,7 +507,7 @@
       [17] "      - main"                                                                                                                             
       [18] "jobs:"                                                                                                                                    
       [19] "  call-workflow:"                                                                                                                         
-      [20] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                      
+      [20] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                             
       [21] "    with:"                                                                                                                                
       [22] "      use-public-rspm: false"                                                                                                             
 
@@ -523,7 +523,7 @@
        [5] "on: [push, pull_request]"                                                                                                                 
        [6] "jobs:"                                                                                                                                    
        [7] "  call-workflow:"                                                                                                                         
-       [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                           
+       [8] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                                  
        [9] "    secrets:"                                                                                                                             
       [10] "      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN}}"                                                                                         
 
@@ -539,7 +539,7 @@
        [5] "on: [push, pull_request]"                                                                                                                 
        [6] "jobs:"                                                                                                                                    
        [7] "  call-workflow:"                                                                                                                         
-       [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                           
+       [8] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-coverage.yml@main"                                                                  
        [9] "    with:"                                                                                                                                
       [10] "      use-public-rspm: false"                                                                                                             
       [11] "    secrets:"                                                                                                                             
@@ -563,7 +563,7 @@
       [11] "      - main"                                                                                                                             
       [12] "jobs:"                                                                                                                                    
       [13] "  call-workflow:"                                                                                                                         
-      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                        
+      [14] "    uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                               
 
 # use_create_cov_badge() works with use-public-rspm = FALSE
 
@@ -583,7 +583,7 @@
       [11] "      - main"                                                                                                                             
       [12] "jobs:"                                                                                                                                    
       [13] "  call-workflow:"                                                                                                                         
-      [14] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                        
+      [14] "    uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                               
       [15] "    with:"                                                                                                                                
       [16] "      use-public-rspm: false"                                                                                                             
 
@@ -599,7 +599,7 @@
        [5] "  pull_request:"                                                                                                                          
        [6] "jobs:"                                                                                                                                    
        [7] "  call-workflow:"                                                                                                                         
-       [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                         
+       [8] "    uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                                
        [9] "    with:"                                                                                                                                
       [10] "      run-rm_dollar_sign: true"                                                                                                           
       [11] "      commit-directly: true"                                                                                                              
@@ -619,7 +619,7 @@
        [7] "    - cron:  '15 02 * * 0'"                                                                                                               
        [8] "jobs:"                                                                                                                                    
        [9] "  call-workflow:"                                                                                                                         
-      [10] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                         
+      [10] "    uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                                
       [11] "  "                                                                                                                                       
 
 # use_doc_and_style_r() works with push to main
@@ -635,7 +635,7 @@
        [6] "    branches: [main]"                                                                                                                     
        [7] "jobs:"                                                                                                                                    
        [8] "  call-workflow:"                                                                                                                         
-       [9] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                         
+       [9] "    uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                                
       [10] "  "                                                                                                                                       
 
 # use_doc_and_style_r() works with manual trigger
@@ -650,7 +650,7 @@
       [5] "  workflow_dispatch:"                                                                                                                     
       [6] "jobs:"                                                                                                                                    
       [7] "  call-workflow:"                                                                                                                         
-      [8] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                         
+      [8] "    uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                                
       [9] "  "                                                                                                                                       
 
 # use_doc_and_style_r() works with pat option
@@ -666,7 +666,7 @@
        [6] "    branches: [main]"                                                                                                                     
        [7] "jobs:"                                                                                                                                    
        [8] "  call-workflow:"                                                                                                                         
-       [9] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                         
+       [9] "    uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml@main"                                                                
       [10] "    secrets:"                                                                                                                             
       [11] "      PAT: ${{ secrets.MYPAT }}"                                                                                                          
       [12] "  "                                                                                                                                       
@@ -687,7 +687,7 @@
        [9] "    tags: ['*']"                                                                                                                          
       [10] "jobs:"                                                                                                                                    
       [11] "  call-workflow:"                                                                                                                         
-      [12] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                          
+      [12] "    uses: nmfs-ost/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                                 
 
 # use_update_pkgdown()) works with additional_args
 
@@ -705,7 +705,7 @@
        [9] "    tags: ['*']"                                                                                                                          
       [10] "jobs:"                                                                                                                                    
       [11] "  call-workflow:"                                                                                                                         
-      [12] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                          
+      [12] "    uses: nmfs-ost/ghactions4r/.github/workflows/update-pkgdown.yml@main"                                                                 
       [13] "    with:"                                                                                                                                
       [14] "      additional_args_ubuntu: |"                                                                                                          
       [15] "        sudo apt-get update"                                                                                                              
@@ -736,7 +736,7 @@
       [12] "    branches: [main, master]"                                                                                                             
       [13] "jobs:"                                                                                                                                    
       [14] "  call-workflow:"                                                                                                                         
-      [15] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/build-pkgdown.yml@main"                                                           
+      [15] "    uses: nmfs-ost/ghactions4r/.github/workflows/build-pkgdown.yml@main"                                                                  
       [16] "    with:"                                                                                                                                
       [17] "      additional_args_ubuntu: |"                                                                                                          
       [18] "        sudo apt-get update"                                                                                                              
@@ -767,5 +767,5 @@
       [12] "  workflow_dispatch:"                                                                                                                     
       [13] "jobs:"                                                                                                                                    
       [14] "  call-workflow:"                                                                                                                         
-      [15] "    uses: nmfs-fish-tools/ghactions4r/.github/workflows/spell-check.yml@main"                                                             
+      [15] "    uses: nmfs-ost/ghactions4r/.github/workflows/spell-check.yml@main"                                                                    
 
