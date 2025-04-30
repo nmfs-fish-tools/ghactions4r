@@ -37,9 +37,9 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 
   check_workflow_name(workflow_name)
   if (use_full_build_matrix) {
-    url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml"
+    url_name <- "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-r-cmd-check-full.yml"
   } else {
-    url_name <- "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-r-cmd-check.yml"
+    url_name <- "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-r-cmd-check.yml"
   }
   usethis::use_github_action("call-r-cmd-check.yml",
     save_as = workflow_name,
@@ -53,7 +53,7 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
       prev_line <- grep("use_full_build_matrix: true", txt, fixed = TRUE)
     } else {
       prev_line <- grep(
-        "uses: nmfs-fish-tools/ghactions4r/.github/workflows/r-cmd-check.yml@main",
+        "uses: nmfs-ost/ghactions4r/.github/workflows/r-cmd-check.yml@main",
         txt,
         fixed = TRUE
       )
@@ -95,21 +95,21 @@ use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml"
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-cov-summaries.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-cov-summaries.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-calc-cov-summaries.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
 
   if (use_public_rspm == FALSE) {
     gha <- readLines(path_to_yml)
     gha <- add_public_rspm_false(
-      uses_line = "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-cov-summaries.yml",
+      uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
       gha = gha
     )
     writeLines(gha, path_to_yml)
   }
   # Also create the .octocov.yml file.
   usethis::use_github_file(
-    "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/.octocov.yml",
+    "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/.octocov.yml",
     save_as = ".octocov.yml"
   )
 }
@@ -130,13 +130,13 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-coverage.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-calc-coverage.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-calc-coverage.yml"
   )
   if (use_public_rspm == FALSE) {
     path_to_yml <- file.path(".github", "workflows", workflow_name)
     gha <- readLines(path_to_yml)
     gha <- add_public_rspm_false(
-      uses_line = "uses: nmfs-fish-tools/ghactions4r/.github/workflows/calc-coverage.yml",
+      uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-coverage.yml",
       gha = gha
     )
     writeLines(gha, path_to_yml)
@@ -161,13 +161,13 @@ use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", us
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-create-cov-badge.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-create-cov-badge.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-create-cov-badge.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   gha <- readLines(path_to_yml)
   if (use_public_rspm == FALSE) {
     uses_line <- grep(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/create-cov-badge.yml",
+      "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
       gha
     )
     with_line <- grep("with:", gha[uses_line + 1])
@@ -277,7 +277,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
   # get the template github action
   usethis::use_github_action("call-doc-and-style-r.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-doc-and-style-r.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-doc-and-style-r.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   gha <- readLines(path_to_yml)
@@ -301,7 +301,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
   # additional options
   if (use_rm_dollar_sign == TRUE | how_to_commit == "directly") {
     uses_line <- grep(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml",
+      "uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml",
       gha
     )
     with_line <- grep("with:", gha[uses_line + 1])
@@ -317,7 +317,7 @@ use_doc_and_style_r <- function(workflow_name = "call-doc-and-style-r.yml",
   }
   if (use_pat == TRUE) {
     uses_line <- grep(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/doc-and-style-r.yml",
+      "uses: nmfs-ost/ghactions4r/.github/workflows/doc-and-style-r.yml",
       gha
     )
     pat_line <- paste0("      PAT: ${{ secrets.", pat_name, " }}")
@@ -357,7 +357,7 @@ use_update_pkgdown <- function(workflow_name = "call-update-pkgdown.yml",
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-update-pkgdown.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-update-pkgdown.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-update-pkgdown.yml"
   )
 
   if (!is.null(additional_args)) {
@@ -397,7 +397,7 @@ use_build_pkgdown <- function(workflow_name = "call-build-pkgdown.yml", addition
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-build-pkgdown.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-build-pkgdown.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-build-pkgdown.yml"
   )
 
   if (!is.null(additional_args)) {
@@ -414,7 +414,7 @@ use_spell_check <- function(workflow_name = "call-spell-check.yml") {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-spell-check.yml",
     save_as = workflow_name,
-    url = "https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/main/inst/templates/call-spell-check.yml"
+    url = "https://raw.githubusercontent.com/nmfs-ost/ghactions4r/main/inst/templates/call-spell-check.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   cli::cli_alert_info("New to spelling::spell_check_package()? Learn more at {.url https://docs.ropensci.org/spelling/#spell-check-a-package}")

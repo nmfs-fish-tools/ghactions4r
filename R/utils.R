@@ -11,7 +11,7 @@ add_args <- function(workflow_name, additional_args, txt = NULL, prev_line = NUL
     txt <- readLines(path_to_yml)
 
     prev_line <- grep(
-      "uses: nmfs-fish-tools/ghactions4r/.github/workflows/",
+      "uses: nmfs-ost/ghactions4r/.github/workflows/",
       txt,
       fixed = TRUE
     )

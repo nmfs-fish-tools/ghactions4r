@@ -21,12 +21,12 @@ navbar:
     github:
       text: Source Code
       icon: fab fa-github fa-lg
-      href: https://github.com/nmfs-fish-tools/ghactions4r
+      href: https://github.com/nmfs-ost/ghactions4r
 
     issue:
       text: Issues
       icon: fas fa-question-circle fa-lg
-      href: https://github.com/nmfs-fish-tools/ghactions4r/issues/
+      href: https://github.com/nmfs-ost/ghactions4r/issues/
     
     articles:
       text: Vignettes

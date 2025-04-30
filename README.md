@@ -1,20 +1,20 @@
 # ghactions4r <img src="man/figures/logo.png" alt="arrows circling clapboard, symbol for the gh4actions package" align="right" width=250/>
 
-[![call-r-cmd-check](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-fish-tools/ghactions4r/actions/workflows/call-r-cmd-check.yml)
+[![call-r-cmd-check](https://github.com/nmfs-ost/ghactions4r/actions/workflows/call-r-cmd-check.yml/badge.svg)](https://github.com/nmfs-ost/ghactions4r/actions/workflows/call-r-cmd-check.yml)
 [![Lifecycle badge indicating this repository is stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html) 
 [![NOAA Fisheries Integrated Toolbox Badge](https://img.shields.io/badge/NOAA_FIT-blue)](https://www.fisheries.noaa.gov/resource/tool-app/noaa-fisheries-integrated-toolbox)
-[![codecov Badge](https://codecov.io/github/nmfs-fish-tools/ghactions4r/graph/badge.svg?token=6INRIE2FG6)](https://codecov.io/github/nmfs-fish-tools/ghactions4r)
+[![codecov Badge](https://codecov.io/github/nmfs-ost/ghactions4r/graph/badge.svg?token=6INRIE2FG6)](https://codecov.io/github/nmfs-ost/ghactions4r)
 
-[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/nmfs-fish-tools/ghactions4r/refs/heads/badges/coverage-badge.json)](https://github.com/nmfs-fish-tools/ghactions4r/tree/badges)
+[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/nmfs-ost/ghactions4r/refs/heads/badges/coverage-badge.json)](https://github.com/nmfs-ost/ghactions4r/tree/badges)
 
 
 ## What is in `{ghactions4r}`?
 
-This repo contains a [collection of reusable workflows](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository. 
+This repo contains a [collection of reusable workflows](https://github.com/nmfs-ost/ghactions4r/tree/main/.github/workflows) found helpful for R packages. In addition, {ghactions4r} contains helper functions for setting up the workflows in a separate R package GitHub repository. 
 
 ## How is `{ghactions4r}` different than the `usethis::use_github_actions()` workflows?
 
-Rather than having to maintain your own GitHub actions files (as you would need to with actions set up with [`usethis::use_github_action()`](https://usethis.r-lib.org/reference/use_github_action.html)), using a `{ghactions4r}` `use_*` function sets up a github actions file to directly call actions that exist and are maintained in the `{ghactions4r}` repository (in the [workflows folder](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/.github/workflows)). This means all maintenance happens within the `{ghactions4r}` repository rather than in your repository!
+Rather than having to maintain your own GitHub actions files (as you would need to with actions set up with [`usethis::use_github_action()`](https://usethis.r-lib.org/reference/use_github_action.html)), using a `{ghactions4r}` `use_*` function sets up a github actions file to directly call actions that exist and are maintained in the `{ghactions4r}` repository (in the [workflows folder](https://github.com/nmfs-ost/ghactions4r/tree/main/.github/workflows)). This means all maintenance happens within the `{ghactions4r}` repository rather than in your repository!
 
 ## How do I use these workflows in my R package?
 
@@ -30,7 +30,7 @@ or `remotes::install_github()`:
 
 ```r
 install.packages("remotes")
-remotes::install_github("nmfs-fish-tools/ghactions4r")
+remotes::install_github("nmfs-ost/ghactions4r")
 ```
 
 `use_*()` functions in the `{ghactions4r}` package work like [`use_*()` functions in the `usethis` package](https://github.com/r-lib/usethis#usage).
@@ -80,13 +80,13 @@ ghactions4r::use_spell_check()
 
 Commit and push the files generated up to github, making the github actions available for the repository of the R package.
 
-The templates these functions generate can also be [viewed](https://github.com/nmfs-fish-tools/ghactions4r/tree/main/inst/templates) for reference.
+The templates these functions generate can also be [viewed](https://github.com/nmfs-ost/ghactions4r/tree/main/inst/templates) for reference.
 
 ## The GitHub Action Workflow I added to my repository failed. What should I do?
 
 Check that GitHub Actions has been given the right `GITHUB_TOKEN` permissions. GitHub Actions will have read-only permissions by default, rather than read and write permissions. For many workflows in this repository, read and write permissions are necessary. To modify the permissions, follow [these GitHub Documentation instructions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
 
-If still running into failing actions, please submit an [issue](https://github.com/nmfs-fish-tools/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make `{ghactions4r}` better for all users!
+If still running into failing actions, please submit an [issue](https://github.com/nmfs-ost/ghactions4r/issues) or email kathryn.doering@noaa.gov. Bugs are always possible, as this repository is still experimental. Reporting issues will make `{ghactions4r}` better for all users!
 
 ## I want to setup and maintain my own github actions rather than use reusable workflows housed in `{ghactions4r}`. How do I do this?
 
@@ -103,7 +103,7 @@ Contributions are welcome! Contributions can be code, but are not just code, but
 - Reporting errors or bugs
 - Suggesting enhancements
 - Correcting or adding documentation (including editing the readme)
-- Answering questions on the [discussions page](https://github.com/nmfs-fish-tools/ghactions4r/discussions)
+- Answering questions on the [discussions page](https://github.com/nmfs-ost/ghactions4r/discussions)
 
 Additional details are available in the [NOAA FIT Contributing Guide](https://noaa-fisheries-integrated-toolbox.github.io/resources/noaa%20fit/contributing/).
 

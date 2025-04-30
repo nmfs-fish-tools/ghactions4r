@@ -31,7 +31,7 @@ library(dplyr)
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=10, fig.width=10}
 # Download data from GitHub dependency graph page
 webpage <- rvest::read_html(
-  x = "https://github.com/nmfs-fish-tools/ghactions4r/network/dependents"
+  x = "https://github.com/nmfs-ost/ghactions4r/network/dependents"
 )
 
 # Extract yml ID links
