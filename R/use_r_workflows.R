@@ -6,8 +6,7 @@
 #'  and Mac builds to solved a nuanced issue for packages dependent on TMB.
 #'  See this [google groups thread](https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ)
 #'  for more information.
-#' @param depends_on_quarto Adds an option that installs quarto before running r cmd
-#'  check.
+#' @template depends_on_quarto
 #' @param additional_args A named list of additional command line arguments to be
 #'   passed to the workflow. The names of the list represent the platforms (windows,
 #'   macos, or ubuntu), and the values are character vectors of arguments.
@@ -90,8 +89,11 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 #' data remains in the GitHub repository.
 #' @template workflow_name
 #' @template use_public_rspm
+#' @template depends_on_quarto
 #' @export
-use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml", use_public_rspm = TRUE) {
+use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml",
+ use_public_rspm = TRUE,
+ depends_on_quarto = FALSE) {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-cov-summaries.yml",
     save_as = workflow_name,
@@ -99,12 +101,20 @@ use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml"
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
 
-  if (use_public_rspm == FALSE) {
+  if (use_public_rspm == FALSE | depends_on_quarto == TRUE) {
     gha <- readLines(path_to_yml)
-    gha <- add_public_rspm_false(
-      uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
-      gha = gha
-    )
+    if(use_public_rspm == FALSE) {
+      gha <- add_public_rspm_false(
+        uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
+        gha = gha
+      )
+    }
+    if (depends_on_quarto == TRUE) {
+      gha <- add_quarto_true(        
+        uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
+        gha = gha
+      )
+    }
     writeLines(gha, path_to_yml)
   }
   # Also create the .octocov.yml file.
@@ -151,13 +161,10 @@ use_calc_coverage <- function(workflow_name = "call-calc-coverage.yml", use_publ
 #' to a branch called badges within the repository, which can be referenced in
 #' the readme file on main to display the current code coverage.
 #' @template workflow_name
-#' @param use_public_rspm Use posit package manager instead of CRAN to install dependencies? The
-#'  advantage here is that dependencies are precompiled, so install should be much quicker. In
-#'  rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
-#'  a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
-#'  there will be no setting added if use_public_rspm is TRUE.
+#' @template use_public_rspm
+#' @template depends_on_quarto
 #' @export
-use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", use_public_rspm = TRUE) {
+use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", use_public_rspm = TRUE, depends_on_quarto = FALSE) {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-create-cov-badge.yml",
     save_as = workflow_name,
@@ -165,16 +172,20 @@ use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", us
   )
   path_to_yml <- file.path(".github", "workflows", workflow_name)
   gha <- readLines(path_to_yml)
-  if (use_public_rspm == FALSE) {
-    uses_line <- grep(
-      "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
-      gha
-    )
-    with_line <- grep("with:", gha[uses_line + 1])
-    if (length(with_line) == 0) {
-      gha <- append(gha, "    with:", after = uses_line)
+  if (use_public_rspm == FALSE | depends_on_quarto == TRUE) {
+    gha <- readLines(path_to_yml)
+    if(use_public_rspm == FALSE) {
+      gha <- add_public_rspm_false(
+        uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
+        gha = gha
+      )
     }
-    gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
+    if (depends_on_quarto == TRUE) {
+      gha <- add_quarto_true(        
+        uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
+        gha = gha
+      )
+    }
     writeLines(gha, path_to_yml)
   }
   cli::cli_alert_info("Once pushed up to GitHub, a GitHub action will run that will create the badge on a branch called badges.")

@@ -24,8 +24,7 @@ and Mac builds to solved a nuanced issue for packages dependent on TMB.
 See this \href{https://groups.google.com/g/tmb-users/c/-GhmuuDP_OQ}{google groups thread}
 for more information.}
 
-\item{depends_on_quarto}{Adds an option that installs quarto before running r cmd
-check.}
+\item{depends_on_quarto}{Adds an option that installs quarto as a dependency.}
 
 \item{additional_args}{A named list of additional command line arguments to be
 passed to the workflow. The names of the list represent the platforms (windows,

@@ -49,3 +49,20 @@ add_public_rspm_false <- function(uses_line, gha) {
   gha <- append(gha, "      use-public-rspm: false", after = uses_line + 1)
   gha
 }
+
+#' Add quarto is true option to workflows.
+#' @param uses_line text that includes "uses: "
+#' @param gha The workflow file that has been read in using readLines
+#' @return The modified workflow file
+add_quarto_true <- function(uses_line, gha) {
+  uses_line <- grep(
+    uses_line,
+    gha
+  )
+  with_line <- grep("with:", gha[uses_line + 1])
+  if (length(with_line) == 0) {
+    gha <- append(gha, "    with:", after = uses_line)
+  }
+  gha <- append(gha, "      depends_on_quarto: true", after = uses_line + 1)
+  gha
+}

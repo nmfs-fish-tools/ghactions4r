@@ -6,7 +6,8 @@
 \usage{
 use_create_cov_badge(
   workflow_name = "call-create-cov-badge.yml",
-  use_public_rspm = TRUE
+  use_public_rspm = TRUE,
+  depends_on_quarto = FALSE
 )
 }
 \arguments{
@@ -18,6 +19,8 @@ advantage here is that dependencies are precompiled, so install should be much q
 rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
 a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
 there will be no setting added if use_public_rspm is TRUE.}
+
+\item{depends_on_quarto}{Adds an option that installs quarto as a dependency.}
 }
 \description{
 This workflow will create a new code coverage badge with the latest overall
