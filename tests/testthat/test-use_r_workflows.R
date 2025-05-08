@@ -136,9 +136,25 @@ test_that("use_calc_cov_summaries() works", {
   expect_snapshot(test_octoyml)
 })
 
-test_that("use_calc_cov_summaries() works with use-public-rspm = FALSE", {
+test_that("use_calc_cov_summaries() works with use_public_rspm = FALSE", {
   workflow_name <- "call-calc-cov-summaries-false.yml"
   use_calc_cov_summaries(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
+test_that("use_calc_cov_summaries() works with use-public-rspm = FALSE and depends_on_quarto = TRUE", {
+  workflow_name <- "call-calc-cov-summaries-rspm-false-quarto-true.yml"
+  use_calc_cov_summaries(workflow_name = workflow_name, use_public_rspm = FALSE, depends_on_quarto = TRUE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
+test_that("use_calc_cov_summaries() works with use-public-rspm = TRUE and depends_on_quarto = TRUE", {
+  workflow_name <- "call-calc-cov-summaries-rspm-true-quarto-true.yml"
+  use_calc_cov_summaries(workflow_name = workflow_name, use_public_rspm = TRUE, depends_on_quarto = TRUE)
   expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
   test <- readLines(file.path(".github", "workflows", workflow_name))
   expect_snapshot(test)
@@ -169,6 +185,22 @@ test_that("use_create_cov_badge() works", {
 test_that("use_create_cov_badge() works with use-public-rspm = FALSE", {
   workflow_name <- "call-create-cov-badge-false.yml"
   use_create_cov_badge(workflow_name = workflow_name, use_public_rspm = FALSE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
+test_that("use_create_cov_badge() works with use-public-rspm = FALSE and depends_on_quarto = TRUE", {
+  workflow_name <- "call-create-cov-badge-rspm-false-quarto-true.yml"
+  use_create_cov_badge(workflow_name = workflow_name, use_public_rspm = FALSE, depends_on_quarto = TRUE)
+  expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
+  test <- readLines(file.path(".github", "workflows", workflow_name))
+  expect_snapshot(test)
+})
+
+test_that("use_create_cov_badge() works with use-public-rspm = TRUE and depends-on-quarto = TRUE", {
+  workflow_name <- "call-create-cov-badge-rspm-true-quarto-true.yml"
+  use_create_cov_badge(workflow_name = workflow_name, use_public_rspm = TRUE, depends_on_quarto = TRUE)
   expect_true(file.exists(file.path(".github", "workflows", workflow_name)))
   test <- readLines(file.path(".github", "workflows", workflow_name))
   expect_snapshot(test)

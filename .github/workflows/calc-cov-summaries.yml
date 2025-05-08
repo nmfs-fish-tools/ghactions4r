@@ -10,6 +10,11 @@ on:
         required: false
         type: boolean
         default: true
+      depends_on_quarto:
+        required: false
+        type: boolean
+        default: false
+        
 
 # limits permisions to write, as the common use case is for pull requests;
 # this means certain options may not work, but makes the workflow more secure
@@ -36,6 +41,10 @@ jobs:
         with:
           extra-packages: any::covr, any::xml2, any::DT, any::htmltools
           needs: coverage
+
+      - name: If depends on quarto, install.
+        if: inputs.depends_on_quarto == true
+        uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Calc. Test coverage
         run: |

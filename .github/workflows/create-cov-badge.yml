@@ -13,6 +13,10 @@ on:
         required: false
         type: boolean
         default: true
+      depends_on_quarto:
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -38,6 +42,10 @@ jobs:
         with:
           extra-packages: any::covr
           needs: coverage
+      
+      - name: If depends on quarto, install.
+        if: inputs.depends_on_quarto == true
+        uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Calc. test coverage and create badge
         run: |

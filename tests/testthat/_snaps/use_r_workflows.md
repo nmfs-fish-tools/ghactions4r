@@ -483,7 +483,7 @@
       [14] "summary:"                                                                                          
       [15] "  if: true"                                                                                        
 
-# use_calc_cov_summaries() works with use-public-rspm = FALSE
+# use_calc_cov_summaries() works with use_public_rspm = FALSE
 
     Code
       test
@@ -510,6 +510,63 @@
       [20] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                             
       [21] "    with:"                                                                                                                                
       [22] "      use-public-rspm: false"                                                                                                             
+
+# use_calc_cov_summaries() works with use-public-rspm = FALSE and depends_on_quarto = TRUE
+
+    Code
+      test
+    Output
+       [1] "# call a workflow that runs covr::codecov() to calculate code coverage, then"                                                             
+       [2] "# uses octocov to summarize the coverage information and post it as appropriate."                                                         
+       [3] ""                                                                                                                                         
+       [4] "# note that a .octocov.yml file in the repository is also necessary."                                                                     
+       [5] "name: call-calc-cov-summaries"                                                                                                            
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# The default is to run the workflow on every push or pull request opened to main."                                                       
+       [8] "on:"                                                                                                                                      
+       [9] "  workflow_dispatch:"                                                                                                                     
+      [10] "  push:"                                                                                                                                  
+      [11] "    branches:"                                                                                                                            
+      [12] "      - main"                                                                                                                             
+      [13] "  pull_request:"                                                                                                                          
+      [14] "    types:"                                                                                                                               
+      [15] "      - opened"                                                                                                                           
+      [16] "    branches:"                                                                                                                            
+      [17] "      - main"                                                                                                                             
+      [18] "jobs:"                                                                                                                                    
+      [19] "  call-workflow:"                                                                                                                         
+      [20] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                             
+      [21] "    with:"                                                                                                                                
+      [22] "      depends_on_quarto: true"                                                                                                            
+      [23] "      use-public-rspm: false"                                                                                                             
+
+# use_calc_cov_summaries() works with use-public-rspm = TRUE and depends_on_quarto = TRUE
+
+    Code
+      test
+    Output
+       [1] "# call a workflow that runs covr::codecov() to calculate code coverage, then"                                                             
+       [2] "# uses octocov to summarize the coverage information and post it as appropriate."                                                         
+       [3] ""                                                                                                                                         
+       [4] "# note that a .octocov.yml file in the repository is also necessary."                                                                     
+       [5] "name: call-calc-cov-summaries"                                                                                                            
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# The default is to run the workflow on every push or pull request opened to main."                                                       
+       [8] "on:"                                                                                                                                      
+       [9] "  workflow_dispatch:"                                                                                                                     
+      [10] "  push:"                                                                                                                                  
+      [11] "    branches:"                                                                                                                            
+      [12] "      - main"                                                                                                                             
+      [13] "  pull_request:"                                                                                                                          
+      [14] "    types:"                                                                                                                               
+      [15] "      - opened"                                                                                                                           
+      [16] "    branches:"                                                                                                                            
+      [17] "      - main"                                                                                                                             
+      [18] "jobs:"                                                                                                                                    
+      [19] "  call-workflow:"                                                                                                                         
+      [20] "    uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml@main"                                                             
+      [21] "    with:"                                                                                                                                
+      [22] "      depends_on_quarto: true"                                                                                                            
 
 # use_calc_coverage() works
 
@@ -586,6 +643,51 @@
       [14] "    uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                               
       [15] "    with:"                                                                                                                                
       [16] "      use-public-rspm: false"                                                                                                             
+
+# use_create_cov_badge() works with use-public-rspm = FALSE and depends_on_quarto = TRUE
+
+    Code
+      test
+    Output
+       [1] "# Reusable workflow to calculate coverage add it to a badge that is stored on "                                                           
+       [2] "# a branch in the repo called badges."                                                                                                    
+       [3] "# note that this has only been tested to build a badge with the main branch"                                                              
+       [4] "# coverage; it may not work to calculate coverage from other branches."                                                                   
+       [5] "name: call-create-cov-badge"                                                                                                              
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# other option would be to run this on a schedule. Other build trigger options may not work well."                                        
+       [8] "on:"                                                                                                                                      
+       [9] "  push:"                                                                                                                                  
+      [10] "    branches:"                                                                                                                            
+      [11] "      - main"                                                                                                                             
+      [12] "jobs:"                                                                                                                                    
+      [13] "  call-workflow:"                                                                                                                         
+      [14] "    uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                               
+      [15] "    with:"                                                                                                                                
+      [16] "      depends_on_quarto: true"                                                                                                            
+      [17] "      use-public-rspm: false"                                                                                                             
+
+# use_create_cov_badge() works with use-public-rspm = TRUE and depends-on-quarto = TRUE
+
+    Code
+      test
+    Output
+       [1] "# Reusable workflow to calculate coverage add it to a badge that is stored on "                                                           
+       [2] "# a branch in the repo called badges."                                                                                                    
+       [3] "# note that this has only been tested to build a badge with the main branch"                                                              
+       [4] "# coverage; it may not work to calculate coverage from other branches."                                                                   
+       [5] "name: call-create-cov-badge"                                                                                                              
+       [6] "# on specifies the build triggers. See more info at https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows"
+       [7] "# other option would be to run this on a schedule. Other build trigger options may not work well."                                        
+       [8] "on:"                                                                                                                                      
+       [9] "  push:"                                                                                                                                  
+      [10] "    branches:"                                                                                                                            
+      [11] "      - main"                                                                                                                             
+      [12] "jobs:"                                                                                                                                    
+      [13] "  call-workflow:"                                                                                                                         
+      [14] "    uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml@main"                                                               
+      [15] "    with:"                                                                                                                                
+      [16] "      depends_on_quarto: true"                                                                                                            
 
 # use_doc_and_style_r() works
 
