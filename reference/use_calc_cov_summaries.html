@@ -89,7 +89,8 @@ data remains in the GitHub repository.</p>
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_calc_cov_summaries</span><span class="op">(</span></span>
 <span>  workflow_name <span class="op">=</span> <span class="st">"call-calc-cov-summaries.yml"</span>,</span>
-<span>  use_public_rspm <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  use_public_rspm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  depends_on_quarto <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -108,6 +109,10 @@ advantage here is that dependencies are precompiled, so install should be much q
 rare situations (like packages with TMB dependencies), using use_public_rspm = FALSE may be
 a better option. Note a setting only needs to be specified in the yml if use_public_rspm is FALSE, so
 there will be no setting added if use_public_rspm is TRUE.</p></dd>
+
+
+<dt id="arg-depends-on-quarto">depends_on_quarto<a class="anchor" aria-label="anchor" href="#arg-depends-on-quarto"></a></dt>
+<dd><p>Adds an option that installs quarto as a dependency.</p></dd>
 
 </dl></div>
 
