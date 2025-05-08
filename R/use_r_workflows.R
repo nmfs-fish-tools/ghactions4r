@@ -91,9 +91,10 @@ use_r_cmd_check <- function(workflow_name = "call-r-cmd-check.yml",
 #' @template use_public_rspm
 #' @template depends_on_quarto
 #' @export
-use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml",
- use_public_rspm = TRUE,
- depends_on_quarto = FALSE) {
+use_calc_cov_summaries <- function(
+    workflow_name = "call-calc-cov-summaries.yml",
+    use_public_rspm = TRUE,
+    depends_on_quarto = FALSE) {
   check_workflow_name(workflow_name)
   usethis::use_github_action("call-calc-cov-summaries.yml",
     save_as = workflow_name,
@@ -103,14 +104,14 @@ use_calc_cov_summaries <- function(workflow_name = "call-calc-cov-summaries.yml"
 
   if (use_public_rspm == FALSE | depends_on_quarto == TRUE) {
     gha <- readLines(path_to_yml)
-    if(use_public_rspm == FALSE) {
+    if (use_public_rspm == FALSE) {
       gha <- add_public_rspm_false(
         uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
         gha = gha
       )
     }
     if (depends_on_quarto == TRUE) {
-      gha <- add_quarto_true(        
+      gha <- add_quarto_true(
         uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/calc-cov-summaries.yml",
         gha = gha
       )
@@ -174,14 +175,14 @@ use_create_cov_badge <- function(workflow_name = "call-create-cov-badge.yml", us
   gha <- readLines(path_to_yml)
   if (use_public_rspm == FALSE | depends_on_quarto == TRUE) {
     gha <- readLines(path_to_yml)
-    if(use_public_rspm == FALSE) {
+    if (use_public_rspm == FALSE) {
       gha <- add_public_rspm_false(
         uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
         gha = gha
       )
     }
     if (depends_on_quarto == TRUE) {
-      gha <- add_quarto_true(        
+      gha <- add_quarto_true(
         uses_line = "uses: nmfs-ost/ghactions4r/.github/workflows/create-cov-badge.yml",
         gha = gha
       )
