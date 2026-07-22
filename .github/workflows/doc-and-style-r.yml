@@ -59,11 +59,11 @@ jobs:
 
       - name: checkout, make changes and submit as pr on new branch
         if: inputs.commit-directly == false
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         
       - name: checkout, make changes directly
         if: inputs.commit-directly == true
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref }}
       
@@ -81,7 +81,7 @@ jobs:
 
       - name: Additional checkout step 2 for PR commands, Checkout the PR branch
         if: github.event_name == 'issue_comment'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ steps.get_branch.outputs.branch_name }} 
 
